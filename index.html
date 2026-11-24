@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pepper · 미국주식 호재 레이더</title>
+<title>미국주식 호재 레이더</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -202,8 +202,16 @@ async function loadRep(t){
   if(reps[t]&&reps[t].updatedAt===pvIdx[t].updatedAt)return;
   try{const r=await (await fetch('data/preview/'+encodeURIComponent(t)+'.json?v='+encodeURIComponent(pvIdx[t].updatedAt))).json();reps[t]=r;if(pvSel===t)renderPv()}catch(e){}
 }
+function aheadSet(){
+  if(!ahead||!Array.isArray(ahead.items))return null;const S=new Set();
+  ahead.items.forEach(i=>{if(i.ticker)String(i.ticker).split(/[,\s/]+/).forEach(x=>x&&S.add(x.toUpperCase()));
+    String(i.event||'').replace(/\(([A-Z][A-Z.]{0,5})\)/g,(_,x)=>{S.add(x);return _})});
+  return S}
 function renderPv(){
-  const ts=[...new Set([...Object.keys(pvIdx),...Object.keys(reqs).filter(pend)])].sort();
+  const AS=aheadSet(),wk=Date.now()-7*864e5;
+  const keep=t=>!AS||AS.has(t)||(reqs[t]&&Date.parse(reqs[t].requestedAt||0)>wk);
+  const ts=[...new Set([...Object.keys(pvIdx),...Object.keys(reqs).filter(pend)])].filter(keep).sort();
+  if(pvSel&&!keep(pvSel))pvSel=null;
   $('pvList').innerHTML=ts.map(t=>{const w=!pvIdx[t];const up=pend(t)&&pvIdx[t];
     return `<button type="button" class="pv${pvSel===t?' on':''}${w?' wait':''}" data-pv="${esc(t)}">${esc(t)}${pvIdx[t]?.name?'<small>'+esc(pvIdx[t].name)+'</small>':''}${w?' · 조사 중':up?' · 새로 조사 중':''}</button>`}).join('');
   if(!pvSel){$('pvBox').innerHTML='';return}
@@ -285,7 +293,7 @@ async function getJson(p){const r=await fetch(p+'?t='+Date.now());if(!r.ok)throw
 async function loadAll(){
   const [t,u,m,k,ix]=await Promise.allSettled([getJson('data/today.json'),getJson('data/upcoming.json'),getJson('data/macro.json'),Promise.reject(),getJson('data/preview/index.json')]);
   if(t.status==='fulfilled'){today=t.value;renderToday()}else fail('데이터를 불러오지 못했습니다. 잠시 뒤 다시 열어 주세요.');
-  if(u.status==='fulfilled'){ahead=u.value;renderAhead()}
+  if(u.status==='fulfilled'){ahead=u.value;renderAhead();renderPv()}
   if(m.status==='fulfilled'){macro=m.value;renderMacro()}
   if(ix.status==='fulfilled'){pvIdx={};(ix.value.items||[]).forEach(r=>{if(r.ticker)pvIdx[String(r.ticker).toUpperCase()]=r});if(!pvSel){const s=Object.keys(pvIdx).sort();if(s.length)pvSel=s[0]}renderPv()}
 }
