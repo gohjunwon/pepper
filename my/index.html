@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pepper · 나의 레이더</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 증권사 리서치 화면 — 차분하고 단정하게, 숫자가 먼저
+   COLOUR and TYPE: 눈부심 줄인 회백 바탕 #f3f4f6 / 먹색 대신 짙은 회청 #1f2731 / 강조 남색 #2b4a6f 하나, 다크는 #14181d
+   글꼴 Noto Sans KR + Inter(숫자), 본문 17px·줄간격 1.75, 굵기는 700까지만
+   LAYOUT: 머리 제목·핵심 수치 → 탭 → 목록, 600px 아래 한 줄 쌓기 */
+:root{color-scheme:light dark;
+--bg:light-dark(#f3f4f6,#14181d);--card:light-dark(#ffffff,#1b2027);--ink:light-dark(#1f2731,#d6dce3);--mute:light-dark(#5d6874,#8d98a4);
+--line:light-dark(#dfe3e8,#2a3139);--acc:light-dark(#2b4a6f,#93b2d6);--acc-s:light-dark(#e8eef5,#1f2b3a);--acc-ink:light-dark(#ffffff,#0f141a);
+--up:light-dark(#b0322b,#e8918a);--dn:light-dark(#2d5a96,#8fb0dc);
+--g-bg:light-dark(#e6f2ea,#1b2a22);--g-ink:light-dark(#2f6845,#94c9a6);
+--v-bg:light-dark(#ecebf6,#232338);--v-ink:light-dark(#4a4a85,#b3b3e0);
+--a-bg:light-dark(#f6efdf,#2c2719);--a-ink:light-dark(#7a5a18,#d9bf85);
+--r-bg:light-dark(#f7e8e6,#2e1f1e);--r-ink:light-dark(#8e3a32,#e6a39c);
+--b-bg:light-dark(#e6edf7,#1d2838);--b-ink:light-dark(#2d5a96,#9dbbe2)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.75 "Noto Sans KR",Inter,system-ui,sans-serif;letter-spacing:-.005em;overflow-x:clip;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.band{padding:clamp(24px,4vw,44px) max(5vw,18px)}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:clamp(28px,4.2vw,38px);line-height:1.2;margin:0 0 10px;text-wrap:balance;font-weight:700;letter-spacing:-.02em}
+h2{font-size:21px;font-weight:700;margin:30px 0 12px;letter-spacing:-.01em}
+.sub{color:var(--mute);margin:0;max-width:62ch;font-size:16px}
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:end}
+.kpi{background:var(--card);color:var(--ink);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:10px;padding:16px 20px}
+.kpi b{display:block;font-size:clamp(32px,5vw,44px);line-height:1.05;font-weight:700;color:var(--acc);font-family:Inter,"Noto Sans KR",sans-serif}
+.kpi span{font-size:14px;color:var(--mute)}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:2px;overflow-x:auto;max-width:1080px;margin:0 auto;padding:0 max(5vw,18px)}
+.tabs a{flex:none;padding:14px 16px;min-height:50px;color:var(--mute);text-decoration:none;font-weight:500;font-size:16px;border-bottom:2px solid transparent}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current=page]{color:var(--acc);border-color:var(--acc);font-weight:700}
+.tabs a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+section[hidden]{display:none}
+.note{border-left:3px solid var(--acc);background:var(--acc-s);padding:14px 18px;border-radius:0 8px 8px 0;font-size:15.5px;margin:0 0 20px;color:var(--ink)}
+.note b{font-weight:700}
+.meta{font-size:14px;color:var(--mute);margin:6px 0 14px}
+.list{display:grid;gap:10px}
+.item{display:grid;grid-template-columns:100px minmax(0,1fr);gap:16px;padding:16px 18px;background:var(--card);border-radius:10px;border:1px solid var(--line)}
+.item.star{border-color:var(--acc);box-shadow:inset 3px 0 0 var(--acc)}
+.tk{font-weight:700;font-size:19px;line-height:1.25;font-family:Inter,"Noto Sans KR",sans-serif;letter-spacing:.01em}
+.mv{display:inline-block;margin-top:4px;font-weight:700;color:var(--up);white-space:nowrap;font-family:Inter,"Noto Sans KR",sans-serif}
+.nm{font-weight:700}
+.chip{display:inline-block;font-size:13px;font-weight:500;padding:2px 9px;border-radius:6px;background:var(--bg);border:1px solid var(--line);color:var(--mute);margin-right:6px;white-space:nowrap}
+.chip.fda{background:var(--g-bg);color:var(--g-ink);border-color:transparent}.chip.ma{background:var(--v-bg);color:var(--v-ink);border-color:transparent}.chip.er{background:var(--a-bg);color:var(--a-ink);border-color:transparent}.chip.mk{background:var(--r-bg);color:var(--r-ink);border-color:transparent}
+.why{margin:4px 0 2px}
+.src{font-size:14px;color:var(--mute)}.src a{color:var(--acc);text-underline-offset:3px}
+a{color:var(--acc)}
+.day{display:grid;grid-template-columns:116px minmax(0,1fr);gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+.dd{font-weight:700;font-size:24px;line-height:1.1;font-family:Inter,"Noto Sans KR",sans-serif;color:var(--acc)}.dd.w{font-size:17px;line-height:1.35}.dw{display:block;font-size:14px;color:var(--mute);font-weight:400;margin-top:4px}
+.ev{padding:8px 0}.ev+.ev{border-top:1px dashed var(--line)}
+.flt{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.flt button{min-height:40px;padding:0 14px;font-size:14.5px;font-weight:500;background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.flt button[aria-pressed=true]{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.er:not(.chip){display:flex;flex-wrap:wrap;gap:6px}
+.er span{font-size:14.5px;padding:4px 10px;border-radius:6px;background:var(--card);border:1px solid var(--line);white-space:nowrap}
+.er span.w{background:var(--acc-s);color:var(--acc);border-color:var(--acc);font-weight:700}
+form{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
+input{font:inherit;font-size:16px;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);min-height:46px;width:200px;text-transform:uppercase}
+button{font:inherit;font-weight:700;font-size:16px;min-height:46px;padding:0 18px;border-radius:8px;border:0;background:var(--acc);color:var(--acc-ink);cursor:pointer}
+.wl{display:flex;flex-wrap:wrap;gap:8px}
+.wl span{display:inline-flex;align-items:center;gap:6px;padding:6px 6px 6px 12px;border-radius:8px;background:var(--card);border:1px solid var(--line);font-weight:700}
+.wl button{min-height:32px;height:32px;width:32px;padding:0;border-radius:6px;background:var(--bg);color:var(--mute)}
+.empty{color:var(--mute);padding:14px 0}
+.lv{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:6px;margin-top:6px;white-space:nowrap}
+.lv.h{background:var(--g-bg);color:var(--g-ink)}.lv.m{background:var(--acc-s);color:var(--acc)}.lv.r{background:var(--r-bg);color:var(--r-ink)}
+.pk dt{font-size:13.5px;font-weight:700;color:var(--mute);margin-top:10px}.pk dd{margin:2px 0 0}
+.pk .cat{font-size:15px;font-weight:700;margin-top:6px}
+.tm{font-weight:700;font-size:15.5px;margin-top:2px}
+.wl .pv{cursor:pointer;width:auto;height:auto;min-height:42px;padding:8px 14px;white-space:nowrap;font-size:15px;font-weight:700;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;font-family:Inter,"Noto Sans KR",sans-serif}.wl .pv small{font-weight:400;margin-left:6px;color:var(--mute);font-size:14px}.wl .pv.on{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}.wl .pv.on small{color:inherit;opacity:.85}.wl .pv.wait{border-style:dashed;color:var(--mute)}
+.rep{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.rep h3{font-size:24px;font-weight:700;margin:0}.rep .vd{display:inline-block;margin:10px 0;font-weight:700;font-size:15px;padding:4px 12px;border-radius:6px;background:var(--acc-s);color:var(--acc)}
+.rep h4{font-size:17px;font-weight:700}
+.sg{padding:12px 0;border-top:1px solid var(--line)}
+.dir{display:inline-block;font-size:13px;font-weight:700;padding:2px 9px;border-radius:6px;margin-right:6px;white-space:nowrap}
+.dir.p{background:var(--r-bg);color:var(--r-ink)}.dir.n{background:var(--b-bg);color:var(--b-ink)}.dir.z{background:var(--bg);color:var(--mute);border:1px solid var(--line)}
+ol.how{padding-left:20px}ol.how li{margin:6px 0}
+footer{color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+@media(max-width:600px){body{font-size:16px}.hero{grid-template-columns:1fr}.item{grid-template-columns:1fr;gap:4px}.day{grid-template-columns:1fr;gap:6px}.dd{font-size:21px}.dw{display:inline;margin-left:8px}}
+@media(prefers-reduced-motion:no-preference){.item,.ev{animation:in .3s ease both}@keyframes in{from{opacity:0;transform:translateY(3px)}}}
+#addForm,#wl button{display:none}
+#lock{position:fixed;inset:0;z-index:50;background:var(--bg);display:grid;place-items:center;padding:24px}
+#lock[hidden]{display:none}
+#lock .box{max-width:360px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px 24px}
+#lock h2{margin:0 0 6px}#lock input{width:100%;text-transform:none;margin:12px 0 8px}#lock button{width:100%}#lock label{font-size:14px;color:var(--mute);display:flex;gap:8px;align-items:center;margin:6px 0 14px}#lock label input{width:auto;min-height:0;margin:0}
+</style>
+
+</head>
+<body>
+<div id="lock"><form class="box" id="lockForm"><h2>Pepper · 나의 레이더</h2><p class="meta">비밀번호를 넣어야 볼 수 있습니다.</p>
+<input id="pwIn" type="password" autocomplete="current-password" placeholder="비밀번호" aria-label="비밀번호">
+<label><input type="checkbox" id="pwKeep" checked> 이 기기에서 기억하기</label>
+<button>열기</button><p class="meta" id="pwMsg" role="status"></p></form></div>
+
+<header class="band"><div class="wrap hero">
+  <div>
+    <h1>미국주식 호재 레이더</h1>
+    <p class="sub">오늘 호재로 오른 종목, 앞으로 한 달 안에 잡힌 실적·FDA 결정·임상 데이터·주주총회·이벤트, 시장 전체 일정을 한곳에서 봅니다.</p>
+  </div>
+  <div class="kpi"><b id="kCount">–</b><span id="kLabel">오늘 호재 종목 · 불러오는 중</span></div>
+</div></header>
+
+<nav><div class="tabs" role="tablist">
+  <a href="#picks" data-v="picks">Claude 추천</a>
+  <a href="#today" data-v="today">오늘의 호재</a>
+  <a href="#ahead" data-v="ahead">1달 앞 일정</a>
+  <a href="#preview" data-v="preview">실적 미리보기</a>
+  <a href="#market" data-v="market">시장 일정</a>
+  <a href="#watch" data-v="watch">관심종목 · 알림</a>
+</div></nav>
+
+<main class="band"><div class="wrap">
+<section id="v-picks">
+  <p class="note"><b>Claude가 근거를 따져 고른 '주목할 종목'입니다.</b> 가까운 시일에 좋은 흐름을 기대할 이유가 있는 종목을 골랐지만, 주가는 누구도 확실히 예측할 수 없습니다. 종목마다 기대 근거와 위험을 함께 적었으니 둘 다 보고 판단하세요. 매수 권유가 아닙니다.</p>
+  <p class="meta" id="picksMeta"></p>
+  <h2 style="margin-top:8px">오늘의 호재 종목에서</h2>
+  <div class="list" id="pickToday"></div>
+  <h2>1달 앞 일정 종목에서</h2>
+  <div class="list" id="pickAhead"></div>
+</section>
+
+<section id="v-today" hidden>
+  <p class="meta" id="todayMeta">불러오는 중…</p>
+  <div class="list" id="todayList"></div>
+</section>
+
+<section id="v-ahead" hidden>
+  <p class="note"><b>미리 알 수 있는 것은 '날짜'입니다.</b> 임상 결과나 인수합병은 공식 발표 전에는 누구도 알 수 없고, 발표 전 정보를 이용한 거래는 불법입니다. 이 탭은 회사·FDA·학회가 <b>미리 공개한 일정</b>만 모았습니다. 결과는 호재일 수도, 악재일 수도 있습니다.</p>
+  <div class="flt" id="flt" role="group" aria-label="종류로 거르기"></div>
+  <p class="meta" id="aheadMeta"></p>
+  <div id="aheadList"></div>
+  <h2>실적 발표 (앞으로 1달)</h2>
+  <p class="meta" id="erMeta">Alpha Vantage 실적 달력에서 불러오는 중…</p>
+  <div id="erBox"></div>
+</section>
+
+<section id="v-preview" hidden>
+  <p class="note"><b>실적 발표 전에 미리 볼 수 있는 단서를 모읍니다.</b> 회사가 매달 공개하는 매출, 매장 방문 수, 카드 결제 흐름, 앱·검색 관심도, 광고·SNS 바이럴, 업계 점유율 같은 자료입니다. 전문 데이터 업체의 유료 원자료는 볼 수 없어서, <b>기사·보고서로 공개된 수치</b>만 씁니다. 단서는 실적과 어긋날 수 있습니다.</p>
+  <form id="pvForm"><input id="pvIn" placeholder="티커 예: COST" maxlength="10" autocomplete="off" aria-label="티커"><button>알아보기</button></form>
+  <p class="meta" id="pvMsg">티커를 넣으면 Claude가 조사를 시작합니다. 보고서는 보통 1시간 안에 이 자리에 나타납니다.</p>
+  <div class="wl" id="pvList"></div>
+  <div id="pvBox"></div>
+</section>
+
+<section id="v-market" hidden>
+  <h2 style="margin-top:0">지수 전체에 영향을 줄 수 있는 일</h2>
+  <p class="meta" id="macroMeta"></p>
+  <div id="macroList"></div>
+</section>
+
+<section id="v-watch" hidden>
+  <h2 style="margin-top:0">내 관심종목</h2>
+  <form id="addForm"><input id="tkIn" placeholder="티커 예: CPNG" maxlength="10" autocomplete="off" aria-label="티커"><button>추가</button></form>
+  <div class="wl" id="wl"></div>
+  <p class="meta" id="wlMeta"></p>
+  <h2>알림은 이렇게 옵니다</h2>
+  <ol class="how">
+    <li>미국 장 시간대(한국 시각 밤 10시~아침 6시, 평일)에 매시간 Claude가 뉴스를 확인하고 이 페이지와 구글 캘린더를 새로 채웁니다.</li>
+    <li>당일 호재는 구글 캘린더에 "[호재]"로 들어가고, <b>미국 정규장이 닫혀 있을 때만</b> 알람이 울립니다.</li>
+    <li>앞으로의 일정은 "[주식]"으로 들어가며 알람은 울리지 않습니다.</li>
+  </ol>
+</section>
+</div></main>
+
+<footer class="band"><div class="wrap">투자 판단용 정보 정리이며 매수·매도 권유가 아닙니다. 등락률은 기사에 실린 장중 수치일 수 있습니다. 실적 달력: Alpha Vantage.</div></footer>
+
+<script>
+{
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const link=(u,t)=>/^https:\/\//.test(u||'')?`<a href="${esc(u)}" rel="noopener">${esc(t||'원문')}</a>`:esc(t||'');
+const KIND={FDA:['fda','FDA'],MA:['ma','인수합병'],AGM:['ma','주주총회'],ER:['er','실적'],MK:['mk','시장'],UP:['','증권사 의견'],EV:['','이벤트'],DATA:['fda','임상 데이터'],CONF:['fda','학회'],IDX:['mk','지수 편입'],FED:['mk','연준'],ECO:['er','경제지표'],RISK:['mk','위험 요인'],POL:['ma','정책']};
+const chip=k=>{const [c,l]=KIND[k]||['',k||'기타'];return `<span class="chip ${c}">${esc(l)}</span>`};
+const WD=['일','월','화','수','목','금','토'];
+let watch=[],today=null,ahead=null,macro=null,erRows=null,filter='ALL';
+const isW=t=>watch.includes(String(t||'').toUpperCase());
+const fmtTime=s=>{try{return new Date(s).toLocaleString('ko-KR',{timeZone:'Asia/Seoul',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'})}catch(e){return ''}};
+const isDate=k=>/^\d{4}-\d\d-\d\d$/.test(k);
+function dayHead(k){if(!isDate(k))return `<div class="dd w">${esc(k)}</div>`;const d=new Date(k+'T12:00:00Z');return `<div class="dd">${d.getUTCMonth()+1}/${d.getUTCDate()}<span class="dw">${WD[d.getUTCDay()]}요일</span></div>`}
+function groupSort(items,undated){const g={};items.forEach(e=>{const k=e.date||undated;(g[k]=g[k]||[]).push(e)});
+  return Object.keys(g).sort((a,b)=>isDate(a)&&isDate(b)?a.localeCompare(b):isDate(a)?-1:isDate(b)?1:a.localeCompare(b,'ko')).map(k=>[k,g[k]])}
+
+/* 탭 */
+const views=['picks','today','ahead','preview','market','watch'];
+function route(){const v=views.includes(location.hash.slice(1))?location.hash.slice(1):'picks';
+  views.forEach(n=>{$('v-'+n).hidden=n!==v});
+  document.querySelectorAll('.tabs a').forEach(a=>{if(a.dataset.v===v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});}
+addEventListener('hashchange',route);route();
+
+/* 오늘의 호재 */
+function renderToday(){
+  const L=$('todayList');
+  if(!today||!Array.isArray(today.items)){L.innerHTML='';return}
+  const items=[...today.items].sort((a,b)=>isW(b.ticker)-isW(a.ticker));
+  $('todayMeta').textContent=`${today.session||''} · ${fmtTime(today.updatedAt)} 갱신(한국 시각)${today.note?' · '+today.note:''}`;
+  $('kCount').textContent=items.length;
+  const wn=items.filter(i=>isW(i.ticker)).length;
+  $('kLabel').textContent=`오늘 호재 종목${wn?` · 관심종목 ${wn}개 포함`:''}`;
+  L.innerHTML=items.length?items.map(i=>`<article class="item${isW(i.ticker)?' star':''}">
+    <div><div class="tk">${esc(i.ticker)}${isW(i.ticker)?' ★':''}</div>${i.move?`<span class="mv">${esc(i.move)}</span>`:''}</div>
+    <div><div>${chip(i.kind)}<span class="nm">${esc(i.name)}</span></div>
+    <p class="why">${esc(i.reason)}</p><div class="src">${link(i.url,i.source)}</div></div></article>`).join('')
+    :'<p class="empty">아직 오늘 정리된 호재가 없습니다.</p>';
+}
+
+/* Claude 추천 */
+let picks=null;
+const LV={'높음':'h','보통':'m','고위험':'r'};
+function pickCards(list){
+  if(!Array.isArray(list)||!list.length)return '<p class="empty">지금은 고른 종목이 없습니다.</p>';
+  return list.map(p=>`<article class="item pk${isW(p.ticker)?' star':''}">
+    <div><div class="tk">${esc(p.ticker)}${isW(p.ticker)?' ★':''}</div><span class="lv ${LV[p.level]||'m'}">주목도 ${esc(p.level||'보통')}</span></div>
+    <div><div class="nm">${esc(p.name)}</div>${p.catalyst?`<div class="cat">다음 일정 · ${esc(p.catalyst)}</div>`:''}
+    <dl><dt>기대 근거</dt><dd>${esc(p.thesis)}</dd><dt>위험</dt><dd>${esc(p.risk)}</dd></dl>
+    ${p.url?`<div class="src">${link(p.url,p.source||'근거 자료')}</div>`:''}</div></article>`).join('');
+}
+function renderPicks(){
+  if(!picks){$('pickToday').innerHTML='';$('pickAhead').innerHTML='';return}
+  $('picksMeta').textContent=`${fmtTime(picks.updatedAt)} 갱신 · 주목도: 높음 > 보통, '고위험'은 결과에 따라 크게 오르거나 내릴 수 있는 종목`;
+  $('pickToday').innerHTML=pickCards(picks.today);
+  $('pickAhead').innerHTML=pickCards(picks.upcoming);
+}
+
+/* 실적 미리보기 */
+let reps={},reqs={},pvSel=null;
+const DIR={'긍정':'p','부정':'n','중립':'z'};
+const docsOf=s=>{const a=Array.isArray(s)?s:(s?.docs||[]);return a.map(d=>{const v=typeof d?.data==='function'?d.data():(d?.data??d);return v&&typeof v==='object'?v:null}).filter(Boolean)};
+let pvIdx={};
+const pend=t=>reqs[t]&&(!pvIdx[t]||new Date(reqs[t].requestedAt)>new Date(pvIdx[t].updatedAt));
+async function loadRep(t){
+  if(!pvIdx[t])return;
+  if(reps[t]&&reps[t].updatedAt===pvIdx[t].updatedAt)return;
+  try{const r=await (await fetch('data/preview/'+encodeURIComponent(t)+'.json?v='+encodeURIComponent(pvIdx[t].updatedAt))).json();reps[t]=r;if(pvSel===t)renderPv()}catch(e){}
+}
+function aheadSet(){
+  if(!ahead||!Array.isArray(ahead.items))return null;const S=new Set();
+  ahead.items.forEach(i=>{if(i.ticker)String(i.ticker).split(/[,\s/]+/).forEach(x=>x&&S.add(x.toUpperCase()));
+    String(i.event||'').replace(/\(([A-Z][A-Z.]{0,5})\)/g,(_,x)=>{S.add(x);return _})});
+  return S}
+function renderPv(){
+  const AS=aheadSet(),wk=Date.now()-7*864e5;
+  const keep=t=>!AS||AS.has(t)||(reqs[t]&&Date.parse(reqs[t].requestedAt||0)>wk);
+  const ts=[...new Set([...Object.keys(pvIdx),...Object.keys(reqs).filter(pend)])].filter(keep).sort();
+  if(pvSel&&!keep(pvSel))pvSel=null;
+  $('pvList').innerHTML=ts.map(t=>{const w=!pvIdx[t];const up=pend(t)&&pvIdx[t];
+    return `<button type="button" class="pv${pvSel===t?' on':''}${w?' wait':''}" data-pv="${esc(t)}">${esc(t)}${pvIdx[t]?.name?'<small>'+esc(pvIdx[t].name)+'</small>':''}${w?' · 조사 중':up?' · 새로 조사 중':''}</button>`}).join('');
+  if(!pvSel){$('pvBox').innerHTML='';return}
+  if(pvIdx[pvSel]&&!reps[pvSel]){$('pvBox').innerHTML='<p class="empty">보고서를 불러오는 중…</p>';loadRep(pvSel);return}
+  const r=reps[pvSel];
+  if(!r){$('pvBox').innerHTML=`<p class="empty">${esc(pvSel)} 보고서를 준비하고 있습니다. 보통 1시간 안에 이 자리에 나타납니다(페이지를 열어 두면 자동으로 바뀝니다).</p>`;return}
+  const n=r.nextEarnings||{};
+  const g={};(r.signals||[]).forEach(s=>{(g[s.category||'기타']=g[s.category||'기타']||[]).push(s)});
+  $('pvBox').innerHTML=`<div class="rep"><h3>${esc(r.ticker)} <span class="nm" style="font-size:18px">${esc(r.name||'')}</span></h3>
+    <div class="tm">다음 실적 발표: ${esc(n.kst||'미정')}${n.estimate?` · 예상 EPS ${esc(n.estimate)}달러`:''}</div>${n.us?`<div class="src">미국 현지: ${esc(n.us)}</div>`:''}
+    ${r.verdict?`<span class="vd">단서 종합: ${esc(r.verdict)}</span>`:''}<p class="why">${esc(r.summary||'')}</p>
+    ${Object.entries(g).map(([c,list])=>`<h2 style="font-size:18px;margin:18px 0 4px">${esc(c)}</h2>${list.map(s=>`<div class="sg"><span class="dir ${DIR[s.direction]||'z'}">${esc(s.direction||'중립')}</span>${s.date?`<span class="src">${esc(s.date)}</span>`:''}<p class="why">${esc(s.finding)}</p><div class="src">${link(s.url,s.source)}</div></div>`).join('')}`).join('')}
+    ${r.caveats?`<p class="note" style="margin-top:16px">${esc(r.caveats)}</p>`:''}
+    <p class="meta">${fmtTime(r.updatedAt)} 조사 · 다시 조사하려면 위에 같은 티커를 다시 넣으세요.</p></div>`;
+}
+$('pvList').addEventListener('click',e=>{const b=e.target.closest('[data-pv]');if(!b)return;pvSel=b.dataset.pv;renderPv()});
+$('pvForm').addEventListener('submit',async e=>{e.preventDefault();
+  const t=$('pvIn').value.trim().toUpperCase().replace(/[^A-Z0-9.\-]/g,'');if(!t)return;$('pvIn').value='';pvSel=t;renderPv();
+  if(!db){$('pvMsg').innerHTML='새 티커 조사 요청은 <a href="https://claude.ai/artifact/2rCrmo4LfbrdL77fs3uqCi">원본 레이더</a>에서 할 수 있어요. 요청한 보고서는 다음 갱신 때 여기에도 나타납니다.';return}
+  const fresh=pvIdx[t]&&Date.now()-new Date(pvIdx[t].updatedAt).getTime()<36e5*24;
+  if(fresh){$('pvMsg').textContent=`${t} 보고서는 24시간 안에 조사한 것이라 그대로 보여 드립니다.`;return}
+  try{await db.doc('previewreq/'+t).set({ticker:t,requestedAt:new Date().toISOString(),status:'대기'});$('pvMsg').textContent=`${t} 조사를 요청했습니다. 보통 1시간 안에 보고서가 나타납니다.`}
+  catch(err){$('pvMsg').textContent='요청하지 못했습니다: '+(err?.message||'권한 확인 필요')}
+});
+
+/* 1달 앞 일정 */
+const FLT=[['ALL','전체'],['FDA','FDA 결정'],['DATA','임상 데이터'],['CONF','학회'],['ER','실적'],['AGM','주총·인수합병'],['EV','이벤트'],['MK','시장']];
+const inF=e=>filter==='ALL'||e.kind===filter||(filter==='AGM'&&e.kind==='MA')||(filter==='MK'&&(e.kind==='IDX'||e.kind==='MK'))||(filter==='EV'&&e.kind==='UP');
+function renderFlt(){$('flt').innerHTML=FLT.map(([k,l])=>`<button type="button" data-f="${k}" aria-pressed="${filter===k}">${l}</button>`).join('')}
+$('flt').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;renderFlt();renderAhead()});
+function renderAhead(){
+  const B=$('aheadList');
+  if(!ahead||!Array.isArray(ahead.items)){B.innerHTML='';return}
+  const items=ahead.items.filter(inF);
+  $('aheadMeta').textContent=`${fmtTime(ahead.updatedAt)} 갱신 · ${items.length}건 · 날짜·시간은 모두 한국 시각 · ★ 관심종목`;
+  B.innerHTML=groupSort(items,'날짜 미정').map(([k,list])=>`<div class="day">${dayHead(k)}<div>${
+    list.sort((a,b)=>isW(b.ticker)-isW(a.ticker)).map(e=>`<div class="ev"><div>${chip(e.kind)}${e.ticker?`<b>${esc(e.ticker)}</b>${isW(e.ticker)?' ★':''} `:''}<span class="nm">${esc(e.name||'')}</span></div>
+      ${e.time?`<div class="tm">${esc(e.time)}</div>`:''}<p class="why">${esc(e.event)}</p>${e.us?`<div class="src">미국 현지: ${esc(e.us)}</div>`:''}${e.note?`<div class="src">${esc(e.note)}</div>`:''}<div class="src">${link(e.url,e.source)}</div></div>`).join('')}</div></div>`).join('')||'<p class="empty">이 종류의 일정이 없습니다.</p>';
+}
+
+/* 시장 일정 */
+function renderMacro(){
+  const B=$('macroList');
+  if(!macro||!Array.isArray(macro.items)){B.innerHTML='<p class="empty">아직 정리된 내용이 없습니다.</p>';return}
+  $('macroMeta').textContent=`${fmtTime(macro.updatedAt)} 갱신 · 날짜·시간은 모두 한국 시각`;
+  B.innerHTML=groupSort(macro.items,'진행 중').sort((a,b)=>a[0]==='진행 중'?-1:b[0]==='진행 중'?1:0).map(([k,list])=>`<div class="day">${dayHead(k)}<div>${
+    list.map(e=>`<div class="ev"><div>${chip(e.kind)}<b>${esc(e.title)}</b></div>${e.time?`<div class="tm">${esc(e.time)}</div>`:''}<p class="why">${esc(e.detail)}</p>${e.us?`<div class="src">미국 현지: ${esc(e.us)}</div>`:''}<div class="src">${link(e.url,e.source)}</div></div>`).join('')}</div></div>`).join('');
+}
+
+/* 실적 달력 (Alpha Vantage) */
+function etDate(off){const d=new Date(Date.now()+off*864e5);return new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York'}).format(d)}
+function csv(t){const out=[];for(const line of String(t).split(/\r?\n/)){if(!line.trim())continue;const r=[];let cur='',q=false;for(const ch of line){if(ch==='"'){q=!q}else if(ch===','&&!q){r.push(cur);cur=''}else cur+=ch}r.push(cur);out.push(r)}return out}
+function payloadText(p){if(typeof p==='string')return p;if(Array.isArray(p?.content))return p.content.map(c=>c.text||'').join('\n');if(typeof p?.text==='string')return p.text;if(typeof p?.data==='string')return p.data;if(typeof p?.sample_data==='string')return p.sample_data;return ''}
+function setEarnings(p){
+  let rows=[];
+  if(Array.isArray(p)&&p.length&&typeof p[0]==='object')rows=p.map(o=>({s:o.symbol,n:o.name,d:o.reportDate,e:o.estimate,t:o.timeOfTheDay}));
+  else{let t=payloadText(p).trim();if(t.startsWith('{')){try{const j=JSON.parse(t);if(typeof j.sample_data==='string')t=j.sample_data;else if(j.error){$('erMeta').textContent='실적 달력을 불러오지 못했습니다.';return}}catch(e){}}
+    const c=csv(t);const h=c[0]||[];const ix=k=>h.indexOf(k);
+    if(ix('symbol')<0){$('erMeta').textContent='실적 달력 형식을 읽지 못했습니다.';return}
+    rows=c.slice(1).map(r=>({s:r[ix('symbol')],n:r[ix('name')],d:r[ix('reportDate')],e:r[ix('estimate')],t:r[ix('timeOfTheDay')]}))}
+  erRows=rows;renderER();
+}
+function renderER(){
+  if(!erRows)return;
+  const from=etDate(0),to=etDate(30);
+  const win=erRows.filter(r=>{const s=r.s||'';if(!(r.d>=from&&r.d<=to))return false;return isW(s)||!(/-P[A-Z]$/.test(s)||/^[A-Z]{4}F$/.test(s))});
+  $('erMeta').textContent=`앞으로 30일 · ${win.length}개 종목 · 한국 날짜 기준 · 밤 = 미국 장 시작 전 발표(한국 밤 9~11시 무렵), 아침 = 미국 장 마감 후 발표(한국 아침 6시 이후) · 노란색은 관심종목, 굵은 글씨는 예상 EPS가 있는 종목`;
+  const next=d=>{const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+1);return x.toISOString().slice(0,10)};
+  const by={};win.forEach(r=>{const k=r.t==='post-market'?next(r.d):r.d;(by[k]=by[k]||[]).push(r)});
+  $('erBox').innerHTML=Object.keys(by).sort().map(d=>{
+    const list=by[d].sort((a,b)=>isW(b.s)-isW(a.s)||(b.e?1:0)-(a.e?1:0));
+    const tm=t=>t==='pre-market'?' 밤':t==='post-market'?' 아침':'';
+    return `<div class="day">${dayHead(d)}<div class="er">${
+      list.map(r=>`<span class="${isW(r.s)?'w':''}" title="${esc(r.n)}">${r.e?'<b>':''}${esc(r.s)}${r.e?'</b>':''}${esc(tm(r.t))}</span>`).join('')}</div></div>`}).join('')||'<p class="empty">이 기간에 실적 발표가 없습니다.</p>';
+}
+
+/* 관심종목 */
+function renderWatch(){
+  $('wl').innerHTML=watch.length?watch.map(t=>`<span>${esc(t)}<button type="button" data-rm="${esc(t)}" aria-label="${esc(t)} 삭제">×</button></span>`).join(''):'<p class="empty">관심종목을 추가하면 매시간 따로 검색하고, 일정이 맨 위에 표시됩니다.</p>';
+  renderToday();renderAhead();renderER();renderPicks();
+}
+let db=null;
+async function saveWatch(next){
+  if(!db){$('wlMeta').innerHTML='관심종목 추가·삭제는 <a href="https://claude.ai/artifact/2rCrmo4LfbrdL77fs3uqCi">원본 레이더</a>에서 할 수 있어요.';return}
+  try{await db.doc('watch/list').set({tickers:next,updatedAt:new Date().toISOString()});$('wlMeta').textContent='저장했습니다. 다음 확인부터 반영됩니다.'}
+  catch(e){$('wlMeta').textContent='저장하지 못했습니다: '+(e?.message||'권한 확인 필요')}
+}
+$('addForm').addEventListener('submit',e=>{e.preventDefault();const t=$('tkIn').value.trim().toUpperCase().replace(/[^A-Z0-9.\-]/g,'');
+  if(!t||watch.includes(t)){$('tkIn').value='';return}watch=[...watch,t];$('tkIn').value='';renderWatch();saveWatch(watch)});
+$('wl').addEventListener('click',e=>{const t=e.target.closest('[data-rm]')?.dataset.rm;if(!t)return;watch=watch.filter(x=>x!==t);renderWatch();saveWatch(watch)});
+
+/* 연결: GitHub 사이트는 암호화된 my/data.enc 를 비밀번호로 풀어서 읽습니다 */
+renderFlt();
+const fail=msg=>{$('todayMeta').textContent=msg;$('kLabel').textContent='데이터 연결 안 됨'};
+$('erMeta').innerHTML='전체 실적 달력은 <a href="https://claude.ai/artifact/2rCrmo4LfbrdL77fs3uqCi">원본 레이더</a>에서 볼 수 있어요. 주요 실적 일정은 아래 \'1달 앞 일정\'에 있습니다.';
+const b64=x=>Uint8Array.from(atob(x),c=>c.charCodeAt(0));
+let PW=null;try{PW=localStorage.getItem('pepper_pw')}catch(e){}
+async function decrypt(pw){
+  const r=await fetch('data.enc?t='+Date.now());if(!r.ok)throw new Error('net');const e=await r.json();
+  const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(e.salt),iterations:e.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(e.iv)},key,b64(e.ct));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+function apply(d){
+  today=d.today||null;ahead=d.upcoming||null;macro=d.macro||null;picks=d.picks||null;
+  watch=Array.isArray(d.watch?.tickers)?d.watch.tickers.map(x=>String(x).toUpperCase()):[];
+  pvIdx={};reps={};Object.values(d.preview||{}).forEach(r=>{if(r.ticker){const t=String(r.ticker).toUpperCase();pvIdx[t]=r;reps[t]=r}});
+  if(!pvSel){const s=Object.keys(pvIdx).sort();if(s.length)pvSel=s[0]}
+  if(!today)$('todayMeta').textContent='아직 정리된 뉴스가 없습니다.';
+  if(!picks)$('picksMeta').textContent='아직 고른 종목이 없습니다.';
+  renderWatch();renderToday();renderAhead();renderMacro();renderPicks();renderPv();
+}
+async function load(pw,first){
+  try{const d=await decrypt(pw);PW=pw;apply(d);$('lock').hidden=true;return true}
+  catch(e){if(first){$('lock').hidden=false;$('pwMsg').textContent=e.message==='net'?'데이터를 불러오지 못했습니다. 잠시 뒤 다시 열어 주세요.':'비밀번호가 맞지 않습니다.'}return false}
+}
+$('lockForm').addEventListener('submit',async e=>{e.preventDefault();const pw=$('pwIn').value;if(!pw)return;$('pwMsg').textContent='여는 중…';
+  if(await load(pw,true)){try{if($('pwKeep').checked)localStorage.setItem('pepper_pw',pw);else localStorage.removeItem('pepper_pw')}catch(e){}$('pwIn').value=''}});
+if(PW)load(PW,true).then(ok=>{if(!ok){try{localStorage.removeItem('pepper_pw')}catch(e){}}});
+setInterval(()=>{if(PW)load(PW,false)},5*60*1000);
+}
+</script>
+</body>
+</html>
