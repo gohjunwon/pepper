@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALPHA13F | 월가 TOP 20 슈퍼투자자 포트폴리오</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', 'Noto Sans KR', sans-serif; background-color: #090d16; color: #f1f5f9; }
+    .glass-card { background: rgba(17, 24, 39, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- 상단 헤더 -->
+  <header class="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">13F</div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">ALPHA<span class="text-emerald-400">13F</span></h1>
+          <p id="syncStatus" class="text-[11px] text-slate-400">SEC EDGAR 자동 동기화 대기 중...</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="switchTab('investors')" id="tab-investors" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-emerald-500 text-slate-950 transition">TOP 20 투자자</button>
+        <button onclick="switchTab('consensus')" id="tab-consensus" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-300 hover:bg-slate-800 transition">인기 종목 랭킹</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 컨테이너 -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
+    
+    <!-- 뷰 1: 투자자 탐색 및 상세 포트폴리오 -->
+    <div id="view-investors" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- 좌측 사이드바: 검색 및 TOP 20 리스트 -->
+      <aside class="lg:col-span-4 flex flex-col gap-4">
+        <div class="glass-card rounded-xl p-4">
+          <input id="searchInput" type="text" placeholder="투자자, 운용사, 티커(예: NVDA, AAPL) 검색..." 
+            class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+          
+          <div id="styleFilters" class="flex flex-wrap gap-1.5 mt-3">
+            <button data-style="all" class="filter-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">전체</button>
+            <button data-style="value" class="filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-400 hover:text-white">가치투자</button>
+            <button data-style="growth" class="filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-400 hover:text-white">성장/혁신</button>
+            <button data-style="macro" class="filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-400 hover:text-white">매크로/헤지</button>
+            <button data-style="activist" class="filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-400 hover:text-white">행동주의</button>
+            <button data-style="quant" class="filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-400 hover:text-white">퀀트</button>
+          </div>
+        </div>
+
+        <div id="investorList" class="space-y-2 max-h-[680px] overflow-y-auto pr-1"></div>
+      </aside>
+
+      <!-- 우측 메인 패널: 선택된 투자자 상세 분석 -->
+      <section id="investorDetail" class="lg:col-span-8 space-y-6"></section>
+    </div>
+
+    <!-- 뷰 2: TOP 20 공통 보유 인기 종목 교차 분석 -->
+    <div id="view-consensus" class="hidden space-y-6">
+      <div class="glass-card rounded-xl p-6">
+        <h2 class="text-lg font-bold text-white">월가 TOP 20 슈퍼투자자 공통 보유 랭킹</h2>
+        <p class="text-xs text-slate-400 mt-1">최신 SEC 13F 공시 기준 가장 많은 거물이 동시에 보유 중인 핵심 종목입니다.</p>
+        <div id="consensusTable" class="mt-5 overflow-x-auto"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let allInvestors = [];
+    let selectedId = null;
+    let currentStyle = 'all';
+    let portfolioChart = null;
+
+    async function initApp() {
+      try {
+        const res = await fetch('./data.json?t=' + Date.now());
+        if (!res.ok) throw new Error('data.json not yet generated');
+        const json = await res.json();
+        allInvestors = json.investors || [];
+        document.getElementById('syncStatus').innerHTML = 
+          `<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-1"></span>SEC EDGAR 자동 동기화 완료 (${json.lastUpdated})`;
+      } catch (err) {
+        document.getElementById('syncStatus').innerHTML = 
+          `<span class="inline-block w-2 h-2 rounded-full bg-amber-400 mr-1"></span>GitHub Actions 첫 실행 대기 중 (Actions 탭에서 워크플로우를 실행해 주세요)`;
+      }
+
+      if (allInvestors.length > 0) {
+        selectedId = allInvestors[0].id;
+        renderInvestorList();
+        renderInvestorDetail();
+        renderConsensus();
+      }
+    }
+
+    function switchTab(tab) {
+      document.getElementById('view-investors').classList.toggle('hidden', tab !== 'investors');
+      document.getElementById('view-consensus').classList.toggle('hidden', tab !== 'consensus');
+      
+      document.getElementById('tab-investors').className = tab === 'investors'
+        ? 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-emerald-500 text-slate-950 transition'
+        : 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-300 hover:bg-slate-800 transition';
+      
+      document.getElementById('tab-consensus').className = tab === 'consensus'
+        ? 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-emerald-500 text-slate-950 transition'
+        : 'px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-slate-300 hover:bg-slate-800 transition';
+    }
+
+    function renderInvestorList() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const filtered = allInvestors.filter(inv => {
+        const matchStyle = currentStyle === 'all' || inv.style === currentStyle;
+        const matchQuery = !q || inv.name.toLowerCase().includes(q) || inv.enName.toLowerCase().includes(q) ||
+          inv.firm.toLowerCase().includes(q) || inv.holdings.some(h => h.ticker.toLowerCase().includes(q));
+        return matchStyle && matchQuery;
+      });
+
+      const container = document.getElementById('investorList');
+      container.innerHTML = filtered.map(inv => {
+        const isActive = inv.id === selectedId;
+        return `
+          <div onclick="selectInvestor('${inv.id}')" 
+            class="cursor-pointer rounded-xl p-3.5 transition border ${isActive ? 'bg-slate-800/90 border-emerald-500/60' : 'glass-card hover:border-slate-600'}">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-sm text-white">${inv.name}</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-emerald-400 border border-slate-700">${inv.styleLabel}</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">${inv.firm}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-xs font-semibold text-slate-200">$${inv.aumB.toLocaleString()}B</p>
+                <p class="text-[11px] text-slate-500">${inv.holdingsCount}종목</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectInvestor(id) {
+      selectedId = id;
+      renderInvestorList();
+      renderInvestorDetail();
+    }
+
+    function renderInvestorDetail() {
+      const inv = allInvestors.find(i => i.id === selectedId);
+      if (!inv) return;
+
+      const detail = document.getElementById('investorDetail');
+      detail.innerHTML = `
+        <div class="glass-card rounded-xl p-6">
+          <div class="flex flex-wrap items-start justify-between gap-4 border-b border-slate-800 pb-5">
+            <div>
+              <div class="flex items-center gap-2.5">
+                <h2 class="text-2xl font-bold text-white">${inv.name} <span class="text-sm font-normal text-slate-400">(${inv.enName})</span></h2>
+                <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">${inv.styleLabel}</span>
+              </div>
+              <p class="text-sm text-emerald-400 font-medium mt-1">${inv.firm} · SEC CIK: ${inv.cik}</p>
+              <p class="text-xs text-slate-300 mt-2.5 bg-slate-900/90 px-3.5 py-2 rounded-lg border border-slate-800">💡 ${inv.philosophy}</p>
+            </div>
+            <div class="text-right text-xs text-slate-400">
+              <p>보고 기준일: <span class="text-slate-200 font-semibold">${inv.reportPeriod}</span></p>
+              <p class="mt-0.5">SEC 공시일: <span class="text-slate-200 font-semibold">${inv.filingDate}</span></p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 mt-5">
+            <div class="bg-slate-900/80 rounded-lg p-3.5 border border-slate-800">
+              <p class="text-xs text-slate-400">13F 총 주식 운용자산</p>
+              <p class="text-lg sm:text-xl font-bold text-white mt-1">$${inv.aumB.toLocaleString()}B</p>
+            </div>
+            <div class="bg-slate-900/80 rounded-lg p-3.5 border border-slate-800">
+              <p class="text-xs text-slate-400">상위 5개 종목 집중도</p>
+              <p class="text-lg sm:text-xl font-bold text-emerald-400 mt-1">${inv.top5Weight}%</p>
+            </div>
+            <div class="bg-slate-900/80 rounded-lg p-3.5 border border-slate-800">
+              <p class="text-xs text-slate-400">총 보유 종목 수</p>
+              <p class="text-lg sm:text-xl font-bold text-white mt-1">${inv.holdingsCount.toLocaleString()}개</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div class="md:col-span-5 glass-card rounded-xl p-5 flex flex-col justify-between">
+            <h3 class="text-sm font-bold text-slate-200 mb-3">상위 보유 비중 분포</h3>
+            <div class="relative h-60 w-full flex items-center justify-center">
+              <canvas id="holdingsChart"></canvas>
+            </div>
+          </div>
+
+          <div class="md:col-span-7 glass-card rounded-xl p-5">
+            <h3 class="text-sm font-bold text-slate-200 mb-3">핵심 보유 종목 TOP 15</h3>
+            <div class="overflow-x-auto max-h-72 overflow-y-auto">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="border-b border-slate-800 text-slate-400">
+                    <th class="py-2">순위</th>
+                    <th class="py-2">티커</th>
+                    <th class="py-2">종목명</th>
+                    <th class="py-2 text-right">비중</th>
+                    <th class="py-2 text-right">평가액</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60">
+                  ${inv.holdings.map((h, idx) => `
+                    <tr class="hover:bg-slate-800/40">
+                      <td class="py-2 text-slate-500">${idx + 1}</td>
+                      <td class="py-2 font-bold text-emerald-400">${h.ticker}</td>
+                      <td class="py-2 text-slate-200 truncate max-w-[140px]">${h.name}</td>
+                      <td class="py-2 text-right font-semibold text-white">${h.weight}%</td>
+                      <td class="py-2 text-right text-slate-400">$${h.valueB}B</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+
+      renderChart(inv);
+    }
+
+    function renderChart(inv) {
+      const ctx = document.getElementById('holdingsChart');
+      if (!ctx) return;
+      if (portfolioChart) portfolioChart.destroy();
+
+      const top6 = inv.holdings.slice(0, 6);
+      const otherWeight = Math.max(0, round2(100 - top6.reduce((sum, h) => sum + h.weight, 0)));
+      const labels = [...top6.map(h => h.ticker), '기타'];
+      const data = [...top6.map(h => h.weight), otherWeight];
+
+      portfolioChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels,
+          datasets: [{
+            data,
+            backgroundColor: ['#10b981', '#3b82f6', '#8b5cf6', '#f59e0b', '#ec4899', '#06b6d4', '#334155'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '65%',
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#cbd5e1', font: { size: 11 }, boxWidth: 10 } }
+          }
+        }
+      });
+    }
+
+    function renderConsensus() {
+      const map = {};
+      allInvestors.forEach(inv => {
+        inv.holdings.forEach(h => {
+          if (!map[h.ticker]) {
+            map[h.ticker] = { ticker: h.ticker, name: h.name, count: 0, totalValueB: 0, holders: [] };
+          }
+          map[h.ticker].count += 1;
+          map[h.ticker].totalValueB += h.valueB;
+          map[h.ticker].holders.push(inv.name);
+        });
+      });
+
+      const ranked = Object.values(map).sort((a, b) => b.count - a.count || b.totalValueB - a.totalValueB).slice(0, 25);
+
+      document.getElementById('consensusTable').innerHTML = `
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400">
+              <th class="py-3 px-2">순위</th>
+              <th class="py-3 px-2">티커</th>
+              <th class="py-3 px-2">기업명</th>
+              <th class="py-3 px-2 text-center">보유 투자자 수</th>
+              <th class="py-3 px-2 text-right">합산 보유액</th>
+              <th class="py-3 px-2">보유 중인 슈퍼투자자</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60">
+            ${ranked.map((item, i) => `
+              <tr class="hover:bg-slate-800/40">
+                <td class="py-3 px-2 text-slate-500 font-semibold">${i + 1}</td>
+                <td class="py-3 px-2 font-bold text-emerald-400">${item.ticker}</td>
+                <td class="py-3 px-2 text-slate-200">${item.name}</td>
+                <td class="py-3 px-2 text-center">
+                  <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">${item.count}명</span>
+                </td>
+                <td class="py-3 px-2 text-right font-semibold text-white">$${item.totalValueB.toFixed(2)}B</td>
+                <td class="py-3 px-2 text-xs text-slate-400">${item.holders.join(', ')}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function round2(n) { return Math.round(n * 100) / 100; }
+
+    document.getElementById('searchInput').addEventListener('input', renderInvestorList);
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.className = 'filter-btn px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800/80 text-slate-400 hover:text-white';
+        });
+        btn.className = 'filter-btn active px-2.5 py-1 rounded-md text-xs font-medium bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+        currentStyle = btn.dataset.style;
+        renderInvestorList();
+      });
+    });
+
+    initApp();
+  </script>
+</body>
+</html>
