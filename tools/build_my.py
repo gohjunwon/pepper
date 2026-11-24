@@ -1,7 +1,7 @@
 """나만 보는 사이트(my/)용 암호화 데이터 만들기.
 사용법: MY_PASS=비밀번호 python3 tools/build_my.py 입력폴더
 입력폴더: today.json upcoming.json macro.json picks.json watch.json preview/*.json
-결과: my/data.enc (AES-256-GCM, PBKDF2-SHA256 250000회)"""
+결과: my/data.enc (AES-256-GCM, PBKDF2-SHA256 1000000회)"""
 import base64, glob, json, os, sys
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
@@ -18,7 +18,7 @@ for p in sorted(glob.glob(os.path.join(src, "preview", "*.json"))):
 blob = {"today": rd("today.json"), "upcoming": rd("upcoming.json"), "macro": rd("macro.json"),
         "picks": rd("picks.json"), "watch": rd("watch.json"), "preview": pv}
 raw = json.dumps(blob, ensure_ascii=False).encode()
-salt, iv, it = os.urandom(16), os.urandom(12), 250000
+salt, iv, it = os.urandom(16), os.urandom(12), 1000000
 key = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=it).derive(pw)
 ct = AESGCM(key).encrypt(iv, raw, None)
 b = lambda x: base64.b64encode(x).decode()
