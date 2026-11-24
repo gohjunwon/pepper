@@ -1,0 +1,12 @@
+{"updatedAt":"2026-11-24T16:25:00Z","items":[
+{"date":"","kind":"RISK","title":"AI·반도체주 불안","detail":"엔비디아 CEO 젠슨 황 사임 뒤 AI 관련주가 크게 흔들리며 지수를 끌어내리고 있습니다. 미국 11월 16일 S&P 500은 1.9%, 나스닥은 2.5% 하락했고, 11월 24일에도 기술주가 다시 약세였습니다.","source":"Zacks","url":"https://www.zacks.com/stock/news/3031068/stock-market-news-for-nov-17-2026"},
+{"date":"","kind":"POL","title":"중국 대상 AI 칩 수출 규제","detail":"미국 행정부가 중국의 최고급 AI 칩 접근을 막는 새 규정을 내놓았고, 미·중 정상회담도 예정돼 있습니다. 반도체주에 영향이 큽니다.","source":"The Standard(로이터)","url":"https://www.thestandard.com.hk/finance/article/348698/Wall-Street-ends-sharply-lower-on-AI-jitters-ahead-of-Nvidia-results-Anthropic-IPO"},
+{"date":"2026-11-25","kind":"ECO","title":"GDP(3분기 2차)·PCE 물가","time":"밤 10:30","us":"11/25 오전 8:30","detail":"연준이 가장 중시하는 물가 지표(10월 PCE)와 성장률이 같은 날 나옵니다. 12월 금리 결정 전 중요한 단서입니다.","source":"Crypto Times","url":"https://cryptotimes.io/2026/11/23/crypto-week-ahead-fed-inflation-data-strategys-msci-removal-binance-blockchain-week"},
+{"date":"2026-11-26","kind":"FED","title":"연준 베이지북","time":"새벽 4:00","us":"11/25 오후 2:00","detail":"지역별 경기 보고서. 실업수당 청구도 하루 당겨 한국 11/25 밤 10:30에 발표됩니다.","source":"TheStreet","url":"https://pro.thestreet.com/market-commentary/the-week-ahead-time-for-a-bounce"},
+{"date":"2026-11-26","kind":"MK","title":"추수감사절 휴장","time":"11/26 밤 ~ 11/27 아침 미국장 없음","us":"11/26","detail":"미국 증시가 열리지 않습니다."},
+{"date":"2026-11-27","kind":"MK","title":"조기 폐장","time":"11/27 밤 11:30 개장 ~ 11/28 새벽 3:00 마감","us":"11/27 오후 1:00 마감","detail":"거래량이 적어 가격이 크게 튀기 쉬운 날입니다."},
+{"date":"2026-12-02","kind":"ECO","title":"JOLTS(구인 건수)","time":"자정(0:00)","us":"12/1 오전 10:00","detail":"10월 기준 기업 구인 수요.","source":"FedRateCalc","url":"https://fedratecalc.com/us-economic-calendar/december-2026/"},
+{"date":"2026-12-04","kind":"ECO","title":"11월 고용보고서","time":"밤 10:30","us":"12/4 오전 8:30","detail":"비농업 일자리와 실업률. FOMC 직전 마지막 고용 지표입니다.","source":"VeloxMacro","url":"https://veloxmacro.com/economic-calendar/"},
+{"date":"2026-12-10","kind":"FED","title":"FOMC 금리 결정·점도표","time":"새벽 4:00 (의장 기자회견은 보통 새벽 4:30)","us":"12/9 오후 2:00","detail":"12월 8~9일(미국) 회의. 현재 기준금리 3.75~4.00%. 올해 마지막 회의이자 경제전망이 함께 나옵니다.","source":"FatTail","url":"https://fattail.ai/fomc-meeting-schedule-2026/"},
+{"date":"2026-12-10","kind":"ECO","title":"11월 소비자물가(CPI)","time":"밤 10:30","us":"12/10 오전 8:30","detail":"금리 결정이 나온 날 밤에 나오는 물가 지표입니다.","source":"FXNX","url":"https://fxnx.com/en/blog/december-2026-economic-calendar-jobs-4-dec-fomc-9-dec-cpi-10"}
+]}
