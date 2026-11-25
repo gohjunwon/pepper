@@ -1,1 +1,657 @@
-{"items":[{"date":"2026-11-25","event":"벤글루스타트(3형 고셔병) FDA 결정 목표일","kind":"FDA","name":"사노피","source":"BiopharmaWatch","ticker":"SNY","time":"11/25 밤 ~ 11/26 오후 사이 발표(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"11/25 중"},{"date":"2026-11-25","event":"AI 데이: 휴머노이드 로봇 IRON과 자체 AI 칩 공개","kind":"EV","name":"샤오펑","source":"TheStreet","ticker":"XPEV","time":"11/25 중(중국 현지 행사, 한국과 1시간 차)","url":"https://pro.thestreet.com/markets/stocks/premarket"},{"date":"2026-11-25","event":"디어(DE)·리오토(LI)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"11/25 장전"},{"date":"2026-11-26","event":"미국 증시 휴장","kind":"MK","name":"추수감사절 휴장","ticker":"","time":"11/26 밤 ~ 11/27 아침 미국장 없음","us":"11/26"},{"date":"2026-11-27","event":"BBP-418(지대형 근이영양증 2I/R9) FDA 결정 목표일, 우선심사","kind":"FDA","name":"브릿지바이오","note":"이날 미국장은 한국 11/28 새벽 3시에 조기 마감","source":"BiopharmaWatch","ticker":"BBIO","time":"11/27 밤 ~ 11/28 오후 사이 발표(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"11/27 중"},{"date":"2026-11-27","event":"네라달키브(ALK 양성 비소세포폐암) FDA 결정 목표일","kind":"FDA","name":"GSK","note":"GSK가 인수한 누발런트의 신약","source":"BiopharmaWatch","ticker":"GSK","time":"11/27 밤 ~ 11/28 오후 사이 발표(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"11/27 중"},{"date":"2026-11-28","event":"D-PLEX100(수술 부위 감염 예방) FDA 결정 목표일","kind":"FDA","name":"폴리피드","source":"BiopharmaWatch","ticker":"PYPD","time":"11/28(토) 밤 ~ 11/29 사이(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"11/28(토)"},{"date":"2026-11-30","event":"포베타시셉트(IgA 신증) 가속승인 FDA 결정 목표일","kind":"FDA","name":"버텍스","source":"BiopharmaWatch","ticker":"VRTX","time":"11/30 밤 ~ 12/1 오후 사이 발표(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"11/30 중"},{"date":"2026-11-30","event":"조실루투탑 펠리테칸(1차 확장기 소세포폐암) FDA 결정 목표일","kind":"FDA","name":"자이랩","source":"BiopharmaTranscript","ticker":"ZLAB","time":"11/30 밤 ~ 12/1 오후 사이 발표(시각 미정)","url":"https://biopharmatranscript.com/stage/phase-3/","us":"11/30 중"},{"date":"2026-12-02","event":"마벨(MRVL)·몽고DB(MDB)·옥타(OKTA)","kind":"ER","name":"주요 실적","note":"크라우드스트라이크(CRWD)는 일정을 앞당겨 미국 11/23에 3분기 실적을 이미 발표했습니다(지스케일러 인수 발표와 함께).","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/1 장후"},{"date":"2026-12-02","event":"메이시스(M)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"12/2 장전"},{"date":"2026-12-02","event":"TPG 모기지(MITT)와의 합병을 표결하는 특별 주주총회","kind":"AGM","name":"체리힐 모기지","source":"SEC 공시","ticker":"CHMI","time":"밤 11:00","url":"https://www.sec.gov/Archives/edgar/data/0001514281/000162828026065451/mitt-424b3prospectus102026.htm","us":"12/2 오전 9:00"},{"date":"2026-12-03","event":"세일즈포스(CRM)·스노우플레이크(SNOW)","kind":"ER","name":"주요 실적","note":"지스케일러(ZS)는 미국 11/23에 1분기 실적을 이미 발표했습니다(크라우드스트라이크 인수 합의와 함께).","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/2 장후"},{"date":"2026-12-03","event":"달러제너럴(DG)·크로거(KR)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"12/3 장전"},{"date":"2026-12-03","event":"연례 투자자의 날(피츠버그, 웹캐스트)","kind":"EV","name":"보이저 테크놀로지스","source":"Barchart","ticker":"VOYG","time":"12/3 밤 무렵부터(시각 미공개)","url":"https://www.webull.com/news/15742775298515968","us":"12/3"},{"date":"2026-12-04","event":"도큘사인(DOCU)·울타(ULTA)·비바(VEEV)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/3 장후"},{"date":"2026-12-05","event":"분기 리밸런싱 변경 종목 발표. 편입 종목은 인덱스 펀드 매수가 몰릴 수 있습니다.","kind":"IDX","name":"S&P 500 편입·편출 발표(예상)","note":"확정 날짜는 S&P 다우존스 발표로 확인","source":"CME Lite Group","ticker":"","time":"아침 무렵(보통 미국 장 마감 후 발표)","url":"https://www.cmelitegroup.com/?p=11202","us":"12/4 예상"},{"date":"2026-12-07","event":"미국혈액학회(ASH) 레이트 브레이킹 초록이 온라인에 공개됩니다.","kind":"CONF","name":"ASH 최신 초록 공개","source":"ASH","ticker":"","time":"12/7 밤 ~ 12/8 사이","url":"https://www.hematology.org/Annual-Meeting","us":"12/7"},{"date":"2026-12-08","event":"오토존(AZO)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"12/8 장전"},{"date":"2026-12-09","event":"시놈시스(SNPS)·케이시스(CASY)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/8 장후"},{"date":"2026-12-09","event":"츄이(CHWY)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"12/9 장전"},{"date":"2026-12-09","event":"투자자의 날: 장기 전략·성장 계획·여러 해 재무 목표 발표","kind":"EV","name":"메리엇 배케이션스","source":"Business Wire","ticker":"VAC","time":"밤 11:00","url":"https://finviz.com/news/421729/marriott-vacations-worldwide-corporation-to-host-2026-investor-day-in-new-york-city","us":"12/9 오전 9:00"},{"date":"2026-12-10","event":"브로드컴(AVGO)·어도비(ADBE)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/9 장후"},{"date":"2026-12-10","event":"시에나(CIEN)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"12/10 장전"},{"date":"2026-12-10","event":"투자자의 날: 사업 전략·자본 배분·장기 전망","kind":"EV","name":"벡톤 디킨슨(BD)","source":"PR Newswire","ticker":"BDX","time":"밤 10:30","url":"https://finviz.com/news/420585/bd-to-host-investor-day-on-december-10-2026","us":"12/10 오전 8:30"},{"date":"2026-12-11","event":"코스트코(COST). 룰루레몬(LULU)도 미국 12/10 발표(시각 미정)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/10 장후"},{"date":"2026-12-12","event":"러셀 미국 지수 재구성 반영. 마감 직전 중소형주 거래량이 커집니다.","kind":"IDX","name":"러셀 지수 재구성","source":"CME Lite Group","ticker":"","time":"아침 6시(미국 장 마감 후 반영)","url":"https://www.cmelitegroup.com/?p=11202","us":"12/11 장 마감 후"},{"date":"2026-12-12","event":"퀴미자(전신 농포성 건선) FDA 결정 목표일","kind":"FDA","name":"반다 제약","source":"BiopharmaWatch","ticker":"VNDA","time":"12/12(토) 밤 ~ 12/13 사이(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"12/12(토)"},{"date":"2026-12-13","event":"미국혈액학회 연례 학회. 혈액암·세포치료제 회사들의 데이터가 쏟아집니다.","kind":"CONF","name":"ASH 연례 학회(12/13~12/16)","source":"ASH","ticker":"","time":"12/13 새벽 ~ 12/16 오전","url":"https://www.hematology.org/Annual-Meeting","us":"12/12~12/15(뉴올리언스)"},{"date":"2026-12-13","event":"ASH: AUTO8(경쇄 아밀로이드증) 1상 중간 결과","kind":"DATA","name":"오톨루스","source":"Readouts.io","ticker":"AUTL","time":"새벽~오전(현지 12/12 발표)","url":"https://www.readouts.io/catalysts","us":"12/12"},{"date":"2026-12-14","event":"ASH: 진록타 LOTIS-7(재발성 DLBCL) 최종 결과. 한국 12/15에 LOTIS-5 3상 최종 결과·변연부 림프종 2상","kind":"DATA","name":"ADC 테라퓨틱스","source":"Readouts.io","ticker":"ADCT","time":"새벽~오전(현지 12/13 발표)","url":"https://www.readouts.io/catalysts","us":"12/13, 12/14"},{"date":"2026-12-14","event":"ASH: TSC-101(조혈모세포 이식 후 혈액암) 1상 중간 결과","kind":"DATA","name":"티스캔 테라퓨틱스","source":"Readouts.io","ticker":"TCRX","time":"새벽~오전(현지 12/13 발표)","url":"https://www.readouts.io/catalysts","us":"12/13"},{"date":"2026-12-14","event":"ASH: APG-5918(재발성 T세포 림프종) 1상 결과","kind":"DATA","name":"어센테지 파마","source":"Readouts.io","ticker":"AAPG","time":"새벽~오전(현지 12/13 발표)","url":"https://www.readouts.io/catalysts","us":"12/13"},{"date":"2026-12-15","event":"ASH: 갈린페피뮤트-S 데이터 발표","kind":"DATA","name":"셀라스 라이프사이언스","source":"BiopharmaTranscript","ticker":"SLS","time":"새벽~오전(현지 12/14 발표)","url":"https://biopharmatranscript.com/stage/phase-3/","us":"12/14"},{"date":"2026-12-15","event":"ASH: 바레가세스탯 데이터 발표","kind":"DATA","name":"이뮤놈","source":"BiopharmaTranscript","ticker":"IMNM","time":"새벽~오전(현지 12/14 발표)","url":"https://biopharmatranscript.com/stage/phase-3/","us":"12/14"},{"date":"2026-12-15","event":"오라클(ORCL)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/14 장후"},{"date":"2026-12-16","event":"합병안 표결 특별 주주총회","kind":"AGM","name":"옵션 케어 헬스","source":"SEC 공시","ticker":"OPCH","time":"자정(0:00)","url":"https://www.sec.gov/Archives/edgar/data/0001014739/000114036126042547/ny20084196x2_defm14a.htm","us":"12/15 오전 9:00(중부) = 동부 10:00"},{"date":"2026-12-16","event":"노드슨(NDSN). 레나(LEN)도 미국 12/15 발표(시각 미정)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/15 장후"},{"date":"2026-12-17","event":"렐라코릴란트(쿠싱증후군) FDA 결정 목표일","kind":"FDA","name":"코르셉트","source":"BiopharmaWatch","ticker":"CORT","time":"12/17 밤 ~ 12/18 오후 사이 발표(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"12/17 중"},{"date":"2026-12-17","event":"액센추어(ACN)·제너럴밀스(GIS)·카맥스(KMX)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"12/17 장전"},{"date":"2026-12-18","event":"마이크론(MU)·나이키(NKE). 팩트셋(FDS)도 미국 12/17 발표(시각 미정)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"아침 6시 이후(미국 장 마감 후 발표)","us":"12/17 장후"},{"date":"2026-12-18","event":"다든 레스토랑(DRI). 카니발(CCL)·페이책스(PAYX)도 미국 12/18 발표(시각 미정)","kind":"ER","name":"주요 실적","source":"Alpha Vantage 실적 달력","ticker":"","time":"밤(미국 장 시작 전 발표)","us":"12/18 장전"},{"date":"2026-12-18","event":"분기 옵션·선물 동시 만기이자 S&P 500 리밸런싱 기준 종가. 마감 무렵(한국 12/19 새벽) 거래량·변동성이 커집니다.","kind":"IDX","name":"쿼드러플 위칭","source":"CME Lite Group","ticker":"","time":"12/18 밤 11:30 개장 ~ 12/19 아침 6:00 마감","url":"https://www.cmelitegroup.com/?p=11202","us":"12/18"},{"date":"2026-12-21","event":"분기 리밸런싱이 반영될 것으로 예상","kind":"IDX","name":"S&P 500 리밸런싱 반영","source":"CME Lite Group","ticker":"","time":"밤 11:30 개장부터","url":"https://www.cmelitegroup.com/?p=11202","us":"12/21 개장 전"},{"date":"2026-12-22","event":"로룬드로스탯(고혈압 추가 요법) FDA 결정 목표일","kind":"FDA","name":"미네랄리스","source":"BiopharmaWatch","ticker":"MLYS","time":"12/22 밤 ~ 12/23 오후 사이 발표(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"12/22 중"},{"date":"2026-12-23","event":"아니토-셀(재발성·불응성 다발골수종) FDA 결정 목표일","kind":"FDA","name":"길리어드","source":"BiopharmaWatch","ticker":"GILD","time":"12/23 밤 ~ 12/24 오후 사이 발표(시각 미정)","url":"https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates","us":"12/23 중"},{"date":"11월 말(날짜 미정)","event":"SGT-610(파티데길 겔) 핵심 3상 주요 결과","kind":"DATA","name":"솔젤 테크놀로지스","source":"BiopharmaTranscript","ticker":"SLGL","url":"https://biopharmatranscript.com/stage/phase-3/"},{"date":"12월 중(날짜 미정)","event":"에르소데투그(종양성 고인슐린혈증) upLIFT 3상 전체 주요 결과, 12월 중순까지","kind":"DATA","name":"레졸루트","source":"BiopharmaTranscript","ticker":"RZLT","url":"https://biopharmatranscript.com/stage/phase-3/"},{"date":"12월 중(날짜 미정)","event":"KSI-101(염증성 황반부종) PEAK 3상 주요 결과","kind":"DATA","name":"코디악 사이언스","source":"Readouts.io","ticker":"KOD","url":"https://www.readouts.io/catalysts"},{"date":"12월 중(날짜 미정)","event":"아제투칼너 X-NOVA2 3상 주요 결과","kind":"DATA","name":"제논 파마슈티컬스","source":"Readouts.io","ticker":"XENE","url":"https://www.readouts.io/catalysts"},{"date":"12월 중(날짜 미정)","event":"엠파시프루바트(다초점 운동신경병증) 3상 데이터","kind":"DATA","name":"아르젠스","source":"BiopharmaTranscript","ticker":"ARGX","url":"https://biopharmatranscript.com/stage/phase-3/"},{"date":"12월 중(날짜 미정)","event":"클라세프루바트(CIDP) MoMeNtum 2상 주요 결과","kind":"DATA","name":"다이언더스","source":"BiopharmaTranscript","ticker":"DNTH","url":"https://biopharmatranscript.com/stage/phase-3/"},{"date":"12월 중(날짜 미정)","event":"ASH에서 인티스메란 오토진 구두 발표(한국 12/13~12/16 중)","kind":"CONF","name":"모더나","source":"BiopharmaTranscript","ticker":"MRNA","url":"https://biopharmatranscript.com/stage/phase-3/"},{"date":"12월 중(날짜 미정)","event":"EP-104GI(호산구성 식도염) RESOLVE 2b상 주요 결과","kind":"DATA","name":"유프락시아","source":"Readouts.io","ticker":"EPRX","url":"https://www.readouts.io/catalysts"},{"date":"12월 중(날짜 미정)","event":"CLN-978(류마티스 관절염) 결과","kind":"DATA","name":"컨리넌 테라퓨틱스","source":"Readouts.io","ticker":"CGEM","url":"https://www.readouts.io/catalysts"},{"date":"연말까지(날짜 미정)","event":"비도플루디뮤스(재발성 다발성 경화증) ENSURE 3상 주요 결과","kind":"DATA","name":"이뮤닉","source":"Readouts.io","ticker":"IMUX","url":"https://www.readouts.io/catalysts"},{"date":"연말까지(날짜 미정)","event":"오비세트라픽(고콜레스테롤혈증) RUBENS 3상 주요 결과","kind":"DATA","name":"뉴암스테르담 파마","source":"Readouts.io","ticker":"NAMS","url":"https://www.readouts.io/catalysts"},{"date":"연말까지(날짜 미정)","event":"피하주사 우브리툭시맙(재발성 다발성 경화증) 3상 주요 결과(연말~내년 초)","kind":"DATA","name":"TG 테라퓨틱스","source":"Readouts.io","ticker":"TGTX","url":"https://www.readouts.io/catalysts"},{"date":"연말까지(날짜 미정)","event":"합병 완료 목표 12월 31일(주주 승인·규제 승인 조건)","kind":"MA","name":"라이브램프","source":"LiveRamp IR","ticker":"RAMP","url":"https://investors.liveramp.com/node/24246/html"},{"date":"날짜 미정","event":"몰그라모스팀 FDA 심사가 11/22 목표일을 넘겨 계속 중. 새 날짜 없이 언제든 결정 가능","kind":"FDA","name":"사바라","source":"BiopharmaWatch","ticker":"SVRA","url":"https://www.biopharmawatch.com/fda-calendar"},{"date":"날짜 미정","event":"사노피 인수(주당 175달러)를 위한 주주총회·규제 승인 예정. 완료는 2027년 상반기 예상","kind":"MA","name":"인스메드","source":"StockTitan","ticker":"INSM","url":"https://www.stocktitan.net/articles/stock-market-today-live-november-24-2026"},{"date":"날짜 미정","event":"크라우드스트라이크의 전액 주식 인수(지스케일러 1주당 크라우드스트라이크 1.135주, 약 439억 달러)를 위한 주주총회·규제 승인 예정","kind":"MA","name":"지스케일러","note":"발표일은 미국 11/23. 창업자 측(지분 약 34%)이 찬성 의결 약정을 맺었습니다.","source":"SEC 공시(CrowdStrike 8-K)","ticker":"ZS","time":"","url":"https://www.sec.gov/Archives/edgar/data/0001535527/000110465926130785/tm2630454d1_ex99-1.htm","us":"크라우드스트라이크 2028 회계연도 하반기 완료 예상"}],"updatedAt":"2026-11-24T17:55:00Z"}
+{
+  "items": [
+    {
+      "date": "2026-11-25",
+      "done": true,
+      "event": "벤글루스타트(3형 고셔병) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "사노피",
+      "result": "FDA 승인(제품명 인필브레이). 3형 고셔병 신경 증상에 쓰는 첫 승인 약으로, 목표일보다 1주일 앞서 나왔습니다.",
+      "resultAt": "한국 11/19(목) · 미국 11/18(수)",
+      "resultSource": "MedCity News",
+      "resultUrl": "https://medcitynews.com/2026/11/sanofi-gaucher-disease-type3-venglustat-infilbray-fda-approval-gd3-san/",
+      "source": "BiopharmaWatch",
+      "ticker": "SNY",
+      "time": "11/25 밤 ~ 11/26 오후 사이 발표(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "11/25 중"
+    },
+    {
+      "date": "2026-11-25",
+      "event": "AI 데이: 휴머노이드 로봇 IRON과 자체 AI 칩 공개",
+      "kind": "EV",
+      "name": "샤오펑",
+      "source": "TheStreet",
+      "ticker": "XPEV",
+      "time": "11/25 중(중국 현지 행사, 한국과 1시간 차)",
+      "url": "https://pro.thestreet.com/markets/stocks/premarket"
+    },
+    {
+      "date": "2026-11-25",
+      "event": "디어(DE)·리오토(LI)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "11/25 장전"
+    },
+    {
+      "date": "2026-11-26",
+      "event": "미국 증시 휴장",
+      "kind": "MK",
+      "name": "추수감사절 휴장",
+      "ticker": "",
+      "time": "11/26 밤 ~ 11/27 아침 미국장 없음",
+      "us": "11/26"
+    },
+    {
+      "date": "2026-11-27",
+      "event": "BBP-418(지대형 근이영양증 2I/R9) FDA 결정 목표일, 우선심사",
+      "kind": "FDA",
+      "name": "브릿지바이오",
+      "note": "이날 미국장은 한국 11/28 새벽 3시에 조기 마감",
+      "source": "BiopharmaWatch",
+      "ticker": "BBIO",
+      "time": "11/27 밤 ~ 11/28 오후 사이 발표(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "11/27 중"
+    },
+    {
+      "date": "2026-11-27",
+      "done": true,
+      "event": "네라달키브(ALK 양성 비소세포폐암) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "GSK",
+      "note": "GSK가 인수한 누발런트의 신약",
+      "result": "FDA 가속승인(제품명 넬카르미). 이전 치료를 받은 ALK 양성 비소세포폐암 대상이며, 목표일보다 10일 앞서 나왔습니다.",
+      "resultAt": "한국 11/18(수) · 미국 11/17(화)",
+      "resultSource": "ASCO Post",
+      "resultUrl": "https://www.ascopost.com/articles/2026/11-november/fda-grants-accelerated-approval-to-neladalkib-for-alk-positive-nsclc/",
+      "source": "BiopharmaWatch",
+      "ticker": "GSK",
+      "time": "11/27 밤 ~ 11/28 오후 사이 발표(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "11/27 중"
+    },
+    {
+      "date": "2026-11-28",
+      "event": "D-PLEX100(수술 부위 감염 예방) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "폴리피드",
+      "source": "BiopharmaWatch",
+      "ticker": "PYPD",
+      "time": "11/28(토) 밤 ~ 11/29 사이(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "11/28(토)"
+    },
+    {
+      "date": "2026-11-30",
+      "event": "포베타시셉트(IgA 신증) 가속승인 FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "버텍스",
+      "source": "BiopharmaWatch",
+      "ticker": "VRTX",
+      "time": "11/30 밤 ~ 12/1 오후 사이 발표(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "11/30 중"
+    },
+    {
+      "date": "2026-11-30",
+      "event": "조실루투탑 펠리테칸(1차 확장기 소세포폐암) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "자이랩",
+      "source": "BiopharmaTranscript",
+      "ticker": "ZLAB",
+      "time": "11/30 밤 ~ 12/1 오후 사이 발표(시각 미정)",
+      "url": "https://biopharmatranscript.com/stage/phase-3/",
+      "us": "11/30 중"
+    },
+    {
+      "date": "2026-12-02",
+      "event": "마벨(MRVL)·몽고DB(MDB)·옥타(OKTA)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "note": "크라우드스트라이크(CRWD)는 일정을 앞당겨 미국 11/23에 3분기 실적을 이미 발표했습니다(지스케일러 인수 발표와 함께).",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/1 장후"
+    },
+    {
+      "date": "2026-12-02",
+      "event": "메이시스(M)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "12/2 장전"
+    },
+    {
+      "date": "2026-12-02",
+      "event": "TPG 모기지(MITT)와의 합병을 표결하는 특별 주주총회",
+      "kind": "AGM",
+      "name": "체리힐 모기지",
+      "source": "SEC 공시",
+      "ticker": "CHMI",
+      "time": "밤 11:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001514281/000162828026065451/mitt-424b3prospectus102026.htm",
+      "us": "12/2 오전 9:00"
+    },
+    {
+      "date": "2026-12-03",
+      "event": "세일즈포스(CRM)·스노우플레이크(SNOW)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "note": "지스케일러(ZS)는 미국 11/23에 1분기 실적을 이미 발표했습니다(크라우드스트라이크 인수 합의와 함께).",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/2 장후"
+    },
+    {
+      "date": "2026-12-03",
+      "event": "달러제너럴(DG)·크로거(KR)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "12/3 장전"
+    },
+    {
+      "date": "2026-12-03",
+      "event": "연례 투자자의 날(피츠버그, 웹캐스트)",
+      "kind": "EV",
+      "name": "보이저 테크놀로지스",
+      "source": "Barchart",
+      "ticker": "VOYG",
+      "time": "12/3 밤 무렵부터(시각 미공개)",
+      "url": "https://www.webull.com/news/15742775298515968",
+      "us": "12/3"
+    },
+    {
+      "date": "2026-12-04",
+      "event": "도큘사인(DOCU)·울타(ULTA)·비바(VEEV)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/3 장후"
+    },
+    {
+      "date": "2026-12-05",
+      "event": "분기 리밸런싱 변경 종목 발표. 편입 종목은 인덱스 펀드 매수가 몰릴 수 있습니다.",
+      "kind": "IDX",
+      "name": "S&P 500 편입·편출 발표(예상)",
+      "note": "확정 날짜는 S&P 다우존스 발표로 확인",
+      "source": "CME Lite Group",
+      "ticker": "",
+      "time": "아침 무렵(보통 미국 장 마감 후 발표)",
+      "url": "https://www.cmelitegroup.com/?p=11202",
+      "us": "12/4 예상"
+    },
+    {
+      "date": "2026-12-07",
+      "event": "미국혈액학회(ASH) 레이트 브레이킹 초록이 온라인에 공개됩니다.",
+      "kind": "CONF",
+      "name": "ASH 최신 초록 공개",
+      "source": "ASH",
+      "ticker": "",
+      "time": "12/7 밤 ~ 12/8 사이",
+      "url": "https://www.hematology.org/Annual-Meeting",
+      "us": "12/7"
+    },
+    {
+      "date": "2026-12-08",
+      "event": "오토존(AZO)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "12/8 장전"
+    },
+    {
+      "date": "2026-12-09",
+      "event": "시놈시스(SNPS)·케이시스(CASY)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/8 장후"
+    },
+    {
+      "date": "2026-12-09",
+      "event": "츄이(CHWY)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "12/9 장전"
+    },
+    {
+      "date": "2026-12-09",
+      "event": "투자자의 날: 장기 전략·성장 계획·여러 해 재무 목표 발표",
+      "kind": "EV",
+      "name": "메리엇 배케이션스",
+      "source": "Business Wire",
+      "ticker": "VAC",
+      "time": "밤 11:00",
+      "url": "https://finviz.com/news/421729/marriott-vacations-worldwide-corporation-to-host-2026-investor-day-in-new-york-city",
+      "us": "12/9 오전 9:00"
+    },
+    {
+      "date": "2026-12-10",
+      "event": "브로드컴(AVGO)·어도비(ADBE)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/9 장후"
+    },
+    {
+      "date": "2026-12-10",
+      "event": "시에나(CIEN)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "12/10 장전"
+    },
+    {
+      "date": "2026-12-10",
+      "event": "투자자의 날: 사업 전략·자본 배분·장기 전망",
+      "kind": "EV",
+      "name": "벡톤 디킨슨(BD)",
+      "source": "PR Newswire",
+      "ticker": "BDX",
+      "time": "밤 10:30",
+      "url": "https://finviz.com/news/420585/bd-to-host-investor-day-on-december-10-2026",
+      "us": "12/10 오전 8:30"
+    },
+    {
+      "date": "2026-12-11",
+      "event": "코스트코(COST). 룰루레몬(LULU)도 미국 12/10 발표(시각 미정)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/10 장후"
+    },
+    {
+      "date": "2026-12-12",
+      "event": "러셀 미국 지수 재구성 반영. 마감 직전 중소형주 거래량이 커집니다.",
+      "kind": "IDX",
+      "name": "러셀 지수 재구성",
+      "source": "CME Lite Group",
+      "ticker": "",
+      "time": "아침 6시(미국 장 마감 후 반영)",
+      "url": "https://www.cmelitegroup.com/?p=11202",
+      "us": "12/11 장 마감 후"
+    },
+    {
+      "date": "2026-12-12",
+      "event": "퀴미자(전신 농포성 건선) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "반다 제약",
+      "source": "BiopharmaWatch",
+      "ticker": "VNDA",
+      "time": "12/12(토) 밤 ~ 12/13 사이(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "12/12(토)"
+    },
+    {
+      "date": "2026-12-13",
+      "event": "미국혈액학회 연례 학회. 혈액암·세포치료제 회사들의 데이터가 쏟아집니다.",
+      "kind": "CONF",
+      "name": "ASH 연례 학회(12/13~12/16)",
+      "source": "ASH",
+      "ticker": "",
+      "time": "12/13 새벽 ~ 12/16 오전",
+      "url": "https://www.hematology.org/Annual-Meeting",
+      "us": "12/12~12/15(뉴올리언스)"
+    },
+    {
+      "date": "2026-12-13",
+      "event": "ASH: AUTO8(경쇄 아밀로이드증) 1상 중간 결과",
+      "kind": "DATA",
+      "name": "오톨루스",
+      "source": "Readouts.io",
+      "ticker": "AUTL",
+      "time": "새벽~오전(현지 12/12 발표)",
+      "url": "https://www.readouts.io/catalysts",
+      "us": "12/12"
+    },
+    {
+      "date": "2026-12-14",
+      "event": "ASH: 진록타 LOTIS-7(재발성 DLBCL) 최종 결과. 한국 12/15에 LOTIS-5 3상 최종 결과·변연부 림프종 2상",
+      "kind": "DATA",
+      "name": "ADC 테라퓨틱스",
+      "source": "Readouts.io",
+      "ticker": "ADCT",
+      "time": "새벽~오전(현지 12/13 발표)",
+      "url": "https://www.readouts.io/catalysts",
+      "us": "12/13, 12/14"
+    },
+    {
+      "date": "2026-12-14",
+      "event": "ASH: TSC-101(조혈모세포 이식 후 혈액암) 1상 중간 결과",
+      "kind": "DATA",
+      "name": "티스캔 테라퓨틱스",
+      "source": "Readouts.io",
+      "ticker": "TCRX",
+      "time": "새벽~오전(현지 12/13 발표)",
+      "url": "https://www.readouts.io/catalysts",
+      "us": "12/13"
+    },
+    {
+      "date": "2026-12-14",
+      "event": "ASH: APG-5918(재발성 T세포 림프종) 1상 결과",
+      "kind": "DATA",
+      "name": "어센테지 파마",
+      "source": "Readouts.io",
+      "ticker": "AAPG",
+      "time": "새벽~오전(현지 12/13 발표)",
+      "url": "https://www.readouts.io/catalysts",
+      "us": "12/13"
+    },
+    {
+      "date": "2026-12-15",
+      "event": "ASH: 갈린페피뮤트-S 데이터 발표",
+      "kind": "DATA",
+      "name": "셀라스 라이프사이언스",
+      "source": "BiopharmaTranscript",
+      "ticker": "SLS",
+      "time": "새벽~오전(현지 12/14 발표)",
+      "url": "https://biopharmatranscript.com/stage/phase-3/",
+      "us": "12/14"
+    },
+    {
+      "date": "2026-12-15",
+      "event": "ASH: 바레가세스탯 데이터 발표",
+      "kind": "DATA",
+      "name": "이뮤놈",
+      "source": "BiopharmaTranscript",
+      "ticker": "IMNM",
+      "time": "새벽~오전(현지 12/14 발표)",
+      "url": "https://biopharmatranscript.com/stage/phase-3/",
+      "us": "12/14"
+    },
+    {
+      "date": "2026-12-15",
+      "event": "오라클(ORCL)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/14 장후"
+    },
+    {
+      "date": "2026-12-16",
+      "event": "합병안 표결 특별 주주총회",
+      "kind": "AGM",
+      "name": "옵션 케어 헬스",
+      "source": "SEC 공시",
+      "ticker": "OPCH",
+      "time": "자정(0:00)",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001014739/000114036126042547/ny20084196x2_defm14a.htm",
+      "us": "12/15 오전 9:00(중부) = 동부 10:00"
+    },
+    {
+      "date": "2026-12-16",
+      "event": "노드슨(NDSN). 레나(LEN)도 미국 12/15 발표(시각 미정)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/15 장후"
+    },
+    {
+      "date": "2026-12-17",
+      "event": "렐라코릴란트(쿠싱증후군) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "코르셉트",
+      "source": "BiopharmaWatch",
+      "ticker": "CORT",
+      "time": "12/17 밤 ~ 12/18 오후 사이 발표(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "12/17 중"
+    },
+    {
+      "date": "2026-12-17",
+      "event": "액센추어(ACN)·제너럴밀스(GIS)·카맥스(KMX)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "12/17 장전"
+    },
+    {
+      "date": "2026-12-18",
+      "event": "마이크론(MU)·나이키(NKE). 팩트셋(FDS)도 미국 12/17 발표(시각 미정)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "아침 6시 이후(미국 장 마감 후 발표)",
+      "us": "12/17 장후"
+    },
+    {
+      "date": "2026-12-18",
+      "event": "다든 레스토랑(DRI). 카니발(CCL)·페이책스(PAYX)도 미국 12/18 발표(시각 미정)",
+      "kind": "ER",
+      "name": "주요 실적",
+      "source": "Alpha Vantage 실적 달력",
+      "ticker": "",
+      "time": "밤(미국 장 시작 전 발표)",
+      "us": "12/18 장전"
+    },
+    {
+      "date": "2026-12-18",
+      "event": "분기 옵션·선물 동시 만기이자 S&P 500 리밸런싱 기준 종가. 마감 무렵(한국 12/19 새벽) 거래량·변동성이 커집니다.",
+      "kind": "IDX",
+      "name": "쿼드러플 위칭",
+      "source": "CME Lite Group",
+      "ticker": "",
+      "time": "12/18 밤 11:30 개장 ~ 12/19 아침 6:00 마감",
+      "url": "https://www.cmelitegroup.com/?p=11202",
+      "us": "12/18"
+    },
+    {
+      "date": "2026-12-21",
+      "event": "분기 리밸런싱이 반영될 것으로 예상",
+      "kind": "IDX",
+      "name": "S&P 500 리밸런싱 반영",
+      "source": "CME Lite Group",
+      "ticker": "",
+      "time": "밤 11:30 개장부터",
+      "url": "https://www.cmelitegroup.com/?p=11202",
+      "us": "12/21 개장 전"
+    },
+    {
+      "date": "2026-12-22",
+      "event": "로룬드로스탯(고혈압 추가 요법) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "미네랄리스",
+      "source": "BiopharmaWatch",
+      "ticker": "MLYS",
+      "time": "12/22 밤 ~ 12/23 오후 사이 발표(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "12/22 중"
+    },
+    {
+      "date": "2026-12-23",
+      "event": "아니토-셀(재발성·불응성 다발골수종) FDA 결정 목표일",
+      "kind": "FDA",
+      "name": "길리어드",
+      "source": "BiopharmaWatch",
+      "ticker": "GILD",
+      "time": "12/23 밤 ~ 12/24 오후 사이 발표(시각 미정)",
+      "url": "https://www.biopharmawatch.com/blog/q4-2026-pdufa-dates",
+      "us": "12/23 중"
+    },
+    {
+      "date": "11월 말(날짜 미정)",
+      "event": "SGT-610(파티데길 겔) 핵심 3상 주요 결과",
+      "kind": "DATA",
+      "name": "솔젤 테크놀로지스",
+      "source": "BiopharmaTranscript",
+      "ticker": "SLGL",
+      "url": "https://biopharmatranscript.com/stage/phase-3/"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "에르소데투그(종양성 고인슐린혈증) upLIFT 3상 전체 주요 결과, 12월 중순까지",
+      "kind": "DATA",
+      "name": "레졸루트",
+      "result": "예비 분석에서 1차 목표를 달성했다고 먼저 발표했습니다. 통계 분석을 포함한 최종 결과는 12월 중순에 나옵니다.",
+      "resultAt": "한국 11/13(금) 밤 · 미국 11/13",
+      "resultSource": "회사 발표",
+      "resultUrl": "https://finviz.com/news/422472/rezolute-announces-positive-results-from-the-phase-3-uplift-study-in-tumor-hyperinsulinism",
+      "source": "BiopharmaTranscript",
+      "ticker": "RZLT",
+      "url": "https://biopharmatranscript.com/stage/phase-3/"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "KSI-101(염증성 황반부종) PEAK 3상 주요 결과",
+      "kind": "DATA",
+      "name": "코디악 사이언스",
+      "source": "Readouts.io",
+      "ticker": "KOD",
+      "url": "https://www.readouts.io/catalysts"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "아제투칼너 X-NOVA2 3상 주요 결과",
+      "kind": "DATA",
+      "name": "제논 파마슈티컬스",
+      "source": "Readouts.io",
+      "ticker": "XENE",
+      "url": "https://www.readouts.io/catalysts"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "엠파시프루바트(다초점 운동신경병증) 3상 데이터",
+      "kind": "DATA",
+      "name": "아르젠스",
+      "source": "BiopharmaTranscript",
+      "ticker": "ARGX",
+      "url": "https://biopharmatranscript.com/stage/phase-3/"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "클라세프루바트(CIDP) MoMeNtum 2상 주요 결과",
+      "kind": "DATA",
+      "name": "다이언더스",
+      "source": "BiopharmaTranscript",
+      "ticker": "DNTH",
+      "url": "https://biopharmatranscript.com/stage/phase-3/"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "ASH에서 인티스메란 오토진 구두 발표(한국 12/13~12/16 중)",
+      "kind": "CONF",
+      "name": "모더나",
+      "source": "BiopharmaTranscript",
+      "ticker": "MRNA",
+      "url": "https://biopharmatranscript.com/stage/phase-3/"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "EP-104GI(호산구성 식도염) RESOLVE 2b상 주요 결과",
+      "kind": "DATA",
+      "name": "유프락시아",
+      "source": "Readouts.io",
+      "ticker": "EPRX",
+      "url": "https://www.readouts.io/catalysts"
+    },
+    {
+      "date": "12월 중(날짜 미정)",
+      "event": "CLN-978(류마티스 관절염) 결과",
+      "kind": "DATA",
+      "name": "컨리넌 테라퓨틱스",
+      "source": "Readouts.io",
+      "ticker": "CGEM",
+      "url": "https://www.readouts.io/catalysts"
+    },
+    {
+      "date": "연말까지(날짜 미정)",
+      "event": "비도플루디뮤스(재발성 다발성 경화증) ENSURE 3상 주요 결과",
+      "kind": "DATA",
+      "name": "이뮤닉",
+      "source": "Readouts.io",
+      "ticker": "IMUX",
+      "url": "https://www.readouts.io/catalysts"
+    },
+    {
+      "date": "연말까지(날짜 미정)",
+      "event": "오비세트라픽(고콜레스테롤혈증) RUBENS 3상 주요 결과",
+      "kind": "DATA",
+      "name": "뉴암스테르담 파마",
+      "source": "Readouts.io",
+      "ticker": "NAMS",
+      "url": "https://www.readouts.io/catalysts"
+    },
+    {
+      "date": "연말까지(날짜 미정)",
+      "event": "피하주사 우브리툭시맙(재발성 다발성 경화증) 3상 주요 결과(연말~내년 초)",
+      "kind": "DATA",
+      "name": "TG 테라퓨틱스",
+      "source": "Readouts.io",
+      "ticker": "TGTX",
+      "url": "https://www.readouts.io/catalysts"
+    },
+    {
+      "date": "연말까지(날짜 미정)",
+      "event": "합병 완료 목표 12월 31일(주주 승인·규제 승인 조건)",
+      "kind": "MA",
+      "name": "라이브램프",
+      "source": "LiveRamp IR",
+      "ticker": "RAMP",
+      "url": "https://investors.liveramp.com/node/24246/html"
+    },
+    {
+      "date": "날짜 미정",
+      "event": "몰그라모스팀 FDA 심사가 11/22 목표일을 넘겨 계속 중. 새 날짜 없이 언제든 결정 가능",
+      "kind": "FDA",
+      "name": "사바라",
+      "source": "BiopharmaWatch",
+      "ticker": "SVRA",
+      "url": "https://www.biopharmawatch.com/fda-calendar"
+    },
+    {
+      "date": "날짜 미정",
+      "event": "사노피 인수(주당 175달러)를 위한 주주총회·규제 승인 예정. 완료는 2027년 상반기 예상",
+      "kind": "MA",
+      "name": "인스메드",
+      "source": "StockTitan",
+      "ticker": "INSM",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-24-2026"
+    },
+    {
+      "date": "날짜 미정",
+      "event": "크라우드스트라이크의 전액 주식 인수(지스케일러 1주당 크라우드스트라이크 1.135주, 약 439억 달러)를 위한 주주총회·규제 승인 예정",
+      "kind": "MA",
+      "name": "지스케일러",
+      "note": "발표일은 미국 11/23. 창업자 측(지분 약 34%)이 찬성 의결 약정을 맺었습니다.",
+      "source": "SEC 공시(CrowdStrike 8-K)",
+      "ticker": "ZS",
+      "time": "",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001535527/000110465926130785/tm2630454d1_ex99-1.htm",
+      "us": "크라우드스트라이크 2028 회계연도 하반기 완료 예상"
+    }
+  ],
+  "updatedAt": "2026-11-24T23:20:00Z"
+}

@@ -1,1 +1,55 @@
-{"caveats":"3분기 실적 발표일·컨센서스는 회사 공지로 다시 확인이 필요합니다(실적 달력 기준 미국 12/3 장전). 공개 기사·공시에서 확인한 단서만 모았고, 컨센서스와 비교한 실제 결과는 발표 전까지 알 수 없습니다. 주가는 실적 외에 시장 분위기(AI·기술주 흔들림)에도 크게 좌우됩니다. 투자 권유가 아닙니다.","name":"크로거","nextEarnings":{"estimate":"공개 자료를 찾지 못함(연간 조정 주당이익 전망 5.10~5.30달러)","kst":"12/3(목) 밤(미국 장 시작 전 발표)","us":"12/3(목) 장전, 2026년 3분기"},"signals":[{"category":"회사 월간 지표","date":"2026-09-11","direction":"부정","finding":"2분기 기존점 매출(연료 제외) +0.2%로 전년(+3.4%)보다 크게 둔화, 연간 전망을 1.0~2.0%에서 0.2~0.8%로 낮췄습니다. 조정 주당이익 1.09달러는 예상(1.06달러)을 넘었습니다.","source":"Finviz","url":"https://finviz.com/news/391161/kroger-cuts-full-year-sales-guidance-as-q2-adjusted-eps-reaches-109"},{"category":"매장 방문·점유율","date":"2026-09-08","direction":"중립","finding":"2분기 매장 방문 +0.5%(5분기 연속 증가)지만 전년 +1.7%보다 둔화, 8월에는 동일 매장 방문이 다소 약해졌습니다. 9~10월 자료는 공개되지 않았습니다.","source":"Placer.ai","url":"https://www.placer.ai/anchor/articles/kroger-extends-its-traffic-winning-streak-in-q2-2026"},{"category":"업계 통계","date":"2026-11-19","direction":"부정","finding":"월마트 미국 8~10월 기존점 매출 +2.9%, 식료품은 한 자릿수 중반 성장으로 점유율을 늘렸다고 밝혔습니다. 경쟁사의 점유율 확대는 크로거에 부담입니다.","source":"The Shelby Report","url":"https://theshelbyreport.com/2026/11/19/walmart-u-s-comps-rise-2-9-in-q3-as-e-commerce-grows-23/"},{"category":"업계 통계","date":"2026-10-13","direction":"부정","finding":"경쟁사 앨버트슨스는 6~9월 기존점 매출 -0.8%, 조정 순이익 감소(배송비·재고 손실 증가).","source":"Idaho News","url":"https://idahonews.com/news/local/albertsons-reports-lower-quarterly-profit-as-identical-sales-decline"},{"category":"애널리스트 전망·이익 구조","date":"2026-09-11","direction":"긍정","finding":"연간 조정 주당이익 5.10~5.30달러 전망 유지, 분기 중 10억 달러 자사주 매입, 배당 11% 인상.","source":"Finviz","url":"https://finviz.com/news/391161/kroger-cuts-full-year-sales-guidance-as-q2-adjusted-eps-reaches-109"}],"summary":"크로거는 9월에 연간 기존점 매출 전망을 0.2~0.8%로 낮췄고, 경쟁사 앨버트슨스도 기존점 매출이 줄었습니다. 반면 월마트는 식료품에서 점유율을 늘리고 있어 경쟁 압박이 큽니다. 이익 전망은 유지했고 자사주 매입이 주당이익을 받치고 있습니다.","ticker":"KR","updatedAt":"2026-11-24T17:55:00Z","verdict":"부정 우세(약한 매출, 이익은 방어)"}
+{
+  "caveats": "3분기 실적 발표일·컨센서스는 회사 공지로 다시 확인이 필요합니다(실적 달력 기준 미국 12/3 장전). 공개 기사·공시에서 확인한 단서만 모았고, 컨센서스와 비교한 실제 결과는 발표 전까지 알 수 없습니다. 주가는 실적 외에 시장 분위기(AI·기술주 흔들림)에도 크게 좌우됩니다. 투자 권유가 아닙니다.",
+  "name": "크로거",
+  "nextEarnings": {
+    "estimate": "공개 자료를 찾지 못함(연간 조정 주당이익 전망 5.10~5.30달러)",
+    "kst": "12/3(목) 밤(미국 장 시작 전 발표)",
+    "us": "12/3(목) 장전, 2026년 3분기"
+  },
+  "signals": [
+    {
+      "category": "회사 월간 지표",
+      "date": "2026-09-11",
+      "direction": "부정",
+      "finding": "2분기 기존점 매출(연료 제외) +0.2%로 전년(+3.4%)보다 크게 둔화, 연간 전망을 1.0~2.0%에서 0.2~0.8%로 낮췄습니다. 조정 주당이익 1.09달러는 예상(1.06달러)을 넘었습니다.",
+      "source": "Finviz",
+      "url": "https://finviz.com/news/391161/kroger-cuts-full-year-sales-guidance-as-q2-adjusted-eps-reaches-109"
+    },
+    {
+      "category": "매장 방문·점유율",
+      "date": "2026-09-08",
+      "direction": "중립",
+      "finding": "2분기 매장 방문 +0.5%(5분기 연속 증가)지만 전년 +1.7%보다 둔화, 8월에는 동일 매장 방문이 다소 약해졌습니다. 9~10월 자료는 공개되지 않았습니다.",
+      "source": "Placer.ai",
+      "url": "https://www.placer.ai/anchor/articles/kroger-extends-its-traffic-winning-streak-in-q2-2026"
+    },
+    {
+      "category": "업계 통계",
+      "date": "2026-11-19",
+      "direction": "부정",
+      "finding": "월마트 미국 8~10월 기존점 매출 +2.9%, 식료품은 한 자릿수 중반 성장으로 점유율을 늘렸다고 밝혔습니다. 경쟁사의 점유율 확대는 크로거에 부담입니다.",
+      "source": "The Shelby Report",
+      "url": "https://theshelbyreport.com/2026/11/19/walmart-u-s-comps-rise-2-9-in-q3-as-e-commerce-grows-23/"
+    },
+    {
+      "category": "업계 통계",
+      "date": "2026-10-13",
+      "direction": "부정",
+      "finding": "경쟁사 앨버트슨스는 6~9월 기존점 매출 -0.8%, 조정 순이익 감소(배송비·재고 손실 증가).",
+      "source": "Idaho News",
+      "url": "https://idahonews.com/news/local/albertsons-reports-lower-quarterly-profit-as-identical-sales-decline"
+    },
+    {
+      "category": "애널리스트 전망·이익 구조",
+      "date": "2026-09-11",
+      "direction": "긍정",
+      "finding": "연간 조정 주당이익 5.10~5.30달러 전망 유지, 분기 중 10억 달러 자사주 매입, 배당 11% 인상.",
+      "source": "Finviz",
+      "url": "https://finviz.com/news/391161/kroger-cuts-full-year-sales-guidance-as-q2-adjusted-eps-reaches-109"
+    }
+  ],
+  "summary": "크로거는 9월에 연간 기존점 매출 전망을 0.2~0.8%로 낮췄고, 경쟁사 앨버트슨스도 기존점 매출이 줄었습니다. 반면 월마트는 식료품에서 점유율을 늘리고 있어 경쟁 압박이 큽니다. 이익 전망은 유지했고 자사주 매입이 주당이익을 받치고 있습니다.",
+  "ticker": "KR",
+  "updatedAt": "2026-11-24T17:55:00Z",
+  "verdict": "부정 우세(약한 매출, 이익은 방어)"
+}
