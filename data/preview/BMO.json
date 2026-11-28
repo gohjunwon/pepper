@@ -1,7 +1,7 @@
 {
  "ticker": "BMO",
  "name": "Bank Of Montreal",
- "updatedAt": "2026-11-28T08:35:35Z",
+ "updatedAt": "2026-11-28T08:43:19Z",
  "nextEarnings": {
   "kst": "12/2(수) 밤",
   "us": "12/2 장 시작 전",
@@ -46,15 +46,7 @@
    "category": "최근 뉴스",
    "direction": "중립",
    "date": "11/26",
-   "finding": "Fluence Energy (FLNC) Stock Fair Value Moves Lower After Analyst Cuts On Execution Risk",
-   "source": "Simply Wall St. · 자동 번역",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/fluence-energy-flnc-stock-fair-111024244.html"
-  },
-  {
-   "category": "최근 뉴스",
-   "direction": "중립",
-   "date": "11/26",
-   "finding": "All of Canada’s Big Six Banks Now See December Rate Hike",
+   "finding": "캐나다의 모든 Big 6 은행은 이제 12월 금리 인상을 확인합니다.",
    "source": "Bloomberg · 자동 번역",
    "url": "https://finance.yahoo.com/economy/policy/articles/canada-big-six-banks-now-110000544.html"
   },
@@ -62,9 +54,17 @@
    "category": "최근 뉴스",
    "direction": "중립",
    "date": "11/26",
-   "finding": "BMO cuts Abercrombie & Fitch rating after post-earnings rally, lifts target",
+   "finding": "BMO, 실적 개선 후 Abercrombie & Fitch 등급 인하, 목표 상향",
    "source": "Investing.com · 자동 번역",
    "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-cuts-abercrombie-fitch-rating-155329116.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/25",
+   "finding": "BMO는 최고의 인터랙티브 엔터테인먼트 선택을 강조합니다.",
+   "source": "Investing.com · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-highlights-top-interactive-entertainment-201103806.html"
   }
  ],
  "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."

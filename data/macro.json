@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-28T08:35:35Z",
+ "updatedAt": "2026-11-28T08:43:19Z",
  "items": [
   {
    "date": "",
@@ -7,7 +7,7 @@
    "title": "오늘 시장 흐름",
    "time": "",
    "us": "",
-   "detail": "Wall Street ends higher as battered AI stocks gain in volatile week",
+   "detail": "월스트리트는 변동성이 큰 주에 타격을 입은 AI 주식이 상승함에 따라 상승 마감했습니다.",
    "source": "Yahoo Finance · 자동 번역",
    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUWJJc3ROZk0wcEN4cGlsTjNfUmVCcmh6bnZrNXkzVjAwdVMwOC1ZQUM2bUVUMHBSbGVSdEFqNTFIUC1XM3lfYTdaUFNUNWhUdlhVVjNCMEJmaG1LaEEwRDF2TndBbk9fTkRucTJPYkhza0hEMk5tWmV1MHI4YUZ2Z3lIOW01dFJ2SGJHSFJSSUR1ZU9wMThUbDlhNXA?oc=5"
   },
@@ -17,7 +17,7 @@
    "title": "오늘 시장 흐름",
    "time": "",
    "us": "",
-   "detail": "Wall St Week Ahead Volatile stock market confronts jobs data, rate view as next tests",
+   "detail": "월스트리트 주간 변동성 주식 시장은 고용 데이터, 다음 테스트로 금리 전망에 직면",
    "source": "Reuters · 자동 번역",
    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQWRTQ0tlUW54X0tjS2R6bWdzblVkUnZ5VnBCa2NjWkd5Q2xIWUh0MUFWVW4weVlRTTBpbDhFWTFsbmYwc2NqOERDdGxTZmpHTzdHRVk2b2o5U0RZYm1WMXZhaEJMRXFrQmxKaUViQXNNdE1XZ3RTT05VbmxqX3BYOXNONGFkMVFTU1VLVVRjTzdfUTloYnhJaVpsWS1YMV9FVGlmeUdYRmk0clkzM3FhQjZuUnRfYXdZRnVHdTE2Smo1V2M?oc=5"
   },
@@ -27,39 +27,9 @@
    "title": "오늘 시장 흐름",
    "time": "",
    "us": "",
-   "detail": "Stock Market Today, Nov. 27: Anthropic Jumps 11%, Reclaiming Its $83 IPO Price as Wall Street Rallies",
+   "detail": "오늘, 11월 27일 주식 시장: Anthropic은 11% 상승하고 월스트리트 랠리로 IPO 가격 83달러를 되찾았습니다.",
    "source": "The Motley Fool · 자동 번역",
    "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORWJEcWhQS3hJNmxCdGYyRjBCSnR0aG5oajhVc0QwdmxvY0NGWlpHYlExSFQwaDJmY21DdUR6NTFIT0thY0RWQUFib3NZNHBFekZEcDNTZlU4RC1wVGV5dVVKZklUOVpQNi1OdXM3UzFyWnpxU1MyTFJOLWU5SXo4WXJHYW1qVXpOd3piZ0dCd3JIaExJeWpzTG53WkR4bktWdUVxcjJYMndKenZlZVJ6bVN6NEcyVF9fRm5Cd20zcGN3a2toZWhCd0dwemN3N2xLZVZGNmlUX1NLZVhreUs4QUhSMHo3dDlJQ2Q2Y0VYRkw?oc=5"
-  },
-  {
-   "date": "2026-12-03",
-   "kind": "ECO",
-   "title": "ISM 제조업 지수",
-   "time": "한국 12/3 새벽 12:00",
-   "us": "12/2 오전 10:00(동부)",
-   "detail": "예상치  , 이전 52.4.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
-   "date": "2026-12-03",
-   "kind": "ECO",
-   "title": "구인 건수(JOLTS)",
-   "time": "한국 12/3 새벽 12:00",
-   "us": "12/2 오전 10:00(동부)",
-   "detail": "예상치  , 이전 7.523M.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
-   "date": "2026-12-03",
-   "kind": "ECO",
-   "title": "국내총생산(GDP)",
-   "time": "한국 12/3 새벽 1:30",
-   "us": "12/2 오전 11:30(동부)",
-   "detail": "예상치 2.9%, 이전 2.9%.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },
   {
    "date": "2026-12-04",
@@ -67,7 +37,7 @@
    "title": "신규 실업수당 청구",
    "time": "한국 12/4 밤 10:30",
    "us": "12/4 오전 08:30(동부)",
-   "detail": "예상치  , 이전 189K.",
+   "detail": "예상치 -, 이전 189K.",
    "source": "Nasdaq 경제 일정",
    "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },
@@ -75,19 +45,9 @@
    "date": "2026-12-05",
    "kind": "ECO",
    "title": "ISM 서비스업 지수",
-   "time": "한국 12/5 새벽 12:00",
+   "time": "한국 12/5 새벽 0:00",
    "us": "12/4 오전 10:00(동부)",
-   "detail": "예상치  , 이전 53.8.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
-   "date": "2026-12-10",
-   "kind": "ECO",
-   "title": "국내총생산(GDP)",
-   "time": "한국 12/10 새벽 1:30",
-   "us": "12/9 오전 11:30(동부)",
-   "detail": "예상치  , 이전 &nbsp;.",
+   "detail": "예상치 54.5, 이전 54.5.",
    "source": "Nasdaq 경제 일정",
    "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },
@@ -102,42 +62,12 @@
    "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
   },
   {
-   "date": "2026-12-11",
-   "kind": "ECO",
-   "title": "기존 주택 판매",
-   "time": "한국 12/11 새벽 12:00",
-   "us": "12/10 오전 10:00(동부)",
-   "detail": "예상치  , 이전 3.75M.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
-   "date": "2026-12-11",
-   "kind": "ECO",
-   "title": "국내총생산(GDP)",
-   "time": "한국 12/11 새벽 1:30",
-   "us": "12/10 오전 11:30(동부)",
-   "detail": "예상치  , 이전 &nbsp;.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
-   "date": "2026-12-11",
-   "kind": "ECO",
-   "title": "소비자물가(CPI)",
-   "time": "한국 12/11 밤 10:30",
-   "us": "12/11 오전 08:30(동부)",
-   "detail": "물가 흐름을 보여 주며 금리 전망에 큰 영향을 줍니다. 예상치  , 이전 0.3%.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
    "date": "2026-12-16",
    "kind": "ECO",
    "title": "생산자물가(PPI)",
    "time": "한국 12/16 밤 10:30",
    "us": "12/16 오전 08:30(동부)",
-   "detail": "예상치  , 이전 5.0%.",
+   "detail": "예상치 -, 이전 5.0%.",
    "source": "Nasdaq 경제 일정",
    "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },
@@ -147,17 +77,7 @@
    "title": "소매판매",
    "time": "한국 12/17 밤 10:30",
    "us": "12/17 오전 08:30(동부)",
-   "detail": "소비 흐름을 보여 줍니다. 예상치  , 이전 0.6%.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
-   "date": "2026-12-18",
-   "kind": "ECO",
-   "title": "국내총생산(GDP)",
-   "time": "한국 12/18 새벽 1:30",
-   "us": "12/17 오전 11:30(동부)",
-   "detail": "예상치  , 이전 &nbsp;.",
+   "detail": "소비 흐름을 보여 줍니다. 예상치 -, 이전 0.6%.",
    "source": "Nasdaq 경제 일정",
    "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },
@@ -167,17 +87,7 @@
    "title": "주택 착공",
    "time": "한국 12/18 밤 10:30",
    "us": "12/18 오전 08:30(동부)",
-   "detail": "예상치  , 이전 9.9%.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
-  },
-  {
-   "date": "2026-12-19",
-   "kind": "ECO",
-   "title": "국내총생산(GDP)",
-   "time": "한국 12/19 새벽 12:00",
-   "us": "12/18 오전 10:00(동부)",
-   "detail": "예상치  , 이전 &nbsp;.",
+   "detail": "예상치 -, 이전 9.9%.",
    "source": "Nasdaq 경제 일정",
    "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },
@@ -190,16 +100,6 @@
    "detail": "미국 오후 1시(한국 새벽 3시)에 장을 닫습니다.",
    "source": "NYSE",
    "url": "https://www.nyse.com/markets/hours-calendars"
-  },
-  {
-   "date": "2026-12-25",
-   "kind": "ECO",
-   "title": "국내총생산(GDP)",
-   "time": "한국 12/25 새벽 1:30",
-   "us": "12/24 오전 11:30(동부)",
-   "detail": "예상치  , 이전 &nbsp;.",
-   "source": "Nasdaq 경제 일정",
-   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },
   {
    "date": "2026-12-25",

@@ -1,14 +1,14 @@
 {
  "ticker": "RY",
  "name": "Royal Bank Of",
- "updatedAt": "2026-11-28T08:35:35Z",
+ "updatedAt": "2026-11-28T08:43:19Z",
  "nextEarnings": {
   "kst": "12/3(목) 밤",
   "us": "12/3 장 시작 전",
   "estimate": "2.94"
  },
  "verdict": "긍정 단서 우세",
- "summary": "자동으로 모은 숫자 단서 7개 중 긍정 5개, 부정 0개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
+ "summary": "자동으로 모은 숫자 단서 7개 중 긍정 4개, 부정 0개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
  "signals": [
   {
    "category": "애널리스트 전망 변화",
@@ -44,27 +44,27 @@
   },
   {
    "category": "최근 뉴스",
-   "direction": "긍정",
-   "date": "11/28",
-   "finding": "Royal Bank Scaling Through Inorganic Efforts: Will It Drive Growth?",
-   "source": "Zacks · 자동 번역",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/royal-bank-scaling-inorganic-efforts-161800084.html"
-  },
-  {
-   "category": "최근 뉴스",
-   "direction": "중립",
-   "date": "11/27",
-   "finding": "Canadian banks have little room to miss, Bank of America warns",
-   "source": "Proactive · 자동 번역",
-   "url": "https://www.proactiveinvestors.com/companies/news/1102539/canadian-banks-have-little-room-to-miss-bank-of-america-warns-1102539.html"
-  },
-  {
-   "category": "최근 뉴스",
    "direction": "중립",
    "date": "11/26",
-   "finding": "Royal Bank (RY) Earnings Expected to Grow: What to Know Ahead of Next Week's Release",
+   "finding": "증가할 것으로 예상되는 Royal Bank(RY) 수익: 다음 주 발표에 앞서 알아야 할 사항",
    "source": "Zacks · 자동 번역",
    "url": "https://finance.yahoo.com/markets/stocks/articles/royal-bank-ry-earnings-expected-140005592.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/15",
+   "finding": "캐나다 왕립은행(Royal Bank of Canada) 외 2개의 기타 캐나다 최고 배당주",
+   "source": "Simply Wall St. · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/royal-bank-canada-2-other-200903290.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/10",
+   "finding": "캐나다 왕립은행, Yarra Capital Management Limited 인수 계약 체결",
+   "source": "MT Newswires · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/royal-bank-canada-enters-agreement-150714772.html"
   }
  ],
  "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."

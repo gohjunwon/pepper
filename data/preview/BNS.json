@@ -1,14 +1,14 @@
 {
  "ticker": "BNS",
  "name": "Bank of Nova",
- "updatedAt": "2026-11-28T08:35:35Z",
+ "updatedAt": "2026-11-28T08:43:19Z",
  "nextEarnings": {
   "kst": "12/2(수) 밤",
   "us": "12/2 장 시작 전",
   "estimate": "1.54"
  },
- "verdict": "긍정 단서 우세",
- "summary": "자동으로 모은 숫자 단서 7개 중 긍정 3개, 부정 1개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
+ "verdict": "엇갈림",
+ "summary": "자동으로 모은 숫자 단서 7개 중 긍정 2개, 부정 1개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
  "signals": [
   {
    "category": "애널리스트 전망 변화",
@@ -44,27 +44,27 @@
   },
   {
    "category": "최근 뉴스",
-   "direction": "긍정",
-   "date": "11/27",
-   "finding": "Does Bank Of Nova Scotia (TSX:BNS) Need Madrid To Strengthen Its Global Growth Story?",
-   "source": "Simply Wall St. · 자동 번역",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/does-bank-nova-scotia-tsx-131033614.html"
-  },
-  {
-   "category": "최근 뉴스",
    "direction": "중립",
    "date": "11/27",
-   "finding": "Canadian banks have little room to miss, Bank of America warns",
+   "finding": "캐나다 은행들은 놓칠 여지가 거의 없다고 Bank of America는 경고합니다.",
    "source": "Proactive · 자동 번역",
    "url": "https://www.proactiveinvestors.com/companies/news/1102539/canadian-banks-have-little-room-to-miss-bank-of-america-warns-1102539.html"
   },
   {
    "category": "최근 뉴스",
    "direction": "중립",
-   "date": "11/24",
-   "finding": "Did AI Credit Tool Rollout Just Shift Scotiabank's (TSX:BNS) Investment Narrative?",
+   "date": "11/21",
+   "finding": "Bank of Nova Scotia (TSX:BNS), 투자자들이 저평가된 이야기를 평가함에 따라 집단 소송에 직면",
    "source": "Simply Wall St. · 자동 번역",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/did-ai-credit-tool-rollout-111103922.html"
+   "url": "https://finance.yahoo.com/markets/stocks/articles/bank-nova-scotia-tsx-bns-091239990.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/21",
+   "finding": "Bank of Nova Scotia (TSX:BNS) 고문 급여에 대한 집단 소송이 이제 인증되었습니다",
+   "source": "Simply Wall St. · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/bank-nova-scotia-tsx-bns-081018597.html"
   }
  ],
  "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."

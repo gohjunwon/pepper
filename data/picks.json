@@ -1,17 +1,38 @@
 {
- "updatedAt": "2026-11-28T08:35:35Z",
- "today": [],
- "upcoming": [
+ "updatedAt": "2026-11-28T08:43:19Z",
+ "today": [
   {
-   "ticker": "MRVL",
-   "name": "마벨 테크놀로지",
+   "ticker": "ACN",
+   "name": "Accenture",
    "level": "보통",
-   "catalyst": "실적 발표 2026-12-01",
-   "thesis": "애널리스트 전망·과거 실적 기록 등 숫자 단서가 긍정 쪽으로 기울어 있습니다(실적 미리보기 참고).",
-   "risk": "기대가 이미 높으면 좋은 실적에도 주가가 내릴 수 있습니다.",
-   "source": "실적 미리보기",
-   "url": ""
+   "catalyst": "오늘 장 (+7.7% (시간외))",
+   "thesis": "ETF는 수요일에 Accenture (ACN)의 순 매도자입니다. ETF는 11월 수요일에 Accenture를 2,090만 달러 순매도했습니다. (기사 11/27 20:03 한국 시각)",
+   "risk": "단발성 소식이면 상승이 오래가지 않을 수 있습니다.",
+   "source": "GuruFocus.com · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-accenture-acn-110302708.html"
   },
+  {
+   "ticker": "TPL",
+   "name": "Texas Pacific Land",
+   "level": "보통",
+   "catalyst": "오늘 장 (+5.5% (시간외))",
+   "thesis": "TPL(Texas Pacific Land) 주식은 5년 동안 107% 상승해 비싸 보입니다. Texas Pacific Land는 다년간의 강력한 운영 이후 최근 몇 달 동안 주가가 하락하는 것을 보았으며, 이는 현재 가치 평가가 여전히 수익력에 의해 뒷받침되는지에 대한 새로운 주목을 받고 있습니다. (기사 11/27 16:08 한국 시각)",
+   "risk": "실적 발표 직후 급등은 며칠 안에 되돌려지는 경우가 많습니다.",
+   "source": "Simply Wall St. · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/texas-pacific-land-tpl-stock-070820383.html"
+  },
+  {
+   "ticker": "VERA",
+   "name": "Vera Therapeutics",
+   "level": "고위험",
+   "catalyst": "오늘 장 (+0.3% (시간외))",
+   "thesis": "라이벌 IgA 신장병 약물에 대한 FDA 지연으로 Vera Therapeutics(NASDAQ:VERA)가 오늘 시판 전 가격이 15% 상승했습니다. (기사 11/27 23:19 한국 시각)",
+   "risk": "승인 소식은 이미 주가에 반영됐을 수 있고, 출시·판매 속도가 기대보다 느릴 수 있습니다.",
+   "source": "kalkine.ca · 자동 번역",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQNDU3M290XzN6SzFFLVJjUU44bS1GeDNPb1pseWw2Tmp3YUZ2cFJGajZGMGhsWm8xbmJZS0JpOXE5c0NzMTVTV1NaWUU1SDdrZHU1eFlvQU1OQ3d5ZXZGSHNnUEpzLTcwYVJyN2xnaTdYaWhyMVlzcExIU19xdk5BcFlVbGI5YkhfdkpTRE1LLVU2RkI1Vi1FZE5TemluWFV2RWdiRnk1TGR4QXRjYVJlWjVhc0tJUjYzbnp2Nmo2S3NTcWF0dTlwaTg0WFlRcm1R?oc=5"
+  }
+ ],
+ "upcoming": [
   {
    "ticker": "CRM",
    "name": "세일즈포스",
@@ -33,8 +54,8 @@
    "url": ""
   },
   {
-   "ticker": "BNS",
-   "name": "Bank of Nova",
+   "ticker": "SNOW",
+   "name": "스노우플레이크",
    "level": "보통",
    "catalyst": "실적 발표 2026-12-02",
    "thesis": "애널리스트 전망·과거 실적 기록 등 숫자 단서가 긍정 쪽으로 기울어 있습니다(실적 미리보기 참고).",
@@ -43,10 +64,20 @@
    "url": ""
   },
   {
-   "ticker": "SNOW",
-   "name": "스노우플레이크",
+   "ticker": "RY",
+   "name": "Royal Bank Of",
    "level": "보통",
-   "catalyst": "실적 발표 2026-12-02",
+   "catalyst": "실적 발표 2026-12-03",
+   "thesis": "애널리스트 전망·과거 실적 기록 등 숫자 단서가 긍정 쪽으로 기울어 있습니다(실적 미리보기 참고).",
+   "risk": "기대가 이미 높으면 좋은 실적에도 주가가 내릴 수 있습니다.",
+   "source": "실적 미리보기",
+   "url": ""
+  },
+  {
+   "ticker": "TD",
+   "name": "Toronto Dominion Bank",
+   "level": "보통",
+   "catalyst": "실적 발표 2026-12-03",
    "thesis": "애널리스트 전망·과거 실적 기록 등 숫자 단서가 긍정 쪽으로 기울어 있습니다(실적 미리보기 참고).",
    "risk": "기대가 이미 높으면 좋은 실적에도 주가가 내릴 수 있습니다.",
    "source": "실적 미리보기",

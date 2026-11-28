@@ -1,14 +1,14 @@
 {
  "ticker": "CRM",
  "name": "세일즈포스",
- "updatedAt": "2026-11-28T08:35:35Z",
+ "updatedAt": "2026-11-28T08:43:19Z",
  "nextEarnings": {
   "kst": "12/3(목) 아침 6시 이후",
   "us": "12/2 장 마감 후",
   "estimate": "2.41"
  },
  "verdict": "긍정 단서 우세",
- "summary": "자동으로 모은 숫자 단서 7개 중 긍정 2개, 부정 0개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
+ "summary": "자동으로 모은 숫자 단서 5개 중 긍정 2개, 부정 0개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
  "signals": [
   {
    "category": "애널리스트 전망 변화",
@@ -45,26 +45,10 @@
   {
    "category": "최근 뉴스",
    "direction": "중립",
-   "date": "11/28",
-   "finding": "Dow Jones Futures: Stock Market Makes Bullish Move, Tesla Leads 7 New Buys; Nvidia's Jensen Huang Heads To Capitol Hill",
+   "date": "11/27",
+   "finding": "Salesforce, Snowflake, 4개의 보안 소프트웨어 리더가 기술 수익의 헤드라인을 장식했습니다.",
    "source": "Investor's Business Daily · 자동 번역",
-   "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-bullish-move-tesla-new-buys-nvidia-ceo-jensen-huang-congress/?src=A00220&yptr=yahoo"
-  },
-  {
-   "category": "최근 뉴스",
-   "direction": "중립",
-   "date": "11/28",
-   "finding": "Amazon Stock Gets Black Friday Boost As Analysts Size Up Holiday Spending",
-   "source": "Investor's Business Daily · 자동 번역",
-   "url": "https://www.investors.com/news/technology/amazon-stock-black-friday-deals-ecommerce-stocks-to-watch/?src=A00220&yptr=yahoo"
-  },
-  {
-   "category": "최근 뉴스",
-   "direction": "중립",
-   "date": "11/28",
-   "finding": "EverCommerce (EVCM) Stock Is Up 9.1% Today Without Company News",
-   "source": "GuruFocus.com · 자동 번역",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/evercommerce-evcm-stock-9-1-153018146.html"
+   "url": "https://www.investors.com/research/earnings-preview/salesforce-stock-snowflake-earnings-okta-earnings-rubrik-earnings/?src=A00220&yptr=yahoo"
   }
  ],
  "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."

@@ -1,7 +1,7 @@
 {
  "ticker": "AZO",
  "name": "AutoZone",
- "updatedAt": "2026-11-28T08:35:35Z",
+ "updatedAt": "2026-11-28T08:43:19Z",
  "nextEarnings": {
   "kst": "12/8(화) 밤",
   "us": "12/8 장 시작 전",
@@ -46,25 +46,25 @@
    "category": "최근 뉴스",
    "direction": "중립",
    "date": "11/27",
-   "finding": "AutoZone, Inc. (AZO) is Attracting Investor Attention: Here is What You Should Know",
+   "finding": "AutoZone, Inc.(AZO)가 투자자의 관심을 끌고 있습니다: 알아야 할 사항은 다음과 같습니다.",
    "source": "Zacks · 자동 번역",
    "url": "https://finance.yahoo.com/markets/stocks/articles/autozone-inc-azo-attracting-investor-130003387.html"
   },
   {
    "category": "최근 뉴스",
    "direction": "중립",
-   "date": "11/27",
-   "finding": "Do Wall Street Analysts Like AutoZone Stock?",
-   "source": "Barchart · 자동 번역",
-   "url": "https://www.barchart.com/story/news/9023078/do-wall-street-analysts-like-autozone-stock"
+   "date": "11/25",
+   "finding": "시장 하락으로 AutoZone(AZO) 상승: 알아야 할 사항",
+   "source": "Zacks · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/autozone-azo-gains-market-dips-215002412.html"
   },
   {
    "category": "최근 뉴스",
    "direction": "중립",
-   "date": "11/25",
-   "finding": "5 Sleeper Blue-Chip Stock Picks for Steady Long-Term Gains",
-   "source": "Kiplinger · 자동 번역",
-   "url": "https://www.kiplinger.com/investing/blue-chip-stocks/sleeper-blue-chip-stock-picks-for-steady-long-term-gains"
+   "date": "11/18",
+   "finding": "ETF는 월요일에 1억 6680만 달러 규모의 AutoZone(AZO)을 매입했습니다.",
+   "source": "GuruFocus.com · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-bought-166-8-million-110148655.html"
   }
  ],
  "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."

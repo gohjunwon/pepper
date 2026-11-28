@@ -1,16 +1,25 @@
 {
  "session": "미국 11/30(월) 장 = 한국 11/30 밤 11:30 ~ 12/1 아침 6:00",
- "updatedAt": "2026-11-28T08:35:35Z",
+ "updatedAt": "2026-11-28T08:43:19Z",
  "note": "장 시작 전 기준 자동 수집 · 등락률 옆 괄호는 장전·장중·시간외 구분 · 기사 제목·요약은 자동 번역이라 어색할 수 있습니다 · 급등했어도 관련 기사가 확인되지 않은 종목은 넣지 않습니다",
  "items": [
   {
    "ticker": "VERA",
    "name": "Vera Therapeutics",
-   "move": "",
+   "move": "+0.3% (시간외)",
    "kind": "FDA",
-   "reason": "Review Delay May Give Vera Therapeutics Stock More Time To Build TRUTAKNA Share. The FDA recently extended the review of Vertex Pharmaceuticals' IgA nephropathy drug povetacicept by three months after classifying a filing as a major amendment, which delays a final decision until February 28, 2027. (기사 11/28 04:10 한국 시각)",
+   "reason": "라이벌 IgA 신장병 약물에 대한 FDA 지연으로 Vera Therapeutics(NASDAQ:VERA)가 오늘 시판 전 가격이 15% 상승했습니다. (기사 11/27 23:19 한국 시각)",
+   "source": "kalkine.ca · 자동 번역",
+   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQNDU3M290XzN6SzFFLVJjUU44bS1GeDNPb1pseWw2Tmp3YUZ2cFJGajZGMGhsWm8xbmJZS0JpOXE5c0NzMTVTV1NaWUU1SDdrZHU1eFlvQU1OQ3d5ZXZGSHNnUEpzLTcwYVJyN2xnaTdYaWhyMVlzcExIU19xdk5BcFlVbGI5YkhfdkpTRE1LLVU2RkI1Vi1FZE5TemluWFV2RWdiRnk1TGR4QXRjYVJlWjVhc0tJUjYzbnp2Nmo2S3NTcWF0dTlwaTg0WFlRcm1R?oc=5"
+  },
+  {
+   "ticker": "TPL",
+   "name": "Texas Pacific Land",
+   "move": "+5.5% (시간외)",
+   "kind": "ER",
+   "reason": "TPL(Texas Pacific Land) 주식은 5년 동안 107% 상승해 비싸 보입니다. Texas Pacific Land는 다년간의 강력한 운영 이후 최근 몇 달 동안 주가가 하락하는 것을 보았으며, 이는 현재 가치 평가가 여전히 수익력에 의해 뒷받침되는지에 대한 새로운 주목을 받고 있습니다. (기사 11/27 16:08 한국 시각)",
    "source": "Simply Wall St. · 자동 번역",
-   "url": "https://finance.yahoo.com/healthcare/articles/review-delay-may-vera-therapeutics-191018983.html"
+   "url": "https://finance.yahoo.com/markets/stocks/articles/texas-pacific-land-tpl-stock-070820383.html"
   },
   {
    "ticker": "BTSG",
@@ -42,7 +51,7 @@
   {
    "ticker": "TSM",
    "name": "TSM",
-   "move": "",
+   "move": "-0.1% (시간외)",
    "kind": "ER",
    "reason": "Stanley Druckenmiller, David Tepper and 5 Other Famous Investors Own Taiwan Semiconductor. Here’s Who Sold Recently. Key TakeawaysSeven famous investors held Taiwan Semiconductor on Sept. (기사 11/28 03:28 한국 시각)",
    "source": "TIKR · 자동 번역",
@@ -101,6 +110,15 @@
    "reason": "Wall Street Zen Upgrades BJ's Wholesale Club (NYSE:BJ) to \"Strong-Buy\". (기사 11/28 15:14 한국 시각)",
    "source": "MarketBeat · 자동 번역",
    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNSXd3cjdsYWhNSlVHZGNaaWNYUF9sMjhBRm8zcjVjaVpST0JGVDRGNW1FVl9YOG50MXZhazlLdDRwU2ZTZ3pRQTBIb2NwTDRSQTlMclRuVDVzY2FVbEsxTWxCSFMxM2VKNDYzNUVXOWZseXNoTVIyWktabEhkVnM0RHZ4eVY0WWdscG5uUVkwTUs2VDdTVFp1Q2UyUm4tQkl1ZUhwZVZudDFDb2ZRR25nX25yMXp5M3Rob0g3WHBweG03UmpzUnc?oc=5"
+  },
+  {
+   "ticker": "ACN",
+   "name": "Accenture",
+   "move": "+7.7% (시간외)",
+   "kind": "EV",
+   "reason": "ETF는 수요일에 Accenture (ACN)의 순 매도자입니다. ETF는 11월 수요일에 Accenture를 2,090만 달러 순매도했습니다. (기사 11/27 20:03 한국 시각)",
+   "source": "GuruFocus.com · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-accenture-acn-110302708.html"
   },
   {
    "ticker": "CHDN",
