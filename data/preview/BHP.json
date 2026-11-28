@@ -1,0 +1,47 @@
+{
+ "ticker": "BHP",
+ "name": "BHP",
+ "updatedAt": "2026-11-28T08:35:35Z",
+ "nextEarnings": {
+  "kst": "12/1(화) (시각 미정)",
+  "us": "12/1 ",
+  "estimate": "nan"
+ },
+ "verdict": "엇갈림",
+ "summary": "자동으로 모은 숫자 단서 4개 중 긍정 0개, 부정 1개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
+ "signals": [
+  {
+   "category": "애널리스트 전망 변화",
+   "direction": "중립",
+   "date": "최근 90일",
+   "finding": "이번 분기 주당순이익(EPS) 예상치가 90일 전 nan달러에서 지금 nan달러로 +nan% 바뀌었습니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/BHP/analysis"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "부정",
+   "date": "11/27",
+   "finding": "HubSpot, AST SpaceMobile downgraded: Wall Street's top analyst calls",
+   "source": "The Fly · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/hubspot-ast-spacemobile-downgraded-wall-143518350.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/26",
+   "finding": "Montero Mining receives BHP historical drilling database for Avispa",
+   "source": "Proactive · 자동 번역",
+   "url": "https://www.proactiveinvestors.com/companies/news/1102527/montero-mining-receives-bhp-historical-drilling-database-for-avispa-1102527.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/26",
+   "finding": "Montero Mining receives BHP historical drilling database for Avispa",
+   "source": "Proactive · 자동 번역",
+   "url": "https://www.proactiveinvestors.com/companies/news/1102527/montero-mining-receives-bhp-historical-drilling-database-for-avispa-1102527.html"
+  }
+ ],
+ "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."
+}

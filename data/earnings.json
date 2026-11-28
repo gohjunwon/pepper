@@ -1,0 +1,2238 @@
+{
+ "updatedAt": "2026-11-28T08:35:35Z",
+ "rows": [
+  {
+   "symbol": "RBRK",
+   "name": "Rubrik, Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "0.38",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CHA",
+   "name": "Chagee Holdings Limited",
+   "reportDate": "2026-11-30",
+   "estimate": "0.33",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "NNE",
+   "name": "Nano Nuclear Energy Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "0.31",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CURR",
+   "name": "Currenc Group Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AIV",
+   "name": "Apartment Investment and Management Company",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HTT",
+   "name": "High Templar Tech Limited",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "GDEV",
+   "name": "GDEV Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "1.33",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LOT",
+   "name": "Lotus Technology Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CBAT",
+   "name": "CBAK Energy Technology Limited",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HMR",
+   "name": "Heidmar Maritime Holdings Corp.",
+   "reportDate": "2026-11-30",
+   "estimate": "0.04",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CANG",
+   "name": "Cango Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "0.35",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "PXS",
+   "name": "Pyxis Tankers Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "BOSC",
+   "name": "B.O.S. Better Online Solutions",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "MOB",
+   "name": "Mobilicom Limited",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "GDC",
+   "name": "GD Culture Group Limited",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "IPST",
+   "name": "IP Strategy Holdings, Inc.",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PWRL",
+   "name": "Powerlaw Corp.",
+   "reportDate": "2026-11-30",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BHP",
+   "name": "BHP Group Limited",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MRVL",
+   "name": "Marvell Technology, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.79",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "OKTA",
+   "name": "Okta, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.43",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "NTAP",
+   "name": "NetApp, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "2.14",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CPRT",
+   "name": "Copart, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.40",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "TCOM",
+   "name": "Trip.com Group Limited",
+   "reportDate": "2026-12-01",
+   "estimate": "1.07",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "MDB",
+   "name": "MongoDB, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.08",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CRDO",
+   "name": "Credo Technology Group Holding Ltd",
+   "reportDate": "2026-12-01",
+   "estimate": "1.03",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "HQY",
+   "name": "HealthEquity, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.96",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "GTLB",
+   "name": "GitLab Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.09",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "NIO",
+   "name": "NIO Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.03",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BOX",
+   "name": "Box, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.09",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "NCNO",
+   "name": "nCino, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.16",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ASAN",
+   "name": "Asana, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.17",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "VSTS",
+   "name": "Vestis Corporation",
+   "reportDate": "2026-12-01",
+   "estimate": "0.17",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "DRVN",
+   "name": "Driven Brands Holdings Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.27",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "VLGEA",
+   "name": "Village Super Market, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "OOMA",
+   "name": "Ooma, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.21",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CTRN",
+   "name": "Citi Trends, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CRNC",
+   "name": "Cerence Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.03",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "RGCO",
+   "name": "RGC Resources Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ZENA",
+   "name": "ZenaTech, Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.18",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AVXL",
+   "name": "Anavex Life Sciences Corp.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.11",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HERE",
+   "name": "Here Group Limited",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AFJK",
+   "name": "Aimei Health Technology Co., Ltd",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "JFIN",
+   "name": "Jiayin Group Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DAVA",
+   "name": "Endava plc",
+   "reportDate": "2026-12-01",
+   "estimate": "0.03",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AMBR",
+   "name": "Amber International Holding Limited",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "EVTL",
+   "name": "Vertical Aerospace Ltd.",
+   "reportDate": "2026-12-01",
+   "estimate": "0.29",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PSHG",
+   "name": "Performance Shipping Inc.",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "YRD",
+   "name": "Yiren Digital Ltd.",
+   "reportDate": "2026-12-01",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CRM",
+   "name": "Salesforce, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "2.41",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "BMO",
+   "name": "Bank Of Montreal",
+   "reportDate": "2026-12-02",
+   "estimate": "2.69",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BNS",
+   "name": "Bank of Nova Scotia (The)",
+   "reportDate": "2026-12-02",
+   "estimate": "1.54",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "SNOW",
+   "name": "Snowflake Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.32",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "FIVE",
+   "name": "Five Below, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "1.17",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "NTSK",
+   "name": "Netskope, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.21",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "DCI",
+   "name": "Donaldson Company, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.97",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "DSGX",
+   "name": "The Descartes Systems Group Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.61",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "VFS",
+   "name": "VinFast Auto Ltd.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "M",
+   "name": "Macy's Inc",
+   "reportDate": "2026-12-02",
+   "estimate": "0.16",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "SIG",
+   "name": "Signet Jewelers Limited",
+   "reportDate": "2026-12-02",
+   "estimate": "0.84",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "AEO",
+   "name": "American Eagle Outfitters, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.49",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "KEN",
+   "name": "Kenon Holdings Ltd.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BLBD",
+   "name": "Blue Bird Corporation",
+   "reportDate": "2026-12-02",
+   "estimate": "1.33",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CBRL",
+   "name": "Cracker Barrel Old Country Store, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "AI",
+   "name": "C3.ai, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.58",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CXM",
+   "name": "Sprinklr, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.05",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "NWCL",
+   "name": "newcleo plc",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PHR",
+   "name": "Phreesia, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.13",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "YB",
+   "name": "Yuanbao Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "WDH",
+   "name": "Waterdrop Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "MEI",
+   "name": "Methode Electronics, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.32",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "UCFI",
+   "name": "CN Healthy Food Tech Group Corp.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AOUT",
+   "name": "American Outdoor Brands, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.38",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "SY",
+   "name": "So-Young International Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "TLYS",
+   "name": "Tilly's, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "0.09",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CAAS",
+   "name": "China Automotive Systems, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HNNA",
+   "name": "Hennessy Advisors, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LITB",
+   "name": "LightInTheBox Holding Co., Ltd.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AACG",
+   "name": "ATA Creativity Global",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BRLS",
+   "name": "Borealis Foods Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PTIV",
+   "name": "Pineapple Financial Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CETY",
+   "name": "Clean Energy Technologies, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CTRM",
+   "name": "Castor Maritime Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "REBN",
+   "name": "Reborn Coffee, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "EDVA",
+   "name": "Endovia Health Sciences, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BRTX",
+   "name": "BioRestorative Therapies, Inc.",
+   "reportDate": "2026-12-02",
+   "estimate": "2.60",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SRTM",
+   "name": "Stratum Holdings Corp.",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AEXA",
+   "name": "American Exceptionalism Acquisition Corp. A",
+   "reportDate": "2026-12-02",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "RY",
+   "name": "Royal Bank Of Canada",
+   "reportDate": "2026-12-03",
+   "estimate": "2.94",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "TD",
+   "name": "Toronto Dominion Bank (The)",
+   "reportDate": "2026-12-03",
+   "estimate": "1.76",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CM",
+   "name": "Canadian Imperial Bank of Commerce",
+   "reportDate": "2026-12-03",
+   "estimate": "1.72",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "VEEV",
+   "name": "Veeva Systems Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "1.68",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "KR",
+   "name": "Kroger Company (The)",
+   "reportDate": "2026-12-03",
+   "estimate": "1.17",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "DG",
+   "name": "Dollar General Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "1.40",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "ULTA",
+   "name": "Ulta Beauty, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "5.64",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "IOT",
+   "name": "Samsara Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.03",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "DOCU",
+   "name": "DocuSign, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.53",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "BF.A",
+   "name": "Brown Forman Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BF.B",
+   "name": "Brown Forman Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "0.46",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "HRL",
+   "name": "Hormel Foods Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "0.38",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "GWRE",
+   "name": "Guidewire Software, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.36",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "COO",
+   "name": "The Cooper Companies, Inc. ",
+   "reportDate": "2026-12-03",
+   "estimate": "1.07",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "S",
+   "name": "SentinelOne, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.11",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "TTAN",
+   "name": "ServiceTitan, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.20",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "VSXY",
+   "name": "Victorias Secret & Co.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.04",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "PATH",
+   "name": "UiPath, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.10",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "SAIC",
+   "name": "Science Applications International Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "2.33",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "PVH",
+   "name": "PVH Corp.",
+   "reportDate": "2026-12-03",
+   "estimate": "2.60",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "DOO",
+   "name": "BRP Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.56",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "AGX",
+   "name": "Argan, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "3.39",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "WLY",
+   "name": "John Wiley & Sons, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "1.24",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "WLYB",
+   "name": "John Wiley & Sons, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "IDT",
+   "name": "IDT Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "0.94",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "WLTH",
+   "name": "Wealthfront Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "0.09",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "HUBG",
+   "name": "Hub Group, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.26",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PD",
+   "name": "PagerDuty, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.19",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "REX",
+   "name": "REX American Resources Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "SWBI",
+   "name": "Smith & Wesson Brands, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "QUIT",
+   "name": "Achieve Life Sciences, Inc. ",
+   "reportDate": "2026-12-03",
+   "estimate": "0.19",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HOV",
+   "name": "Hovnanian Enterprises Inc",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CAL",
+   "name": "Caleres, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.60",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CSIQ",
+   "name": "Canadian Solar Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "1.05",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BBW",
+   "name": "Build-A-Bear Workshop, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.42",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "GCO",
+   "name": "Genesco Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.88",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "LE",
+   "name": "Lands' End, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.09",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CHPT",
+   "name": "ChargePoint Holdings, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.99",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CURV",
+   "name": "Torrid Holdings Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.01",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ZUMZ",
+   "name": "Zumiez Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.07",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ICG",
+   "name": "Intchains Group Limited",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HUCK",
+   "name": "Huckleberry.ai, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BNR",
+   "name": "Burning Rock Biotech Limited",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DOYU",
+   "name": "DouYu International Holdings Limited",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DSC",
+   "name": "DSC Holdings Ltd.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.11",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "LX",
+   "name": "LexinFintech Holdings Ltd.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "SPWH",
+   "name": "Sportsman's Warehouse Holdings, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.12",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "TPCS",
+   "name": "TechPrecision Corporation",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MNY",
+   "name": "MoneyHero Limited",
+   "reportDate": "2026-12-03",
+   "estimate": "0",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "DXLG",
+   "name": "Destination XL Group, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BZAI",
+   "name": "Blaize Holdings, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "0.17",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SHPH",
+   "name": "Shuttle Pharmaceuticals Holdings, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PRT",
+   "name": "PermRock Royalty Trust",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DTSS",
+   "name": "Datasea Intelligent Technology Ltd.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MTR",
+   "name": "Mesa Royalty Trust",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SEGG",
+   "name": "Sports Entertainment Gaming Global Corporation ",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CRMT",
+   "name": "America's Car-Mart, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "RBNE",
+   "name": "Robin Energy Ltd.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ITP",
+   "name": "IT Tech Packaging, Inc.",
+   "reportDate": "2026-12-03",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "KNOP",
+   "name": "KNOT Offshore Partners LP",
+   "reportDate": "2026-12-04",
+   "estimate": "0.06",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "TORO",
+   "name": "Toro Corp.",
+   "reportDate": "2026-12-04",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "TOUR",
+   "name": "Tuniu Corporation",
+   "reportDate": "2026-12-04",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "TOL",
+   "name": "Toll Brothers, Inc.",
+   "reportDate": "2026-12-07",
+   "estimate": "4.89",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ODC",
+   "name": "Oil-Dri Corporation Of America",
+   "reportDate": "2026-12-07",
+   "estimate": "",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "MOMO",
+   "name": "Hello Group Inc. ",
+   "reportDate": "2026-12-07",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "TRX",
+   "name": "TRX Gold Corporation",
+   "reportDate": "2026-12-07",
+   "estimate": "0.02",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SNPS",
+   "name": "Synopsys, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "3.09",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "AZO",
+   "name": "AutoZone, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "35.98",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "SUNB",
+   "name": "Sunbelt Rentals Holdings, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "1.16",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CASY",
+   "name": "Caseys General Stores, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "5.92",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "GME",
+   "name": "GameStop Corporation",
+   "reportDate": "2026-12-08",
+   "estimate": "0.20",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SAIL",
+   "name": "SailPoint, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.08",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "LULU",
+   "name": "lululemon athletica inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.98",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CNM",
+   "name": "Core & Main, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.86",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "NAVN",
+   "name": "Navan, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.01",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "OLLI",
+   "name": "Ollie's Bargain Outlet Holdings, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.77",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BRZE",
+   "name": "Braze, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.22",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "AVAV",
+   "name": "AeroVironment, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.46",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ASO",
+   "name": "Academy Sports and Outdoors, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "1.21",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "KFY",
+   "name": "Korn Ferry ",
+   "reportDate": "2026-12-08",
+   "estimate": "1.36",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "THO",
+   "name": "Thor Industries, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.17",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BRC",
+   "name": "Brady Corporation",
+   "reportDate": "2026-12-08",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "UNFI",
+   "name": "United Natural Foods, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.67",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "GIII",
+   "name": "G-III Apparel Group, LTD.",
+   "reportDate": "2026-12-08",
+   "estimate": "1.42",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "YEXT",
+   "name": "Yext, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.12",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "WOOF",
+   "name": "Petco Health and Wellness Company, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "MAMA",
+   "name": "Mama's Creations, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.06",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "BNED",
+   "name": "Barnes & Noble Education, Inc",
+   "reportDate": "2026-12-08",
+   "estimate": "0.67",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "DBI",
+   "name": "Designer Brands Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.30",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "GENC",
+   "name": "Gencor Industries Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "GLOO",
+   "name": "Gloo Holdings, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.12",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "PLAY",
+   "name": "Dave & Buster's Entertainment, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "1.46",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ARQQ",
+   "name": "Arqit Quantum Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ESOA",
+   "name": "Energy Services of America Corporation",
+   "reportDate": "2026-12-08",
+   "estimate": "0.21",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "VNCE",
+   "name": "Vince Holding Corp.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.36",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ANTA",
+   "name": "Antalpha Platform Holding Company",
+   "reportDate": "2026-12-08",
+   "estimate": "0.09",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "YQ",
+   "name": "17 Education & Technology Group Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.15",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MIND",
+   "name": "MIND Technology, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ALZN",
+   "name": "Alzamend Neuro, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "0.23",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "FRGT",
+   "name": "Freight Technologies, Inc.",
+   "reportDate": "2026-12-08",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AVGO",
+   "name": "Broadcom Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "3.45",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ADBE",
+   "name": "Adobe Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "5.11",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CHWY",
+   "name": "Chewy, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.20",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CPB",
+   "name": "The Campbell's Company",
+   "reportDate": "2026-12-09",
+   "estimate": "0.44",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "MTN",
+   "name": "Vail Resorts, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "5.42",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "UEC",
+   "name": "Uranium Energy Corp.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.09",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PLAB",
+   "name": "Photronics, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.44",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "VRSA",
+   "name": "Versa Bancorp",
+   "reportDate": "2026-12-09",
+   "estimate": "0.35",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DAKT",
+   "name": "Daktronics, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.31",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CGNT",
+   "name": "Cognyte Software Ltd.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.05",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "OXM",
+   "name": "Oxford Industries, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "1.30",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "JILL",
+   "name": "J. Jill, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.59",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "JACK",
+   "name": "Jack In The Box Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.44",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ASYS",
+   "name": "Amtech Systems, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.12",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ELVA",
+   "name": "Electrovaya Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "USAU",
+   "name": "U.S. Gold Corp.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.42",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "KEQU",
+   "name": "Kewaunee Scientific Corporation",
+   "reportDate": "2026-12-09",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "NTRB",
+   "name": "Nutriband Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CULP",
+   "name": "Culp, Inc.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.02",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DLHC",
+   "name": "DLH Holdings Corp.",
+   "reportDate": "2026-12-09",
+   "estimate": "0.28",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SKIL",
+   "name": "Skillsoft Corp.",
+   "reportDate": "2026-12-09",
+   "estimate": "1.11",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "COST",
+   "name": "Costco Wholesale Corporation",
+   "reportDate": "2026-12-10",
+   "estimate": "4.89",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "CIEN",
+   "name": "Ciena Corporation",
+   "reportDate": "2026-12-10",
+   "estimate": "1.77",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BIRK",
+   "name": "Birkenstock Holding plc",
+   "reportDate": "2026-12-10",
+   "estimate": "0.51",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "PL",
+   "name": "Planet Labs PBC",
+   "reportDate": "2026-12-10",
+   "estimate": "0.08",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "FIZZ",
+   "name": "National Beverage Corp.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "RH",
+   "name": "RH",
+   "reportDate": "2026-12-10",
+   "estimate": "0.67",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "KMTS",
+   "name": "Kestra Medical Technologies, Ltd.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.61",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "VZLA",
+   "name": "Vizsla Silver Corp.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "NX",
+   "name": "Quanex Building Products Corporation",
+   "reportDate": "2026-12-10",
+   "estimate": "0.79",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "UROY",
+   "name": "Uranium Royalty Corp.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.01",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MITK",
+   "name": "Mitek Systems, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.11",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "FEIM",
+   "name": "Frequency Electronics, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SFIX",
+   "name": "Stitch Fix, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.07",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "FWDI",
+   "name": "Forward Industries, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.02",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LOVE",
+   "name": "The Lovesac Company",
+   "reportDate": "2026-12-10",
+   "estimate": "0.69",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "IMPP",
+   "name": "Imperial Petroleum Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "VRA",
+   "name": "Vera Bradley, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.20",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "HOFT",
+   "name": "Hooker Furnishings Corporation",
+   "reportDate": "2026-12-10",
+   "estimate": "0.15",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DLTH",
+   "name": "Duluth Holdings Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.32",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "LAKE",
+   "name": "Lakeland Industries, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.09",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "MAYS",
+   "name": "J. W. Mays, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "RENT",
+   "name": "Rent the Runway, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "RFL",
+   "name": "Rafael Holdings, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BCTX",
+   "name": "BriaCell Therapeutics Corp.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CMTL",
+   "name": "Comtech Telecommunications Corp.",
+   "reportDate": "2026-12-10",
+   "estimate": "0.27",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LIVE",
+   "name": "Live Ventures Incorporated",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CIIT",
+   "name": "Tianci International, Inc.",
+   "reportDate": "2026-12-10",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "JOUT",
+   "name": "Johnson Outdoors Inc.",
+   "reportDate": "2026-12-11",
+   "estimate": "0.74",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "PPIH",
+   "name": "Perma-Pipe International Holdings, Inc.",
+   "reportDate": "2026-12-11",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MSB",
+   "name": "Mesabi Trust",
+   "reportDate": "2026-12-11",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AXR",
+   "name": "AMREP Corporation",
+   "reportDate": "2026-12-11",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PFX",
+   "name": "PhenixFIN Corporation ",
+   "reportDate": "2026-12-11",
+   "estimate": "0.60",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ZDGE",
+   "name": "Zedge, Inc.",
+   "reportDate": "2026-12-11",
+   "estimate": "0.02",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "EDSA",
+   "name": "Edesa Biotech, Inc.",
+   "reportDate": "2026-12-11",
+   "estimate": "0.57",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ORCL",
+   "name": "Oracle Corporation",
+   "reportDate": "2026-12-14",
+   "estimate": "1.56",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ABVX",
+   "name": "Abivax SA",
+   "reportDate": "2026-12-14",
+   "estimate": "1.27",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "SGU",
+   "name": "Star Group, L.P.",
+   "reportDate": "2026-12-14",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "VIRC",
+   "name": "Virco Manufacturing Corporation",
+   "reportDate": "2026-12-14",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "COE",
+   "name": "51Talk Online Education Group",
+   "reportDate": "2026-12-14",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LEN",
+   "name": "Lennar Corporation",
+   "reportDate": "2026-12-15",
+   "estimate": "1.44",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LEN.B",
+   "name": "Lennar Corporation",
+   "reportDate": "2026-12-15",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "NDSN",
+   "name": "Nordson Corporation",
+   "reportDate": "2026-12-15",
+   "estimate": "3.46",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "WOR",
+   "name": "Worthington Enterprises, Inc.",
+   "reportDate": "2026-12-15",
+   "estimate": "0.70",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "OGI",
+   "name": "Organigram Global Inc.",
+   "reportDate": "2026-12-15",
+   "estimate": "0.02",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CSPI",
+   "name": "CSP Inc.",
+   "reportDate": "2026-12-15",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "GNSS",
+   "name": "Genasys Inc.",
+   "reportDate": "2026-12-15",
+   "estimate": "0",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "NMTC",
+   "name": "NeuroOne Medical Technologies Corporation",
+   "reportDate": "2026-12-15",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "JBL",
+   "name": "Jabil Inc.",
+   "reportDate": "2026-12-16",
+   "estimate": "3.64",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "TTC",
+   "name": "Toro Company (The)",
+   "reportDate": "2026-12-16",
+   "estimate": "0.97",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "ABM",
+   "name": "ABM Industries Incorporated",
+   "reportDate": "2026-12-16",
+   "estimate": "1.24",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "EPAC",
+   "name": "Enerpac Tool Group Corp.",
+   "reportDate": "2026-12-16",
+   "estimate": "0.34",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "WS",
+   "name": "Worthington Steel, Inc.",
+   "reportDate": "2026-12-16",
+   "estimate": "0.99",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MLKN",
+   "name": "MillerKnoll, Inc.",
+   "reportDate": "2026-12-16",
+   "estimate": "0.45",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "OPXS",
+   "name": "Optex Systems Holdings, Inc.",
+   "reportDate": "2026-12-16",
+   "estimate": "0.25",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "VERU",
+   "name": "Veru Inc.",
+   "reportDate": "2026-12-16",
+   "estimate": "0.34",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "YI",
+   "name": "111, Inc.",
+   "reportDate": "2026-12-16",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "JOB",
+   "name": "GEE Group Inc.",
+   "reportDate": "2026-12-16",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MU",
+   "name": "Micron Technology, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "37.95",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "ACN",
+   "name": "Accenture plc",
+   "reportDate": "2026-12-17",
+   "estimate": "3.91",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CTAS",
+   "name": "Cintas Corporation",
+   "reportDate": "2026-12-17",
+   "estimate": "1.36",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "NKE",
+   "name": "Nike, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "0.34",
+   "timeOfTheDay": "post-market"
+  },
+  {
+   "symbol": "HEI",
+   "name": "Heico Corporation",
+   "reportDate": "2026-12-17",
+   "estimate": "1.62",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HEI.A",
+   "name": "Heico Corporation",
+   "reportDate": "2026-12-17",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "GIS",
+   "name": "General Mills, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "0.96",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "KEP",
+   "name": "Korea Electric Power Corporation",
+   "reportDate": "2026-12-17",
+   "estimate": "1.17",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "FDS",
+   "name": "FactSet Research Systems Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "5.03",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "KMX",
+   "name": "CarMax Inc",
+   "reportDate": "2026-12-17",
+   "estimate": "0.43",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "BB",
+   "name": "BlackBerry Limited",
+   "reportDate": "2026-12-17",
+   "estimate": "0.04",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "KBH",
+   "name": "KB Home",
+   "reportDate": "2026-12-17",
+   "estimate": "1.21",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "AVO",
+   "name": "Mission Produce, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "0.33",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SCHL",
+   "name": "Scholastic Corporation",
+   "reportDate": "2026-12-17",
+   "estimate": "3.52",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "FCEL",
+   "name": "FuelCell Energy, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "0.31",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "IA",
+   "name": "Innovative Solutions and Support, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "0.27",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "UXIN",
+   "name": "Uxin Limited",
+   "reportDate": "2026-12-17",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "OCC",
+   "name": "Optical Cable Corporation",
+   "reportDate": "2026-12-17",
+   "estimate": "0.22",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LFS",
+   "name": "LEIFRAS Co., Ltd.",
+   "reportDate": "2026-12-17",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SDA",
+   "name": "SunCar Technology Group Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BLIN",
+   "name": "Bridgeline Digital, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PMCB",
+   "name": "PharmaCyte  Biotech, Inc.",
+   "reportDate": "2026-12-17",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "PAYX",
+   "name": "Paychex, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "1.29",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CCL",
+   "name": "Carnival Corporation Ltd.",
+   "reportDate": "2026-12-18",
+   "estimate": "0.22",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DRI",
+   "name": "Darden Restaurants, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "2.28",
+   "timeOfTheDay": "pre-market"
+  },
+  {
+   "symbol": "CAG",
+   "name": "ConAgra Brands, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "0.34",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LW",
+   "name": "Lamb Weston Holdings, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "0.87",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "WGO",
+   "name": "Winnebago Industries, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "0.30",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "OTLK",
+   "name": "Outlook Therapeutics, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "0.08",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BDL",
+   "name": "Flanigan's Enterprises, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "BRN",
+   "name": "Barnwell Industries, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "YCBD",
+   "name": "cbdMD, Inc.",
+   "reportDate": "2026-12-18",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SGRX",
+   "name": "SANGRIX INC.",
+   "reportDate": "2026-12-18",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "VALU",
+   "name": "Value Line, Inc.",
+   "reportDate": "2026-12-21",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CSBR",
+   "name": "Champions Oncology, Inc.",
+   "reportDate": "2026-12-21",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HYFT",
+   "name": "MindWalk Holdings Corp.",
+   "reportDate": "2026-12-21",
+   "estimate": "0.05",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ARKR",
+   "name": "Ark Restaurants Corp.",
+   "reportDate": "2026-12-21",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "NCPL",
+   "name": "Netcapital Inc.",
+   "reportDate": "2026-12-21",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "IHT",
+   "name": "InnSuites Hospitality Trust",
+   "reportDate": "2026-12-21",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "HSCS",
+   "name": "HeartSciences Inc.",
+   "reportDate": "2026-12-21",
+   "estimate": "0.74",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "INHD",
+   "name": "Inno Holdings Inc.",
+   "reportDate": "2026-12-21",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "OPTT",
+   "name": "Ocean Power Technologies, Inc.",
+   "reportDate": "2026-12-21",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "DRUG",
+   "name": "Bright Minds Biosciences Inc.",
+   "reportDate": "2026-12-22",
+   "estimate": "1.07",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "LMNR",
+   "name": "Limoneira Co",
+   "reportDate": "2026-12-22",
+   "estimate": "0.08",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CTOR",
+   "name": "Citius Oncology, Inc. ",
+   "reportDate": "2026-12-22",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "CTXR",
+   "name": "Citius Pharmaceuticals, Inc.",
+   "reportDate": "2026-12-22",
+   "estimate": "0.41",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "GTIM",
+   "name": "Good Times Restaurants Inc.",
+   "reportDate": "2026-12-22",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "TRIB",
+   "name": "Trinity Biotech plc",
+   "reportDate": "2026-12-22",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "YYAI",
+   "name": "AiRWA Inc.",
+   "reportDate": "2026-12-22",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "EBF",
+   "name": "Ennis, Inc.",
+   "reportDate": "2026-12-28",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "ENGN",
+   "name": "enGene Therapeutics Inc.",
+   "reportDate": "2026-12-28",
+   "estimate": "0.48",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "SIF",
+   "name": "SIFCO Industries, Inc.",
+   "reportDate": "2026-12-28",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MWYN",
+   "name": "Marwynn Holdings, Inc.",
+   "reportDate": "2026-12-28",
+   "estimate": "",
+   "timeOfTheDay": ""
+  },
+  {
+   "symbol": "MSS",
+   "name": "Maison Solutions Inc.",
+   "reportDate": "2026-12-28",
+   "estimate": "0.20",
+   "timeOfTheDay": ""
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "ticker": "BMO",
+ "name": "Bank Of Montreal",
+ "updatedAt": "2026-11-28T08:35:35Z",
+ "nextEarnings": {
+  "kst": "12/2(수) 밤",
+  "us": "12/2 장 시작 전",
+  "estimate": "2.69"
+ },
+ "verdict": "긍정 단서 우세",
+ "summary": "자동으로 모은 숫자 단서 7개 중 긍정 2개, 부정 0개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
+ "signals": [
+  {
+   "category": "애널리스트 전망 변화",
+   "direction": "중립",
+   "date": "최근 90일",
+   "finding": "이번 분기 주당순이익(EPS) 예상치가 90일 전 3.72달러에서 지금 3.71달러로 -0.3% 바뀌었습니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/BMO/analysis"
+  },
+  {
+   "category": "전망 수정 건수",
+   "direction": "긍정",
+   "date": "최근 30일",
+   "finding": "최근 30일 동안 EPS 예상치를 올린 애널리스트 8명, 내린 애널리스트 1명입니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/BMO/analysis"
+  },
+  {
+   "category": "매출 전망",
+   "direction": "중립",
+   "date": "이번 분기",
+   "finding": "이번 분기 매출 예상 평균은 98억 달러로, 작년 같은 분기보다 +5.0%입니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/BMO/analysis"
+  },
+  {
+   "category": "과거 실적 기록",
+   "direction": "긍정",
+   "date": "최근 4분기",
+   "finding": "최근 4분기 중 4번 예상보다 좋은 EPS를 냈습니다(평균 차이 +7.2%).",
+   "source": "Yahoo Finance 실적 기록",
+   "url": "https://finance.yahoo.com/quote/BMO/analysis"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/26",
+   "finding": "Fluence Energy (FLNC) Stock Fair Value Moves Lower After Analyst Cuts On Execution Risk",
+   "source": "Simply Wall St. · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/fluence-energy-flnc-stock-fair-111024244.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/26",
+   "finding": "All of Canada’s Big Six Banks Now See December Rate Hike",
+   "source": "Bloomberg · 자동 번역",
+   "url": "https://finance.yahoo.com/economy/policy/articles/canada-big-six-banks-now-110000544.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/26",
+   "finding": "BMO cuts Abercrombie & Fitch rating after post-earnings rally, lifts target",
+   "source": "Investing.com · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/bmo-cuts-abercrombie-fitch-rating-155329116.html"
+  }
+ ],
+ "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."
+}

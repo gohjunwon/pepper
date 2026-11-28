@@ -1,0 +1,71 @@
+{
+ "ticker": "TD",
+ "name": "Toronto Dominion Bank",
+ "updatedAt": "2026-11-28T08:35:35Z",
+ "nextEarnings": {
+  "kst": "12/3(목) 밤",
+  "us": "12/3 장 시작 전",
+  "estimate": "1.76"
+ },
+ "verdict": "긍정 단서 우세",
+ "summary": "자동으로 모은 숫자 단서 7개 중 긍정 5개, 부정 0개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
+ "signals": [
+  {
+   "category": "애널리스트 전망 변화",
+   "direction": "긍정",
+   "date": "최근 90일",
+   "finding": "이번 분기 주당순이익(EPS) 예상치가 90일 전 2.43달러에서 지금 2.49달러로 +2.6% 바뀌었습니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/TD/analysis"
+  },
+  {
+   "category": "전망 수정 건수",
+   "direction": "긍정",
+   "date": "최근 30일",
+   "finding": "최근 30일 동안 EPS 예상치를 올린 애널리스트 9명, 내린 애널리스트 2명입니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/TD/analysis"
+  },
+  {
+   "category": "매출 전망",
+   "direction": "긍정",
+   "date": "이번 분기",
+   "finding": "이번 분기 매출 예상 평균은 153억 달러로, 작년 같은 분기보다 +6.2%입니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/TD/analysis"
+  },
+  {
+   "category": "과거 실적 기록",
+   "direction": "긍정",
+   "date": "최근 4분기",
+   "finding": "최근 4분기 중 4번 예상보다 좋은 EPS를 냈습니다(평균 차이 +8.4%).",
+   "source": "Yahoo Finance 실적 기록",
+   "url": "https://finance.yahoo.com/quote/TD/analysis"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/27",
+   "finding": "Earnings Calendar and Analysis for This Week",
+   "source": "Kiplinger · 자동 번역",
+   "url": "https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/25",
+   "finding": "Toronto Dominon Bank (TSX:TD) Faces A Valuation Test, Is The Pullback An Opportunity?",
+   "source": "Simply Wall St. · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/toronto-dominon-bank-tsx-td-141207139.html"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "긍정",
+   "date": "11/19",
+   "finding": "RBC Raises Price Target on Six Canadian Banks Ahead of Q4 Results",
+   "source": "MT Newswires · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/rbc-raises-price-target-six-125111328.html"
+  }
+ ],
+ "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."
+}

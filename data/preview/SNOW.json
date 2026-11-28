@@ -1,39 +1,71 @@
 {
-  "caveats": "사용량 기반으로 돈을 버는 회사라 고객사의 데이터·AI 사용 추이가 핵심인데, 이번 분기 관련 공개 데이터는 찾지 못했습니다. 투자 권유가 아닙니다.",
-  "name": "스노우플레이크",
-  "nextEarnings": {
-    "estimate": "0.60",
-    "kst": "12/3(목) 아침 6시 이후, 실적 설명회 아침 7시",
-    "us": "12/2 장 마감 후, 2027 회계연도 3분기"
+ "ticker": "SNOW",
+ "name": "스노우플레이크",
+ "updatedAt": "2026-11-28T08:35:35Z",
+ "nextEarnings": {
+  "kst": "12/3(목) 아침 6시 이후",
+  "us": "12/2 장 마감 후",
+  "estimate": "0.32"
+ },
+ "verdict": "긍정 단서 우세",
+ "summary": "자동으로 모은 숫자 단서 7개 중 긍정 6개, 부정 0개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
+ "signals": [
+  {
+   "category": "애널리스트 전망 변화",
+   "direction": "긍정",
+   "date": "최근 90일",
+   "finding": "이번 분기 주당순이익(EPS) 예상치가 90일 전 0.52달러에서 지금 0.60달러로 +15.8% 바뀌었습니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/SNOW/analysis"
   },
-  "signals": [
-    {
-      "category": "애널리스트 전망·이익 구조",
-      "date": "11월",
-      "direction": "중립",
-      "finding": "시장 예상은 주당순이익 0.60달러, 매출 16.5억 달러(작년보다 약 36% 증가)입니다.",
-      "source": "Arincen",
-      "url": "https://en.arincen.com/instruments/SNOW/earnings"
-    },
-    {
-      "category": "애널리스트 전망·이익 구조",
-      "date": "지난 분기",
-      "direction": "긍정",
-      "finding": "지난 분기 매출 15.5억 달러로 예상(14.8억 달러)을 4.29% 넘었고, 주당순이익도 0.62달러로 예상보다 39% 높았습니다.",
-      "source": "Arincen",
-      "url": "https://en.arincen.com/instruments/SNOW/earnings"
-    },
-    {
-      "category": "애널리스트 전망·이익 구조",
-      "date": "2026년 초 기준",
-      "direction": "부정",
-      "finding": "주가가 앞으로 1년 이익의 140배 이상으로 매우 비싼 편이라, 실적이 기대를 겨우 맞추면 주가가 내릴 수 있습니다.",
-      "source": "Barchart",
-      "url": "https://www.barchart.com/story/news/305751/dear-snowflake-stock-fans-mark-your-calendars-for-february-25"
-    }
-  ],
-  "summary": "시장은 매출 36% 성장을 예상하고, 회사는 지난 분기에 예상보다 4% 넘게 많은 매출을 냈습니다. 예상을 꾸준히 넘는 흐름이지만, 주가가 이익 대비 매우 비싸 기대에 조금만 못 미쳐도 크게 흔들릴 수 있습니다.",
-  "ticker": "SNOW",
-  "updatedAt": "2026-11-24T16:55:00Z",
-  "verdict": "긍정 우세"
+  {
+   "category": "전망 수정 건수",
+   "direction": "긍정",
+   "date": "최근 30일",
+   "finding": "최근 30일 동안 EPS 예상치를 올린 애널리스트 39명, 내린 애널리스트 1명입니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/SNOW/analysis"
+  },
+  {
+   "category": "매출 전망",
+   "direction": "긍정",
+   "date": "이번 분기",
+   "finding": "이번 분기 매출 예상 평균은 17억 달러로, 작년 같은 분기보다 +36.4%입니다.",
+   "source": "Yahoo Finance 애널리스트 전망",
+   "url": "https://finance.yahoo.com/quote/SNOW/analysis"
+  },
+  {
+   "category": "과거 실적 기록",
+   "direction": "긍정",
+   "date": "최근 4분기",
+   "finding": "최근 4분기 중 4번 예상보다 좋은 EPS를 냈습니다(평균 차이 +22.7%).",
+   "source": "Yahoo Finance 실적 기록",
+   "url": "https://finance.yahoo.com/quote/SNOW/analysis"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "중립",
+   "date": "11/28",
+   "finding": "Arista Networks vs. Snowflake: Which Technology Stock Is a Better Buy for 2027?",
+   "source": "Motley Fool · 자동 번역",
+   "url": "https://www.fool.com/coverage/better-buy/2026/11/27/arista-networks-vs-snowflake-which-technology-stock-is-a-better-buy-for-2027/"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "긍정",
+   "date": "11/28",
+   "finding": "Palantir Raised Its 2026 Growth Outlook to 91%. Could the Stock Have More Room to Run?",
+   "source": "24/7 Wall St. · 자동 번역",
+   "url": "https://247wallst.com/investing/2026/11/27/palantir-raised-its-2026-growth-outlook-to-91-could-the-stock-have-more-room-to-run/"
+  },
+  {
+   "category": "최근 뉴스",
+   "direction": "긍정",
+   "date": "11/28",
+   "finding": "Snowflake (SNOW) Raises Full-Year Outlook Following Third Consecutive Quarter of Growth Acceleration",
+   "source": "Insider Monkey · 자동 번역",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/snowflake-snow-raises-full-outlook-162232434.html"
+  }
+ ],
+ "caveats": "숫자와 기사 제목을 규칙에 따라 자동으로 모은 자료입니다. 주가는 실적 자체보다 '기대 대비'에 반응하고, 기사 번역은 어색할 수 있습니다. 투자 권유가 아닙니다."
 }
