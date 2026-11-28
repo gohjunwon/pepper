@@ -1,0 +1,54 @@
+name: Pepper 자동 갱신
+
+on:
+  schedule:
+    - cron: "*/10 12-14 * * 1-5"      # 미국장 시작 1시간여 전 ~ 개장 직후 10분마다: 오늘의 호재
+    - cron: "7 0-11,21-23 * * 1-5"    # 장 마감 후 ~ 다음 장 전 매시간: 시간외 호재
+    - cron: "7 0-2 * * 6"             # 금요일 시간외
+    - cron: "43 11 * * 1-5"           # 장 시작 전(한국 저녁 8:43): 전체(일정·실적·시장)
+    - cron: "23 21 * * 1-5"           # 장 마감 후(한국 아침 6:23): 전체
+    - cron: "23 3 * * 0"              # 일요일 정오(한국): 전체
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "today / full / all"
+        default: "all"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pepper-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q yfinance pandas lxml cryptography
+      - name: 수집
+        env:
+          MY_PASS: ${{ secrets.MY_PASS }}
+          WATCHLIST: ${{ secrets.WATCHLIST }}
+          EVT: ${{ github.event_name }}
+          SCHED: ${{ github.event.schedule }}
+          INMODE: ${{ github.event.inputs.mode }}
+        run: |
+          MODE=today
+          case "$SCHED" in "43 11 * * 1-5"|"23 21 * * 1-5"|"23 3 * * 0") MODE=all;; esac
+          if [ "$EVT" = "workflow_dispatch" ]; then MODE="${INMODE:-all}"; fi
+          python scripts/collect.py "$MODE"
+      - name: 저장
+        run: |
+          git config user.name "pepper-bot"
+          git config user.email "pepper-bot@users.noreply.github.com"
+          git add data my tools
+          git diff --cached --quiet && exit 0
+          git commit -q -m "자동 갱신 $(TZ=Asia/Seoul date '+%m/%d %H:%M')"
+          for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q && exit 0; sleep 5; done
+          exit 1
