@@ -2,8 +2,15 @@ name: Pepper 자동 갱신
 
 on:
   schedule:
-    # 30분마다(장 전후는 10분마다) 실행은 Cloudflare 알람(tools/cloudflare-worker.js)이 보냅니다.
-    - cron: "47 */3 * * *"            # 예비용: 알람이 멈춰도 3시간마다 전체
+    # 실행 신호는 주로 Cloudflare 알람(tools/cloudflare-worker.js)이 보냅니다:
+    #   30분마다 today(오늘의 호재·시간외 호재), 미국장 개장 60·50·40·30·20·10·5분 전과 개장·5분 후에도 today,
+    #   하루 두 번(한국 06:40·20:40) all(1달 일정·미리보기·캘린더 포함)
+    # 아래는 알람이 멈췄을 때를 대비한 예비용입니다.
+    - cron: "47 */3 * * *"            # 예비: 3시간마다 today
+    - cron: "23 13 * * *"             # 예비: 매일 한국 22:23 all
+    # 예비: 장 시작 1시간여 전(뉴욕 8:22 무렵) today — 겨울(EST)·여름(EDT) 두 줄, 맞지 않는 쪽은 아래 시각 확인으로 건너뜀
+    - cron: "22 13 * * 1-5"           # 겨울: 13:22 UTC = 8:22 EST
+    - cron: "22 12 * * 1-5"           # 여름: 12:22 UTC = 8:22 EDT
   workflow_dispatch:
     inputs:
       mode:
@@ -22,29 +29,53 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: 시각 확인(개장 전 예비 예약)
+        id: guard
+        env:
+          SCHED: ${{ github.event.schedule }}
+        run: |
+          RUN=1
+          if [ "$SCHED" = "22 13 * * 1-5" ] || [ "$SCHED" = "22 12 * * 1-5" ]; then
+            NY=$(TZ=America/New_York date +%H%M)
+            # 서머타임이 아닌 쪽 줄이면 뉴욕 7시대가 됨 → 건너뜀 (예약이 늦게 시작돼도 8시 이후면 실행)
+            if [ "$NY" -lt 0800 ]; then RUN=0; echo "뉴욕 $NY — 이 줄은 지금 계절과 맞지 않아 건너뜀"; fi
+          fi
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
+      - if: steps.guard.outputs.run == '1'
+        uses: actions/checkout@v4
+      - if: steps.guard.outputs.run == '1'
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q yfinance pandas lxml cryptography
+      - if: steps.guard.outputs.run == '1'
+        run: pip install -q yfinance pandas lxml cryptography google-auth requests
       - name: 수집
+        if: steps.guard.outputs.run == '1'
         env:
           MY_PASS: ${{ secrets.MY_PASS }}
           WATCHLIST: ${{ secrets.WATCHLIST }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          GCAL_SA_JSON: ${{ secrets.GCAL_SA_JSON }}
+          GCAL_ID: ${{ secrets.GCAL_ID }}
           EVT: ${{ github.event_name }}
           SCHED: ${{ github.event.schedule }}
           INMODE: ${{ github.event.inputs.mode }}
         run: |
           MODE=today
-          if [ "$SCHED" = "47 */3 * * *" ]; then MODE=all; fi
+          if [ "$SCHED" = "23 13 * * *" ]; then MODE=all; fi
           if [ "$EVT" = "workflow_dispatch" ]; then MODE="${INMODE:-all}"; fi
           python scripts/collect.py "$MODE"
       - name: 저장
+        if: steps.guard.outputs.run == '1'
         run: |
           git config user.name "pepper-bot"
           git config user.email "pepper-bot@users.noreply.github.com"
           git add data my tools
           git diff --cached --quiet && exit 0
+          # 갱신 시각(updatedAt·DTSTAMP)만 바뀐 경우: 마지막 커밋이 2시간 안이면 커밋하지 않음(저장소 비대 방지)
+          REAL=$(git diff --cached -U0 | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)' | grep -vE '"updatedAt"|DTSTAMP' | wc -l)
+          AGE=$(( $(date +%s) - $(git log -1 --format=%ct) ))
+          if [ "$REAL" = "0" ] && [ "$AGE" -lt 7200 ]; then echo "시각만 바뀜 → 커밋 생략"; exit 0; fi
           git commit -q -m "자동 갱신 $(TZ=Asia/Seoul date '+%m/%d %H:%M')"
           for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q && exit 0; sleep 5; done
           exit 1

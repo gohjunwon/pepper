@@ -28,6 +28,7 @@ ET = ZoneInfo("America/New_York")
 KST = ZoneInfo("Asia/Seoul")
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
 NOW = datetime.now(timezone.utc)
+TODAY_FULL = None  # 이번 실행에서 만든 오늘의 호재(관심종목 포함, my 사이트용)
 WD = "월화수목금토일"
 
 # ---------------------------------------------------------------- 휴장·연준 (공식 발표 기준)
@@ -309,10 +310,45 @@ KIND_RULES = [
     ("MA", r"acquir|merger|to buy |buyout|takeover|definitive agreement|deal to|go private|tender offer"),
     ("ER", r"beats|tops (estimates|expectations)|raises (guidance|outlook|forecast)|lifts (guidance|outlook|forecast)|record (revenue|quarter|sales)|earnings (beat|surge|jump)|strong (results|quarter|earnings)|blowout"),
     ("UP", r"upgrade|price target|raises target|initiat(es|ed) .*(buy|overweight|outperform)|outperform|overweight"),
-    ("EV", r"buyback|repurchase|dividend|contract|partnership|collaborat|award|launch|unveil|order|invest|stake|index|S&P 500"),
+    # 넓은 단어(order·invest·index·award)는 '수주했다/편입된다'처럼 구체적인 표현일 때만 인정
+    ("EV", r"\bbuybacks?\b|\b(?:share )?repurchase|\b(?:raises|hikes|boosts|increases) (?:its |quarterly )?dividend|\bspecial dividend|"
+           r"\b(?:wins|win|secures|secured|lands|landed|awarded|receives|received|signs|signed|inks|inked)\b.{0,50}\b(?:contract|order|deal|award)s?\b|"
+           r"\bcontract (?:win|award)|\bpartnership\b|\bpartners with\b|\bcollaborat|\bstrategic investment\b|\b(?:takes|took) (?:a )?stake\b|"
+           r"\b(?:to join|joins|added to|set to join|inclusion in|to be added to) (?:the )?S&P (?:500|MidCap|SmallCap)|\blaunch(?:es|ed)?\b|\bunveil"),
 ]
-JUNK = r"\?|^why |stock is a|should you|buy now|own |takeaways|wall street zen|famous investors|top analyst calls|motley|zacks rank|best stocks|stocks to|here's|reasons|vs\.? "
-BAD = r"downgrade|plunge|tumble|falls|drops|slump|sinks|lawsuit|probe|investigation|cuts guidance|misses|halt|recall|offering|dilut|bankrupt|delist|fraud|warning"
+# 기사 성격상 '호재 이유'가 아닌 것(질문형·추천·비교 기사)
+JUNK = (r"\?|^why\b|\bstock is a\b|\bshould you\b|\bbuy now\b|\b(?:should|to|you|we) own\b|\bown (?:these|this|it|shares)\b|\btakeaways\b|"
+        r"\bwall street zen\b|\bfamous investors\b|\btop analyst calls\b|\bmotley\b|\bzacks rank\b|\bbest stocks\b|\bstocks to\b|"
+        r"\bhere's\b|\breasons\b|\bvs\.?\s")
+# 무조건 빼는 악재
+BAD_HARD = (r"\bdowngrade|\blawsuit|\bclass action\b|\bprobe\b|\binvestigation\b|\bcuts? (?:its )?(?:guidance|outlook|forecast)|"
+            r"\blowers (?:its )?(?:guidance|outlook|forecast)|\bmiss(?:es|ed)\b|\bhalt(?:s|ed)?\b|\brecall|\b(?:stock|share|equity|public|secondary|direct) offering|"
+            r"\bprices? (?:\$?[\d.]+ ?(?:million|billion) )?(?:of )?(?:common )?(?:stock|shares)? ?offering|\bdilut|\bbankrupt|\bchapter 11\b|\bdelist|\bfraud|"
+            r"\bwarning letter\b|\bprofit warning\b|\bcomplete response letter\b|\bCRL\b")
+# 하락 표현: 오름 표현이 함께 있으면(예: "X soars as rival falls") 빼지 않음
+BAD_MOVE = r"\b(?:plunge|plunges|plunged|tumble|tumbles|tumbled|falls?|fell|drops?|dropped|slumps?|slumped|sinks?|sank|slides?|slid)\b"
+GOOD_MOVE = r"\b(?:soar|soars|soared|surge|surges|surged|jump|jumps|jumped|rall(?:y|ies|ied)|climb|climbs|climbed|gain|gains|gained|rise|rises|rose|spike|spikes|spiked|pop|pops|popped|skyrocket\w*|rebound\w*)\b"
+BAD = BAD_HARD + "|" + BAD_MOVE  # (이전 호환용)
+
+
+def is_bad(title):
+    """제목이 그 종목의 악재·하락을 말하면 True"""
+    if re.search(BAD_HARD, title, re.I):
+        return True
+    m = re.search(BAD_MOVE, title, re.I)
+    if not m:
+        return False
+    g = re.search(GOOD_MOVE, title, re.I)
+    # 오름 표현이 하락 표현보다 앞에 있으면 주어(이 종목)는 올랐고 하락은 다른 대상 이야기
+    if g and g.start() < m.start():
+        return False
+    if re.search(r"\b(?:despite|even as|while)\b.{0,40}" + BAD_MOVE, title, re.I):
+        return False
+    return True
+
+
+def is_junk(title):
+    return bool(re.search(JUNK, title, re.I))
 
 
 def kind_of(text):
@@ -443,11 +479,11 @@ def run_today(watch):
         en = names_en.get(t, "")
         mover = mv.get(t, (0,))[0] >= 2
         if mover:
-            news = [x for x in yahoo_news(t) if x["when"] and x["when"] >= since and not re.search(BAD, x["t"], re.I)
-                    and not re.search(JUNK, x["t"], re.I) and relevant(x["t"] + " " + x["sum"][:200], t, en)]
+            news = [x for x in yahoo_news(t) if x["when"] and x["when"] >= since and not is_bad(x["t"])
+                    and not is_junk(x["t"]) and relevant(x["t"] + " " + x["sum"][:200], t, en)]
         else:  # 주가 움직임이 확인되지 않은 종목은 보도자료성 큰 소식만
             x = pr.get(t)
-            news = [{**x, "sum": ""}] if x and not re.search(BAD + "|" + JUNK, x["t"], re.I) and kind_of(x["t"]) in ("FDA", "MA", "DATA") else []
+            news = [{**x, "sum": ""}] if x and not is_bad(x["t"]) and not is_junk(x["t"]) and kind_of(x["t"]) in ("FDA", "MA", "DATA") else []
         if not news:
             continue  # 기사로 확인되지 않은 급등은 넣지 않습니다
         best = sorted(news, key=lambda x: (kind_of(x["t"] + " " + x["sum"]) == "", -(x["when"] or NOW).timestamp()))[0]
@@ -489,9 +525,61 @@ def run_today(watch):
     base = "장 시작 전" if n.hour < 9 or (n.hour == 9 and n.minute < 30) or not is_trading(n.date()) else "장중"
     note = (f"{base} 기준 자동 수집 · 등락률 옆 괄호는 장전·장중·시간외 구분 · 기사 제목·요약은 자동 번역이라 어색할 수 있습니다 · "
             "급등했어도 관련 기사가 확인되지 않은 종목은 넣지 않습니다")
-    save("today.json", {"session": label, "updatedAt": iso(), "note": note, "items": final})
-    print("오늘의 호재", len(final))
+    full_doc = {"session": label, "updatedAt": iso(), "note": note, "items": final}
+    global TODAY_FULL
+    TODAY_FULL = full_doc
+    # 공개 사이트에는 관심종목이라서만 들어간 항목(5% 미만 상승)을 싣지 않습니다(관심종목 노출 방지)
+    pub = [i for i in final if not (i["ticker"] in watch and mvv(i) < 5 and i["kind"] not in ("FDA", "MA", "DATA"))]
+    save("today.json", {**full_doc, "items": pub})
+    print("오늘의 호재", len(final), "(공개", len(pub), ")")
+    try:
+        notify_offhours(final, label)
+    except Exception as e:
+        print("알림 실패", e)
     return final
+
+
+# ---------------------------------------------------------------- 장외 호재 진동 알림 (ntfy, 선택)
+KIND_KO = {"FDA": "FDA", "MA": "인수합병", "DATA": "임상 결과", "ER": "실적", "UP": "투자의견 상향", "EV": "기타 호재"}
+
+
+def off_hours(d=None):
+    """미국 정규장(9:30~16:00 ET, 조기폐장 13:00)이 열려 있지 않은 시간이면 True"""
+    n = (d or NOW).astimezone(ET)
+    if not is_trading(n.date()):
+        return True
+    close = (13, 0) if n.date().isoformat() in EARLY_CLOSE else (16, 0)
+    return not ((9, 30) <= (n.hour, n.minute) < close)
+
+
+def notify_offhours(items, label):
+    topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if not topic or not off_hours():
+        return
+    import hashlib
+    st = load("notified.json", {})
+    seen = set(st.get("keys", [])) if st.get("session") == label else set()
+    hk = lambda t: hashlib.sha256((topic + "|" + label + "|" + t).encode()).hexdigest()[:16]
+    sent = 0
+    for i in items:
+        k = hk(i["ticker"])
+        if k in seen or sent >= 6:
+            continue
+        title = f"{i['name']}({i['ticker']}) {i.get('move') or ''} · {KIND_KO.get(i['kind'], '호재')}".strip()
+        # 한글 제목은 RFC 2047 형식으로 보냅니다(ntfy 지원). Priority default = 소리 설정은 앱에서, 기본 진동
+        req = urllib.request.Request("https://ntfy.sh/" + urllib.parse.quote(topic), data=i["reason"][:400].encode("utf-8"),
+                                     method="POST", headers={
+                                         "Title": "=?UTF-8?B?" + base64.b64encode(title.encode("utf-8")).decode() + "?=",
+                                         "Priority": "default", "Tags": "chart_with_upwards_trend",
+                                         "Click": i.get("url") or "https://gohjunwon.github.io/pepper/"})
+        try:
+            urllib.request.urlopen(req, timeout=20).read()
+            seen.add(k)
+            sent += 1
+        except Exception as e:
+            print("ntfy 실패", i["ticker"], e)
+    save("notified.json", {"session": label, "keys": sorted(seen)})
+    print("장외 호재 알림", sent, "건")
 
 
 # ---------------------------------------------------------------- 2) 1달 앞 일정
@@ -816,12 +904,12 @@ def preview_one(t, row):
     news = []
     for x in yahoo_news(t):
         if x["when"] and x["when"] >= NOW - timedelta(days=21) and x["t"] not in seen_t and relevant(x["t"], t, row.get("name", "")) \
-                and not re.search(JUNK, x["t"], re.I):
+                and not is_junk(x["t"]):
             seen_t.add(x["t"])
             news.append(x)
     news = news[:3]
     for x, tr in zip(news, ko_many([x["t"] for x in news])):
-        bad = re.search(BAD, x["t"], re.I)
+        bad = is_bad(x["t"])
         good = re.search(r"beat|raise|upgrade|record|strong|surge|growth|jump", x["t"], re.I)
         sig.append({"category": "최근 뉴스", "direction": "부정" if bad else "긍정" if good else "중립",
                     "date": f"{x['when'].astimezone(KST).month}/{x['when'].astimezone(KST).day}", "finding": tr,
@@ -910,31 +998,84 @@ def ics_text(s):
     return re.sub(r"([,;\\])", r"\\\1", str(s or "")).replace("\n", "\\n")
 
 
-def run_ics():
+def cal_events():
+    """1달 앞 일정 + 시장 일정 → 캘린더 일정 목록(구독 파일·구글 캘린더 공용)"""
     up = load("upcoming.json", {}).get("items", [])
     mac = load("macro.json", {}).get("items", [])
-    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//pepper//radar//KO", "CALSCALE:GREGORIAN",
-             "X-WR-CALNAME:Pepper 미국주식 일정", "X-WR-TIMEZONE:Asia/Seoul", "REFRESH-INTERVAL;VALUE=DURATION:PT6H"]
-    stamp = NOW.strftime("%Y%m%dT%H%M%SZ")
-    n = 0
+    out = []
     for i in up + [m for m in mac if m.get("date")]:
         ds = i.get("date", "")
         if not re.match(r"^\d{4}-\d\d-\d\d$", ds):
             continue
-        d = date.fromisoformat(ds)
         title = i.get("title") or (f"{i['ticker']} " if i.get("ticker") else "") + (i.get("event") or "")
         tag = {"ER": "실적", "FDA": "FDA", "DATA": "임상", "FED": "연준", "ECO": "지표", "MK": "시장", "IDX": "지수"}.get(i.get("kind"), "일정")
         uid = re.sub(r"[^A-Za-z0-9]", "", f"{ds}{i.get('kind')}{i.get('ticker', '')}{title[:20]}")[:60] + "@pepper"
-        lines += ["BEGIN:VEVENT", f"UID:{uid}", f"DTSTAMP:{stamp}", f"DTSTART;VALUE=DATE:{d.strftime('%Y%m%d')}",
+        out.append({"uid": uid, "date": ds, "summary": ("[" + tag + "] " + title)[:130],
+                    "desc": " · ".join(x for x in [i.get("time"), i.get("detail") or i.get("note"), i.get("url")] if x)})
+    return out
+
+
+def run_ics():
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//pepper//radar//KO", "CALSCALE:GREGORIAN",
+             "X-WR-CALNAME:Pepper 미국주식 일정", "X-WR-TIMEZONE:Asia/Seoul", "REFRESH-INTERVAL;VALUE=DURATION:PT6H"]
+    # DTSTAMP를 매번 바꾸면 내용이 같아도 파일이 바뀌므로, 하루 단위로 고정
+    stamp = NOW.strftime("%Y%m%dT000000Z")
+    evs = cal_events()
+    for e in evs:
+        d = date.fromisoformat(e["date"])
+        lines += ["BEGIN:VEVENT", f"UID:{e['uid']}", f"DTSTAMP:{stamp}", f"DTSTART;VALUE=DATE:{d.strftime('%Y%m%d')}",
                   f"DTEND;VALUE=DATE:{(d + timedelta(days=1)).strftime('%Y%m%d')}",
-                  f"SUMMARY:{ics_text('[' + tag + '] ' + title[:120])}",
-                  f"DESCRIPTION:{ics_text(' · '.join(x for x in [i.get('time'), i.get('detail') or i.get('note'), i.get('url')] if x))}",
+                  f"SUMMARY:{ics_text(e['summary'])}", f"DESCRIPTION:{ics_text(e['desc'])}",
                   "TRANSP:TRANSPARENT", "END:VEVENT"]
-        n += 1
     lines.append("END:VCALENDAR")
     with open(os.path.join(DATA, "calendar.ics"), "w", encoding="utf-8", newline="") as f:
         f.write("\r\n".join(lines) + "\r\n")
-    print("캘린더 일정", n)
+    print("캘린더 일정", len(evs))
+
+
+# ---------------------------------------------------------------- 6-2) 구글 캘린더 직접 넣기 (선택)
+def gcal_id(uid):
+    import hashlib
+    return "pep" + hashlib.sha1(uid.encode()).hexdigest()  # 구글 일정 id 규칙(0-9a-v)에 맞는 고정 id → 중복 없음
+
+
+def run_gcal():
+    """비밀값 GCAL_SA_JSON(서비스 계정 키 JSON 전체)과 GCAL_ID(캘린더 ID)가 있을 때만 동작"""
+    sa, cal = os.environ.get("GCAL_SA_JSON", "").strip(), os.environ.get("GCAL_ID", "").strip()
+    if not sa or not cal:
+        return
+    import hashlib
+    import requests
+    from google.auth.transport.requests import Request
+    from google.oauth2 import service_account
+    cred = service_account.Credentials.from_service_account_info(json.loads(sa), scopes=["https://www.googleapis.com/auth/calendar.events"])
+    cred.refresh(Request())
+    H = {"Authorization": "Bearer " + cred.token, "Content-Type": "application/json"}
+    base = "https://www.googleapis.com/calendar/v3/calendars/" + urllib.parse.quote(cal) + "/events"
+    st = load("gcal_state.json", {})  # 일정별 내용 해시(이미 넣은 것과 같으면 건너뜀)
+    done, ok, fail = {}, 0, 0
+    for e in cal_events():
+        eid = gcal_id(e["uid"])
+        d = date.fromisoformat(e["date"])
+        body = {"id": eid, "summary": e["summary"], "description": e["desc"],
+                "start": {"date": d.isoformat()}, "end": {"date": (d + timedelta(days=1)).isoformat()},
+                "transparency": "transparent", "reminders": {"useDefault": False, "overrides": []}}  # 알림 없음
+        h = hashlib.sha1(json.dumps(body, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:12]
+        done[eid] = h
+        if st.get(eid) == h:
+            continue
+        r = requests.post(base, headers=H, json=body, timeout=30)
+        if r.status_code == 409:  # 이미 있음 → 내용만 고침
+            r = requests.put(base + "/" + eid, headers=H, json=body, timeout=30)
+        if r.ok:
+            ok += 1
+        else:
+            fail += 1
+            done.pop(eid, None)
+            print("구글 캘린더 실패", r.status_code, r.text[:150])
+    # 지금 목록에 있는 일정만 기록(지난 일정은 자연히 빠짐)
+    save("gcal_state.json", done)
+    print("구글 캘린더 반영", ok, "건, 실패", fail)
 
 
 # ---------------------------------------------------------------- 7) my 사이트 암호화
@@ -952,15 +1093,41 @@ def run_my(old, watch):
         r = load(f"preview/{i['ticker']}.json", None)
         if r:
             pv[i["ticker"]] = r
-    blob = {"today": load("today.json", None), "upcoming": load("upcoming.json", None), "macro": load("macro.json", None),
+    today = TODAY_FULL or ((old or {}).get("today") if (old or {}).get("today") and (old or {})["today"].get("session") == load("today.json", {}).get("session") else None) or load("today.json", None)
+    blob = {"today": today, "upcoming": load("upcoming.json", None), "macro": load("macro.json", None),
             "picks": load("picks.json", None), "watch": {"tickers": watch, "updatedAt": (old or {}).get("watch", {}).get("updatedAt", iso())},
             "preview": pv}
     raw = json.dumps(blob, ensure_ascii=False).encode()
+    # 내용(갱신 시각 제외)이 같으면 다시 암호화하지 않습니다 — 매번 새 파일이 커밋돼 저장소가 커지는 것을 막음
+    import hashlib, hmac
+    canon = json.dumps(strip_volatile(blob), ensure_ascii=False, sort_keys=True).encode()
+    hk = hashlib.sha256(("pepper-hash|" + pw).encode()).digest()  # 비밀번호로 만든 열쇠 → 해시만으로 내용 추측 불가
+    sig = hmac.new(hk, canon, hashlib.sha256).hexdigest()
+    hp = os.path.join(ROOT, "my", "data.hash")
+    try:
+        if open(hp).read().strip() == sig and os.path.exists(os.path.join(ROOT, "my", "data.enc")):
+            print("my 사이트: 내용 변화 없음 → 그대로 둠")
+            return
+    except Exception:
+        pass
     salt, ivb, it = os.urandom(16), os.urandom(12), 1000000
     ct = AESGCM(my_key(pw.encode(), salt, it)).encrypt(ivb, raw, None)
     b = lambda x: base64.b64encode(x).decode()
     json.dump({"v": 1, "iter": it, "salt": b(salt), "iv": b(ivb), "ct": b(ct)}, open(os.path.join(ROOT, "my", "data.enc"), "w"))
+    open(hp, "w").write(sig + "\n")
     print("my 사이트 갱신", len(raw), "bytes")
+
+
+VOLATILE = {"updatedAt", "checkedAt", "generatedAt"}
+
+
+def strip_volatile(o):
+    """갱신 시각처럼 매번 바뀌는 값을 뺀 사본"""
+    if isinstance(o, dict):
+        return {k: strip_volatile(v) for k, v in o.items() if k not in VOLATILE}
+    if isinstance(o, list):
+        return [strip_volatile(v) for v in o]
+    return o
 
 
 def main():
@@ -978,6 +1145,7 @@ def main():
             run_preview(rows, watch)
             run_ics()
         steps.append(("full", full))
+        steps.append(("gcal", run_gcal))
     for nm, fn in steps:
         try:
             fn()
