@@ -1,6 +1,6 @@
 {
  "session": "미국 11/30(월) 장 = 한국 11/30 밤 11:30 ~ 12/1 아침 6:00",
- "updatedAt": "2026-11-28T08:48:09Z",
+ "updatedAt": "2026-11-28T09:02:58Z",
  "note": "장 시작 전 기준 자동 수집 · 등락률 옆 괄호는 장전·장중·시간외 구분 · 기사 제목·요약은 자동 번역이라 어색할 수 있습니다 · 급등했어도 관련 기사가 확인되지 않은 종목은 넣지 않습니다",
  "items": [
   {
@@ -9,9 +9,9 @@
    "name": "Vera Therapeutics",
    "move": "+0.3% (시간외)",
    "kind": "FDA",
-   "reason": "라이벌 IgA 신장병 약물에 대한 FDA 지연으로 Vera Therapeutics(NASDAQ:VERA)가 오늘 시판 전 가격이 15% 상승했습니다. (기사 11/27 23:19 한국 시각)",
-   "source": "kalkine.ca · 자동 번역",
-   "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQNDU3M290XzN6SzFFLVJjUU44bS1GeDNPb1pseWw2Tmp3YUZ2cFJGajZGMGhsWm8xbmJZS0JpOXE5c0NzMTVTV1NaWUU1SDdrZHU1eFlvQU1OQ3d5ZXZGSHNnUEpzLTcwYVJyN2xnaTdYaWhyMVlzcExIU19xdk5BcFlVbGI5YkhfdkpTRE1LLVU2RkI1Vi1FZE5TemluWFV2RWdiRnk1TGR4QXRjYVJlWjVhc0tJUjYzbnp2Nmo2S3NTcWF0dTlwaTg0WFlRcm1R?oc=5"
+   "reason": "Vera Therapeutics(NASDAQ:VERA)는 FDA가 경쟁 제품인 IgA 신장병증 약물을 지연함에 따라 오늘 시판 전 가격이 15% 급등했습니다. (기사 11/27 23:06 한국 시각)",
+   "source": "kalkine.com · 자동 번역",
+   "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNU29zbmc5R0JXYTR2N3FDWWRMTU04TFM4ejJQMHJURmdzQ2tuTmpfQ0dxSUpldG8zbUx5b0VZT0twVFk1RC1vb1hCa3Vsc2ZjVDRGOVlzQ0NuYUIwdEZnNXdQWGdUUG5ieWZYbDd0R2t5bFpOUEtmeFdyc1QyM3dzeE1ocEdnMmltUTh6U1VPcG01UWtJSTZvZFRfbXM4eWFMMEJCR0V1X0ZQMURjSmtWVEVpTG9oYVRLY1MybnA2a1J6UVE4NE9vYnFNTHBndkFBME1j?oc=5"
   }
  ]
 }
