@@ -346,12 +346,20 @@ $('erMeta').textContent='실적 달력을 불러오는 중…';
 fetch('../data/earnings.json?t='+Date.now()).then(r=>r.json()).then(j=>setEarnings(j.rows||[])).catch(()=>{$('erMeta').textContent='실적 달력을 불러오지 못했습니다.'});
 const b64=x=>Uint8Array.from(atob(x),c=>c.charCodeAt(0));
 let PW=null;try{PW=localStorage.getItem('pepper_pw')}catch(e){}
-async function decrypt(pw){
-  const r=await fetch('data.enc?t='+Date.now());if(!r.ok)throw new Error('net');const e=await r.json();
-  const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
-  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(e.salt),iterations:e.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
-  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(e.iv)},key,b64(e.ct));
+const KEYS={};/* 비밀번호+소금별 열쇠 저장(한 번만 계산) */
+async function decOne(pw,e){
+  const id=pw+'|'+e.salt+'|'+e.iter;
+  if(!KEYS[id]){const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+    KEYS[id]=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(e.salt),iterations:e.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt'])}
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(e.iv)},KEYS[id],b64(e.ct));
   return JSON.parse(new TextDecoder().decode(pt));
+}
+/* data.enc = 일정·미리보기(하루 2번), live.enc = 오늘의 호재·관심종목(30분마다) */
+async function decrypt(pw){
+  const r=await fetch('data.enc?t='+Date.now());if(!r.ok)throw new Error('net');
+  const d=await decOne(pw,await r.json());
+  try{const l=await fetch('live.enc?t='+Date.now());if(l.ok)Object.assign(d,await decOne(pw,await l.json()))}catch(e){}
+  return d;
 }
 function apply(d){
   today=d.today||null;ahead=d.upcoming||null;macro=d.macro||null;picks=d.picks||null;

@@ -236,18 +236,30 @@ def my_key(pw, salt, it):
     return PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=it).derive(pw)
 
 
+def _dec(path, pw):
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    e = json.load(open(path))
+    k = my_key(pw.encode(), base64.b64decode(e["salt"]), e["iter"])
+    return json.loads(AESGCM(k).decrypt(base64.b64decode(e["iv"]), base64.b64decode(e["ct"]), None))
+
+
 def my_old():
+    """my/data.enc(일정·미리보기) + my/live.enc(오늘의 호재·관심종목)를 풀어 합친 것"""
     pw = os.environ.get("MY_PASS", "")
     if not pw:
         return None
     try:
-        from cryptography.hazmat.primitives.ciphers.aead import AESGCM
-        e = json.load(open(os.path.join(ROOT, "my", "data.enc")))
-        k = my_key(pw.encode(), base64.b64decode(e["salt"]), e["iter"])
-        return json.loads(AESGCM(k).decrypt(base64.b64decode(e["iv"]), base64.b64decode(e["ct"]), None))
+        d = _dec(os.path.join(ROOT, "my", "data.enc"), pw)
     except Exception as ex:
         print("my/data.enc 풀기 실패(비밀번호 확인):", ex)
         return None
+    lp = os.path.join(ROOT, "my", "live.enc")
+    if os.path.exists(lp):
+        try:
+            d.update(_dec(lp, pw))
+        except Exception as ex:
+            print("my/live.enc 풀기 실패:", ex)
+    return d
 
 
 def watch_list(old):
@@ -1097,25 +1109,42 @@ def run_my(old, watch):
     blob = {"today": today, "upcoming": load("upcoming.json", None), "macro": load("macro.json", None),
             "picks": load("picks.json", None), "watch": {"tickers": watch, "updatedAt": (old or {}).get("watch", {}).get("updatedAt", iso())},
             "preview": pv}
-    raw = json.dumps(blob, ensure_ascii=False).encode()
-    # 내용(갱신 시각 제외)이 같으면 다시 암호화하지 않습니다 — 매번 새 파일이 커밋돼 저장소가 커지는 것을 막음
+    # 자주 바뀌는 것(오늘의 호재·자동 선별·관심종목)은 작은 live.enc, 하루 2번 바뀌는 것(일정·미리보기)은 data.enc로 나눔
+    # → 30분마다 바뀌는 건 작은 파일뿐이라 저장소가 덜 커짐. 내용(갱신 시각 제외)이 같으면 아예 다시 만들지 않음
     import hashlib, hmac
-    canon = json.dumps(strip_volatile(blob), ensure_ascii=False, sort_keys=True).encode()
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    parts = {"data.enc": {k: blob[k] for k in ("upcoming", "macro", "preview")},
+             "live.enc": {k: blob[k] for k in ("today", "picks", "watch")}}
     hk = hashlib.sha256(("pepper-hash|" + pw).encode()).digest()  # 비밀번호로 만든 열쇠 → 해시만으로 내용 추측 불가
-    sig = hmac.new(hk, canon, hashlib.sha256).hexdigest()
-    hp = os.path.join(ROOT, "my", "data.hash")
+    hp = os.path.join(ROOT, "my", "hash.json")
     try:
-        if open(hp).read().strip() == sig and os.path.exists(os.path.join(ROOT, "my", "data.enc")):
-            print("my 사이트: 내용 변화 없음 → 그대로 둠")
-            return
+        prev = json.load(open(hp))
     except Exception:
-        pass
-    salt, ivb, it = os.urandom(16), os.urandom(12), 1000000
-    ct = AESGCM(my_key(pw.encode(), salt, it)).encrypt(ivb, raw, None)
+        prev = {}
+    it = 1000000
+    try:  # 같은 소금(salt)을 계속 쓰면 사이트가 열쇠를 한 번만 만들면 됨(파일마다 iv는 새로)
+        e0 = json.load(open(os.path.join(ROOT, "my", "data.enc")))
+        salt = base64.b64decode(e0["salt"]) if old is not None else os.urandom(16)
+    except Exception:
+        salt = os.urandom(16)
+    key = my_key(pw.encode(), salt, it)
     b = lambda x: base64.b64encode(x).decode()
-    json.dump({"v": 1, "iter": it, "salt": b(salt), "iv": b(ivb), "ct": b(ct)}, open(os.path.join(ROOT, "my", "data.enc"), "w"))
-    open(hp, "w").write(sig + "\n")
-    print("my 사이트 갱신", len(raw), "bytes")
+    changed = []
+    for fn, part in parts.items():
+        sig = hmac.new(hk, json.dumps(strip_volatile(part), ensure_ascii=False, sort_keys=True).encode(), hashlib.sha256).hexdigest()
+        path = os.path.join(ROOT, "my", fn)
+        if prev.get(fn) == sig and os.path.exists(path):
+            continue
+        raw = json.dumps(part, ensure_ascii=False).encode()
+        ivb = os.urandom(12)
+        json.dump({"v": 1, "iter": it, "salt": b(salt), "iv": b(ivb), "ct": b(AESGCM(key).encrypt(ivb, raw, None))}, open(path, "w"))
+        prev[fn] = sig
+        changed.append(f"{fn} {len(raw)}B")
+    json.dump(prev, open(hp, "w"))
+    old_h = os.path.join(ROOT, "my", "data.hash")
+    if os.path.exists(old_h):
+        os.remove(old_h)
+    print("my 사이트:", ", ".join(changed) if changed else "내용 변화 없음 → 그대로 둠")
 
 
 VOLATILE = {"updatedAt", "checkedAt", "generatedAt"}
