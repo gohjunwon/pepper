@@ -1,0 +1,87 @@
+3-Month Bill Auction
+4-Week Bill Auction
+6-Month Bill Auction
+8-Week Bill Auction
+API Weekly Crude Oil Stock
+Atlanta Fed GDPNow
+Building Permits
+Business Inventories
+CB Employment Trends Index
+CFTC Aluminium speculative net positions
+CFTC Copper speculative net positions
+CFTC Corn speculative net positions
+CFTC Crude Oil speculative net positions
+CFTC Gold speculative net positions
+CFTC Nasdaq 100 speculative net positions
+CFTC Natural Gas speculative net positions
+CFTC S&P 500 speculative net positions
+CFTC Silver speculative net positions
+CFTC Soybeans speculative net positions
+CFTC Wheat speculative net positions
+Capacity Utilization Rate
+Challenger Job Cuts
+Chicago PMI
+Construction Spending
+Consumer Credit
+Continuing Jobless Claims
+Core PPI
+Core Retail Sales
+Dallas Fed Mfg Business Index
+Dallas Fed Services Revenues
+Durables Excluding Defense
+Durables Excluding Transport
+Export Price Index
+FOMC Member Bowman Speaks
+Factory Orders
+Factory orders ex transportation
+Housing Starts
+IBD/TIPP Economic Optimism
+ISM Manufacturing Employment
+ISM Manufacturing New Orders Index
+ISM Manufacturing PMI
+ISM Manufacturing Prices
+ISM Non-Manufacturing Business Activity
+ISM Non-Manufacturing Employment
+ISM Non-Manufacturing New Orders
+ISM Non-Manufacturing PMI
+ISM Non-Manufacturing Prices
+Import Price Index
+Industrial Production
+Initial Jobless Claims
+JOLTS Job Openings
+Jobless Claims 4-Week Avg.
+KC Fed Composite Index
+KC Fed Manufacturing Index
+Manufacturing Production
+NAHB Housing Market Index
+NFIB Small Business Optimism
+NY Empire State Manufacturing Index
+Natural Gas Storage
+Nonfarm Productivity
+OPEC Meeting
+Overall Net Capital Flow
+PPI
+PPI ex. Food/Energy/Transport
+Pending Home Sales
+Pending Home Sales Index
+Philadelphia Fed Manufacturing Index
+Philly Fed Business Conditions
+Philly Fed CAPEX Index
+Philly Fed Employment
+Philly Fed New Orders
+Philly Fed Prices Paid
+Redbook
+Retail Control
+Retail Inventories Ex Auto
+Retail Sales
+Retail Sales Ex Gas/Autos
+S&P Global Composite PMI
+S&P Global Manufacturing PMI
+S&P Global Services PMI
+TIC Net Long-Term Transactions
+TIC Net Long-Term Transactions including Swaps
+Texas Services Sector Outlook
+Trade Balance
+US Foreign Buying, T-bonds
+Unit Labor Costs
+United States - Christmas - Early close at 13:00

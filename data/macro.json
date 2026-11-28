@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-28T08:43:19Z",
+ "updatedAt": "2026-11-28T08:48:09Z",
  "items": [
   {
    "date": "",
@@ -32,6 +32,26 @@
    "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORWJEcWhQS3hJNmxCdGYyRjBCSnR0aG5oajhVc0QwdmxvY0NGWlpHYlExSFQwaDJmY21DdUR6NTFIT0thY0RWQUFib3NZNHBFekZEcDNTZlU4RC1wVGV5dVVKZklUOVpQNi1OdXM3UzFyWnpxU1MyTFJOLWU5SXo4WXJHYW1qVXpOd3piZ0dCd3JIaExJeWpzTG53WkR4bktWdUVxcjJYMndKenZlZVJ6bVN6NEcyVF9fRm5Cd20zcGN3a2toZWhCd0dwemN3N2xLZVZGNmlUX1NLZVhreUs4QUhSMHo3dDlJQ2Q2Y0VYRkw?oc=5"
   },
   {
+   "date": "2026-12-03",
+   "kind": "ECO",
+   "title": "ISM 제조업 지수",
+   "time": "한국 12/3 새벽 0:00",
+   "us": "12/2 오전 10:00(동부)",
+   "detail": "예상치 -, 이전 52.4.",
+   "source": "Nasdaq 경제 일정",
+   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
+  },
+  {
+   "date": "2026-12-03",
+   "kind": "ECO",
+   "title": "구인 건수(JOLTS)",
+   "time": "한국 12/3 새벽 0:00",
+   "us": "12/2 오전 10:00(동부)",
+   "detail": "예상치 -, 이전 7.523M.",
+   "source": "Nasdaq 경제 일정",
+   "url": "https://www.nasdaq.com/market-activity/economic-calendar"
+  },
+  {
    "date": "2026-12-04",
    "kind": "ECO",
    "title": "신규 실업수당 청구",
@@ -47,7 +67,7 @@
    "title": "ISM 서비스업 지수",
    "time": "한국 12/5 새벽 0:00",
    "us": "12/4 오전 10:00(동부)",
-   "detail": "예상치 54.5, 이전 54.5.",
+   "detail": "예상치 -, 이전 53.8.",
    "source": "Nasdaq 경제 일정",
    "url": "https://www.nasdaq.com/market-activity/economic-calendar"
   },

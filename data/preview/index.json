@@ -1,10 +1,10 @@
 {
- "updatedAt": "2026-11-28T08:43:19Z",
+ "updatedAt": "2026-11-28T08:48:09Z",
  "items": [
   {
    "ticker": "BHP",
    "name": "BHP",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "엇갈림",
    "date": "2026-12-01"
@@ -12,7 +12,7 @@
   {
    "ticker": "MRVL",
    "name": "마벨 테크놀로지",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "엇갈림",
    "date": "2026-12-01"
@@ -20,7 +20,7 @@
   {
    "ticker": "CRM",
    "name": "세일즈포스",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "긍정 단서 우세",
    "date": "2026-12-02"
@@ -28,7 +28,7 @@
   {
    "ticker": "BMO",
    "name": "Bank Of Montreal",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "긍정 단서 우세",
    "date": "2026-12-02"
@@ -36,7 +36,7 @@
   {
    "ticker": "BNS",
    "name": "Bank of Nova",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "엇갈림",
    "date": "2026-12-02"
@@ -44,7 +44,7 @@
   {
    "ticker": "SNOW",
    "name": "스노우플레이크",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "긍정 단서 우세",
    "date": "2026-12-02"
@@ -52,7 +52,7 @@
   {
    "ticker": "RY",
    "name": "Royal Bank Of",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "긍정 단서 우세",
    "date": "2026-12-03"
@@ -60,7 +60,7 @@
   {
    "ticker": "TD",
    "name": "Toronto Dominion Bank",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "긍정 단서 우세",
    "date": "2026-12-03"
@@ -68,7 +68,7 @@
   {
    "ticker": "CM",
    "name": "Canadian Imperial Bank",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "긍정 단서 우세",
    "date": "2026-12-03"
@@ -76,7 +76,7 @@
   {
    "ticker": "SNPS",
    "name": "Synopsys",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "긍정 단서 우세",
    "date": "2026-12-08"
@@ -84,7 +84,7 @@
   {
    "ticker": "AZO",
    "name": "AutoZone",
-   "updatedAt": "2026-11-28T08:43:19Z",
+   "updatedAt": "2026-11-28T08:48:09Z",
    "source": "upcoming",
    "verdict": "엇갈림",
    "date": "2026-12-08"

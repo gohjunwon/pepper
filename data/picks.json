@@ -1,26 +1,6 @@
 {
- "updatedAt": "2026-11-28T08:43:19Z",
+ "updatedAt": "2026-11-28T08:48:09Z",
  "today": [
-  {
-   "ticker": "ACN",
-   "name": "Accenture",
-   "level": "보통",
-   "catalyst": "오늘 장 (+7.7% (시간외))",
-   "thesis": "ETF는 수요일에 Accenture (ACN)의 순 매도자입니다. ETF는 11월 수요일에 Accenture를 2,090만 달러 순매도했습니다. (기사 11/27 20:03 한국 시각)",
-   "risk": "단발성 소식이면 상승이 오래가지 않을 수 있습니다.",
-   "source": "GuruFocus.com · 자동 번역",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-accenture-acn-110302708.html"
-  },
-  {
-   "ticker": "TPL",
-   "name": "Texas Pacific Land",
-   "level": "보통",
-   "catalyst": "오늘 장 (+5.5% (시간외))",
-   "thesis": "TPL(Texas Pacific Land) 주식은 5년 동안 107% 상승해 비싸 보입니다. Texas Pacific Land는 다년간의 강력한 운영 이후 최근 몇 달 동안 주가가 하락하는 것을 보았으며, 이는 현재 가치 평가가 여전히 수익력에 의해 뒷받침되는지에 대한 새로운 주목을 받고 있습니다. (기사 11/27 16:08 한국 시각)",
-   "risk": "실적 발표 직후 급등은 며칠 안에 되돌려지는 경우가 많습니다.",
-   "source": "Simply Wall St. · 자동 번역",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/texas-pacific-land-tpl-stock-070820383.html"
-  },
   {
    "ticker": "VERA",
    "name": "Vera Therapeutics",
