@@ -2,8 +2,8 @@ name: Pepper 자동 갱신
 
 on:
   schedule:
-    - cron: "*/30 * * * *"            # 24시간 30분마다: 전체(호재·일정·실적·시장)
-    - cron: "10,20,40,50 12-14 * * 1-5"  # 미국장 시작 1시간여 전 ~ 개장 직후는 10분마다: 오늘의 호재
+    # 30분마다(장 전후는 10분마다) 실행은 Cloudflare 알람(tools/cloudflare-worker.js)이 보냅니다.
+    - cron: "47 */3 * * *"            # 예비용: 알람이 멈춰도 3시간마다 전체
   workflow_dispatch:
     inputs:
       mode:
@@ -36,7 +36,7 @@ jobs:
           INMODE: ${{ github.event.inputs.mode }}
         run: |
           MODE=today
-          if [ "$SCHED" = "*/30 * * * *" ]; then MODE=all; fi
+          if [ "$SCHED" = "47 */3 * * *" ]; then MODE=all; fi
           if [ "$EVT" = "workflow_dispatch" ]; then MODE="${INMODE:-all}"; fi
           python scripts/collect.py "$MODE"
       - name: 저장
