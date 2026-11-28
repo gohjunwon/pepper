@@ -240,7 +240,7 @@ const pend=t=>reqs[t]&&(!pvIdx[t]||new Date(reqs[t].requestedAt)>new Date(pvIdx[
 async function loadRep(t){
   if(!pvIdx[t])return;
   if(reps[t]&&reps[t].updatedAt===pvIdx[t].updatedAt)return;
-  try{const r=await (await fetch('data/preview/'+encodeURIComponent(t)+'.json?v='+encodeURIComponent(pvIdx[t].updatedAt))).json();reps[t]=r;if(pvSel===t)renderPv()}catch(e){}
+  try{const r=await (await fetch('../data/preview/'+encodeURIComponent(t)+'.json?v='+encodeURIComponent(pvIdx[t].updatedAt))).json();reps[t]=r;if(pvSel===t)renderPv()}catch(e){}
 }
 function aheadSet(){
   if(!ahead||!Array.isArray(ahead.items))return null;const S=new Set();

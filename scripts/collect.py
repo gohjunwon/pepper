@@ -29,6 +29,9 @@ KST = ZoneInfo("Asia/Seoul")
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
 NOW = datetime.now(timezone.utc)
 TODAY_FULL = None  # 이번 실행에서 만든 오늘의 호재(관심종목 포함, my 사이트용)
+UPCOMING_FULL = None  # 이번 실행에서 만든 1달 앞 일정(관심종목 포함, my 사이트·구글 캘린더용)
+PREVIEW_FULL = None  # 이번 실행에서 만든 실적 미리보기(관심종목 포함, my 사이트용)
+PICKS_FULL = None  # 자동 선별(관심종목 우선, my 사이트용)
 WD = "월화수목금토일"
 
 # ---------------------------------------------------------------- 휴장·연준 (공식 발표 기준)
@@ -541,7 +544,9 @@ def run_today(watch):
     global TODAY_FULL
     TODAY_FULL = full_doc
     # 공개 사이트에는 관심종목이라서만 들어간 항목(5% 미만 상승)을 싣지 않습니다(관심종목 노출 방지)
+    # 순서도 관심종목 우선이 아닌 일반 순서로(순서만 보고 관심종목을 짐작하지 못하게)
     pub = [i for i in final if not (i["ticker"] in watch and mvv(i) < 5 and i["kind"] not in ("FDA", "MA", "DATA"))]
+    pub.sort(key=lambda i: (pr_k.get(i["kind"], 9), -mvv(i)))
     save("today.json", {**full_doc, "items": pub})
     print("오늘의 호재", len(final), "(공개", len(pub), ")")
     try:
@@ -721,7 +726,24 @@ def run_upcoming(watch):
     rows = earnings_rows()
     # 실적 달력(전체)
     save("earnings.json", {"updatedAt": iso(), "rows": [{k: v for k, v in r.items() if k != "cap"} for r in rows]})
-    # 주요 실적 묶음 (시가총액 200억 달러 이상 + 관심종목)
+    # 주요 실적 묶음 (시가총액 200억 달러 이상 + 관심종목) — 관심종목은 my 사이트용 사본에만 넣음(공개 사이트 노출 방지)
+    fda = fda_items(d0, d1)
+    have = {(i.get("ticker"), i.get("date")) for i in keep}
+    fda = [f for f in fda if (f["ticker"], f["date"]) not in have]
+    mk = market_items(d0, d1)
+    full_items = keep + er_groups(rows, watch, d0, d1) + fda + mk
+    items = keep + er_groups(rows, [], d0, d1) + fda + mk
+    srt = lambda i: (i.get("date") if re.match(r"^\d{4}", i.get("date", "")) else "9" + i.get("date", ""))
+    items.sort(key=srt)
+    full_items.sort(key=srt)
+    global UPCOMING_FULL
+    UPCOMING_FULL = {"updatedAt": iso(), "items": full_items}
+    save("upcoming.json", {"updatedAt": iso(), "items": items})
+    print("1달 앞 일정", len(items), "(FDA", len(fda), ")")
+    return items, rows
+
+
+def er_groups(rows, watch, d0, d1):
     groups = {}
     for r in rows:
         if not r["symbol"] or (r["cap"] < 2e10 and r["symbol"] not in watch):
@@ -741,16 +763,9 @@ def run_upcoming(watch):
         when = {"pre-market": "밤(미국 장 시작 전 발표)", "post-market": "아침 6시 이후(미국 장 마감 후 발표)"}.get(tm, "발표 시각 미정")
         er.append({"date": kd.isoformat(), "kind": "ER", "name": "주요 실적", "event": f"주요 실적: {names}{more}",
                    "time": f"{kd.month}/{kd.day} {when}", "us": f"{ud.month}/{ud.day} " + {"pre-market": "장 시작 전", "post-market": "장 마감 후"}.get(tm, ""),
-                   "note": "시가총액 200억 달러 이상과 관심종목", "source": "Nasdaq 실적 달력",
+                   "note": "시가총액 200억 달러 이상" + ("과 관심종목" if watch else ""), "source": "Nasdaq 실적 달력",
                    "url": "https://www.nasdaq.com/market-activity/earnings", "auto": "er"})
-    fda = fda_items(d0, d1)
-    have = {(i.get("ticker"), i.get("date")) for i in keep}
-    fda = [f for f in fda if (f["ticker"], f["date"]) not in have]
-    items = keep + er + fda + market_items(d0, d1)
-    items.sort(key=lambda i: (i.get("date") if re.match(r"^\d{4}", i.get("date", "")) else "9" + i.get("date", "")))
-    save("upcoming.json", {"updatedAt": iso(), "items": items})
-    print("1달 앞 일정", len(items), "(실적 묶음", len(er), "FDA", len(fda), ")")
-    return items, rows
+    return er
 
 
 # ---------------------------------------------------------------- 3) 시장 일정
@@ -946,21 +961,25 @@ def preview_one(t, row):
 
 def run_preview(rows, watch):
     d0 = NOW.astimezone(ET).date()
-    soon = [r for r in rows if r["symbol"] and d0 <= date.fromisoformat(r["reportDate"]) <= d0 + timedelta(days=10)
-            and (r["cap"] >= 5e10 or r["symbol"] in watch)]
-    soon.sort(key=lambda r: (r["symbol"] not in watch, r["reportDate"], -r["cap"]))
-    soon = soon[:14]
+    near = [r for r in rows if r["symbol"] and d0 <= date.fromisoformat(r["reportDate"]) <= d0 + timedelta(days=10)]
+    # 공개용(시가총액 500억 달러 이상, 일반 순서)과 관심종목용(my 사이트에만)을 따로 고름 → 공개 파일에 관심종목이 드러나지 않음
+    pub = sorted([r for r in near if r["cap"] >= 5e10], key=lambda r: (r["reportDate"], -r["cap"]))[:14]
+    keep = {r["symbol"] for r in pub}
+    mine = sorted([r for r in near if r["symbol"] in watch and r["symbol"] not in keep], key=lambda r: (r["reportDate"], -r["cap"]))[:14]
     pdir = os.path.join(DATA, "preview")
     os.makedirs(pdir, exist_ok=True)
-    keep = {r["symbol"] for r in soon}
     idx = []
-    for r in soon:
+    global PREVIEW_FULL
+    PREVIEW_FULL = {}
+    for r in pub + mine:
         try:
             rep = preview_one(r["symbol"], r)
         except Exception as e:
             print("미리보기 실패", r["symbol"], e)
             rep = None
         if rep:
+            PREVIEW_FULL[r["symbol"]] = rep
+        if rep and r["symbol"] in keep:
             save(f"preview/{r['symbol']}.json", rep)
             idx.append({"ticker": r["symbol"], "name": rep["name"], "updatedAt": rep["updatedAt"], "source": "upcoming", "verdict": rep["verdict"],
                         "date": r["reportDate"]})
@@ -973,10 +992,24 @@ def run_preview(rows, watch):
 
 
 # ---------------------------------------------------------------- 5) 자동 선별 (my 사이트)
-def run_picks(watch):
-    today = load("today.json", {}).get("items", [])
-    up = load("upcoming.json", {}).get("items", [])
-    pv = load("preview/index.json", {}).get("items", [])
+def run_picks(watch, old=None):
+    """공개용 picks.json(관심종목 우선 없음)과 my 사이트용(관심종목 포함·우선) 두 가지를 만듦"""
+    global PICKS_FULL
+    pub = make_picks(load("today.json", {}).get("items", []), load("upcoming.json", {}).get("items", []),
+                     load("preview/index.json", {}).get("items", []), [])
+    save("picks.json", pub)
+    o = old or {}
+    td = TODAY_FULL or (o.get("today") if (o.get("today") or {}).get("session") == load("today.json", {}).get("session") else None)
+    up = UPCOMING_FULL or o.get("upcoming")
+    pv = list((PREVIEW_FULL if PREVIEW_FULL is not None else (o.get("preview") or {})).values())
+    PICKS_FULL = make_picks((td or {}).get("items") or load("today.json", {}).get("items", []),
+                            (up or {}).get("items") or load("upcoming.json", {}).get("items", []),
+                            [{"ticker": r.get("ticker"), "name": r.get("name"), "verdict": r.get("verdict"),
+                              "date": (r.get("nextEarnings") or {}).get("us", "")} for r in pv] if pv else
+                            load("preview/index.json", {}).get("items", []), watch)
+
+
+def make_picks(today, up, pv, watch):
     risk = {"FDA": "승인 소식은 이미 주가에 반영됐을 수 있고, 출시·판매 속도가 기대보다 느릴 수 있습니다.",
             "DATA": "임상 결과는 해석이 갈리기 쉽고, 다음 단계 실패 가능성이 남아 있습니다.",
             "MA": "인수 가격이 정해지면 주가가 그 가격 근처에 묶이고, 규제 심사로 무산될 수 있습니다.",
@@ -1002,7 +1035,7 @@ def run_picks(watch):
             upl.append({"ticker": i["ticker"], "name": i.get("name", ""), "level": "고위험", "catalyst": f"{i['date']} {i.get('event', '')}"[:80],
                         "thesis": i.get("event", ""), "risk": "결과에 따라 크게 오르거나 내릴 수 있습니다(승인·성공 여부 예측 아님).",
                         "source": i.get("source"), "url": i.get("url")})
-    save("picks.json", {"updatedAt": iso(), "today": tp, "upcoming": upl[:5]})
+    return {"updatedAt": iso(), "today": tp, "upcoming": upl[:5]}
 
 
 # ---------------------------------------------------------------- 6) 캘린더 구독 파일(.ics)
@@ -1010,9 +1043,11 @@ def ics_text(s):
     return re.sub(r"([,;\\])", r"\\\1", str(s or "")).replace("\n", "\\n")
 
 
-def cal_events():
-    """1달 앞 일정 + 시장 일정 → 캘린더 일정 목록(구독 파일·구글 캘린더 공용)"""
-    up = load("upcoming.json", {}).get("items", [])
+def cal_events(up=None):
+    """1달 앞 일정 + 시장 일정 → 캘린더 일정 목록(구독 파일·구글 캘린더 공용)
+    up 없으면 공개 upcoming.json(관심종목 없음) — 공개 구독 파일(.ics)은 이것만 씀"""
+    if up is None:
+        up = load("upcoming.json", {}).get("items", [])
     mac = load("macro.json", {}).get("items", [])
     out = []
     for i in up + [m for m in mac if m.get("date")]:
@@ -1064,17 +1099,24 @@ def run_gcal():
     cred.refresh(Request())
     H = {"Authorization": "Bearer " + cred.token, "Content-Type": "application/json"}
     base = "https://www.googleapis.com/calendar/v3/calendars/" + urllib.parse.quote(cal) + "/events"
-    st = load("gcal_state.json", {})  # 일정별 내용 해시(이미 넣은 것과 같으면 건너뜀)
+    import hmac
+    # 일정별 내용 해시(이미 넣은 것과 같으면 건너뜀). 이 파일은 공개 저장소에 있으므로
+    # 비밀값으로 만든 열쇠(HMAC)로 기록 → 기록만 보고 관심종목 일정을 짐작할 수 없음
+    hk = hashlib.sha256(("pepper-gcal|" + sa).encode()).digest()
+    sig = lambda x: hmac.new(hk, x.encode(), hashlib.sha256).hexdigest()[:16]
+    st = load("gcal_state.json", {})
     done, ok, fail = {}, 0, 0
-    for e in cal_events():
+    # 구글 캘린더(개인 캘린더)에는 관심종목 실적 일정도 넣음
+    for e in cal_events((UPCOMING_FULL or {}).get("items")):
         eid = gcal_id(e["uid"])
+        key = sig(eid)
         d = date.fromisoformat(e["date"])
         body = {"id": eid, "summary": e["summary"], "description": e["desc"],
                 "start": {"date": d.isoformat()}, "end": {"date": (d + timedelta(days=1)).isoformat()},
                 "transparency": "transparent", "reminders": {"useDefault": False, "overrides": []}}  # 알림 없음
-        h = hashlib.sha1(json.dumps(body, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:12]
-        done[eid] = h
-        if st.get(eid) == h:
+        h = sig(json.dumps(body, sort_keys=True, ensure_ascii=False))
+        done[key] = h
+        if st.get(key) == h:
             continue
         r = requests.post(base, headers=H, json=body, timeout=30)
         if r.status_code == 409:  # 이미 있음 → 내용만 고침
@@ -1083,7 +1125,7 @@ def run_gcal():
             ok += 1
         else:
             fail += 1
-            done.pop(eid, None)
+            done.pop(key, None)
             print("구글 캘린더 실패", r.status_code, r.text[:150])
     # 지금 목록에 있는 일정만 기록(지난 일정은 자연히 빠짐)
     save("gcal_state.json", done)
@@ -1100,14 +1142,18 @@ def run_my(old, watch):
         print("비밀번호가 기존 데이터와 맞지 않아 my 사이트를 덮어쓰지 않습니다")
         return
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
-    pv = {}
-    for i in load("preview/index.json", {}).get("items", []):
-        r = load(f"preview/{i['ticker']}.json", None)
-        if r:
-            pv[i["ticker"]] = r
-    today = TODAY_FULL or ((old or {}).get("today") if (old or {}).get("today") and (old or {})["today"].get("session") == load("today.json", {}).get("session") else None) or load("today.json", None)
-    blob = {"today": today, "upcoming": load("upcoming.json", None), "macro": load("macro.json", None),
-            "picks": load("picks.json", None), "watch": {"tickers": watch, "updatedAt": (old or {}).get("watch", {}).get("updatedAt", iso())},
+    o = old or {}
+    # 관심종목이 들어간 사본(이번 실행에서 만든 것 → 없으면 지난번 암호 파일 것 → 없으면 공개 파일)
+    pv = PREVIEW_FULL if PREVIEW_FULL is not None else o.get("preview")
+    if pv is None:
+        pv = {}
+        for i in load("preview/index.json", {}).get("items", []):
+            r = load(f"preview/{i['ticker']}.json", None)
+            if r:
+                pv[i["ticker"]] = r
+    today = TODAY_FULL or (o.get("today") if o.get("today") and o["today"].get("session") == load("today.json", {}).get("session") else None) or load("today.json", None)
+    blob = {"today": today, "upcoming": UPCOMING_FULL or o.get("upcoming") or load("upcoming.json", None), "macro": load("macro.json", None),
+            "picks": PICKS_FULL or load("picks.json", None), "watch": {"tickers": watch, "updatedAt": o.get("watch", {}).get("updatedAt", iso())},
             "preview": pv}
     # 자주 바뀌는 것(오늘의 호재·자동 선별·관심종목)은 작은 live.enc, 하루 2번 바뀌는 것(일정·미리보기)은 data.enc로 나눔
     # → 30분마다 바뀌는 건 작은 파일뿐이라 저장소가 덜 커짐. 내용(갱신 시각 제외)이 같으면 아예 다시 만들지 않음
@@ -1115,7 +1161,6 @@ def run_my(old, watch):
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
     parts = {"data.enc": {k: blob[k] for k in ("upcoming", "macro", "preview")},
              "live.enc": {k: blob[k] for k in ("today", "picks", "watch")}}
-    hk = hashlib.sha256(("pepper-hash|" + pw).encode()).digest()  # 비밀번호로 만든 열쇠 → 해시만으로 내용 추측 불가
     hp = os.path.join(ROOT, "my", "hash.json")
     try:
         prev = json.load(open(hp))
@@ -1128,6 +1173,9 @@ def run_my(old, watch):
     except Exception:
         salt = os.urandom(16)
     key = my_key(pw.encode(), salt, it)
+    # 해시 열쇠는 PBKDF2(100만 번)로 만든 열쇠에서 꺼냄. (예전처럼 비밀번호를 SHA256 한 번만 하면, 공개 자료와 같은
+    # data.enc 내용을 이용해 hash.json으로 비밀번호를 아주 빠르게 맞혀 볼 수 있었음)
+    hk = hmac.new(key, b"pepper-hash", hashlib.sha256).digest()
     b = lambda x: base64.b64encode(x).decode()
     changed = []
     for fn, part in parts.items():
@@ -1182,7 +1230,7 @@ def main():
             import traceback
             traceback.print_exc()
             print("실패:", nm, e)
-    for nm, fn in [("picks", lambda: run_picks(watch)), ("my", lambda: run_my(old, watch))]:
+    for nm, fn in [("picks", lambda: run_picks(watch, old)), ("my", lambda: run_my(old, watch))]:
         try:
             fn()
         except Exception as e:

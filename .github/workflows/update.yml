@@ -61,6 +61,8 @@ jobs:
           SCHED: ${{ github.event.schedule }}
           INMODE: ${{ github.event.inputs.mode }}
         run: |
+          # 공개 저장소의 실행 기록(로그)에 관심종목 이름이 찍히지 않도록 가림(yfinance 오류 메시지 등)
+          for t in $(echo "$WATCHLIST" | tr ',;' '  '); do echo "::add-mask::$t"; echo "::add-mask::$(echo "$t" | tr '[:lower:]' '[:upper:]')"; done
           MODE=today
           if [ "$SCHED" = "23 13 * * *" ]; then MODE=all; fi
           if [ "$EVT" = "workflow_dispatch" ]; then MODE="${INMODE:-all}"; fi
