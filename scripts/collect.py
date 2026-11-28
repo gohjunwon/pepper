@@ -130,24 +130,60 @@ except Exception:
 def _gtx(text):
     url = ("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ko&dt=t&q="
            + urllib.parse.quote(text))
-    data = json.loads(get(url, tries=4))
-    return "".join(seg[0] for seg in data[0] if seg and seg[0])
+    data = json.loads(get(url, tries=1))
+    return "".join(seg[0] for seg in data[0] if seg and seg[0]).split("\n")
+
+
+def _dict(text):
+    url = ("https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=en&tl=ko&"
+           + "&".join("q=" + urllib.parse.quote(t) for t in text.split("\n")))
+    data = json.loads(get(url, tries=1))
+    return [(d[0] if isinstance(d, list) else d) for d in data]
+
+
+def _mobile(text):
+    out = []
+    for t in text.split("\n"):
+        h = get("https://translate.google.com/m?sl=en&tl=ko&hl=ko&q=" + urllib.parse.quote(t), tries=1).decode("utf-8", "ignore")
+        m = re.search(r'class="result-container">(.*?)</div>', h, re.S)
+        out.append(__import__("html").unescape(m.group(1)) if m else "")
+        time.sleep(0.3)
+    return out
+
+
+TR_FAIL = {"n": 0}
 
 
 def ko_many(texts):
     texts = [re.sub(r"\s+", " ", t or "").strip() for t in texts]
     need = [t for t in dict.fromkeys(texts) if t and t not in TCACHE]
-    for i in range(0, len(need), 20):
-        chunk = need[i:i + 20]
-        try:
-            out = _gtx("\n".join(chunk)).split("\n")
-            if len(out) != len(chunk):
-                out = [_gtx(t) for t in chunk]
-            for a, b in zip(chunk, out):
-                TCACHE[a] = b.strip()
-        except Exception as e:
-            print("번역 실패", e)
-        time.sleep(0.5)
+    chunks, cur = [], []
+    for t in need:
+        if cur and sum(len(x) for x in cur) + len(t) > 1500:
+            chunks.append(cur)
+            cur = []
+        cur.append(t)
+    if cur:
+        chunks.append(cur)
+    for chunk in chunks:
+        if TR_FAIL["n"] >= 6:
+            break  # 번역 창구가 모두 막혔으면 이번엔 영어로 두고 다음 실행 때 다시
+        joined = "\n".join(chunk)
+        done = False
+        for fn in (_gtx, _dict, _mobile):
+            try:
+                out = fn(joined)
+                if len(out) == len(chunk) and all(out):
+                    for a, b in zip(chunk, out):
+                        TCACHE[a] = b.strip()
+                    done = True
+                    break
+            except Exception as e:
+                print("번역 창구 실패", fn.__name__, str(e)[:60])
+                time.sleep(3)
+        if not done:
+            TR_FAIL["n"] += 1
+        time.sleep(1.2)
     return [TCACHE.get(t, t) if t else "" for t in texts]
 
 
@@ -183,7 +219,9 @@ def learn_names():
 def short_en(name):
     n = re.sub(r"\(.*?\)", " ", name or "")
     n = re.sub(r"[,.]|\b(Inc|Corp|Corporation|Company|Co|Ltd|plc|PLC|Holdings|Group|Incorporated|The|Class [A-C]|N\.?V|S\.?A|Limited)\b", " ", n)
-    return " ".join(n.split()[:3]).strip()
+    w = n.split()
+    k = 4 if len(w) > 3 and (w[1].lower() in ("of", "and", "&") or w[2].lower() in ("of", "and", "&")) else 3
+    return " ".join(w[:k]).strip()
 
 
 def name_of(t, en=""):
@@ -273,6 +311,7 @@ KIND_RULES = [
     ("UP", r"upgrade|price target|raises target|initiat(es|ed) .*(buy|overweight|outperform)|outperform|overweight"),
     ("EV", r"buyback|repurchase|dividend|contract|partnership|collaborat|award|launch|unveil|order|invest|stake|index|S&P 500"),
 ]
+JUNK = r"\?|^why |stock is a|should you|buy now|own |takeaways|wall street zen|famous investors|top analyst calls|motley|zacks rank|best stocks|stocks to|here's|reasons|vs\.? "
 BAD = r"downgrade|plunge|tumble|falls|drops|slump|sinks|lawsuit|probe|investigation|cuts guidance|misses|halt|recall|offering|dilut|bankrupt|delist|fraud|warning"
 
 
@@ -331,8 +370,6 @@ def moves(tickers):
                 if reg.empty:
                     continue
                 last_t = s.index[-1]
-                if (NOW.astimezone(ET) - last_t.to_pydatetime()).total_seconds() > 6 * 3600 and not regular_now:
-                    continue  # 오래된 시세(거래 없음)
                 if regular_now:
                     prev = reg[reg.index.date < n.date()]
                     if prev.empty:
@@ -398,21 +435,26 @@ def run_today(watch):
     n = NOW.astimezone(ET)
     since = NOW - timedelta(hours=30)
     pick = [t for t, (p, _) in mv.items() if p >= 5] + [t for t in watch if mv.get(t, (0,))[0] >= 2] + list(pr)
+    print("급등 후보", sum(1 for p, _ in mv.values() if p >= 5), "보도자료 후보", len(pr))
     pick = sorted(dict.fromkeys(pick), key=lambda t: (t not in watch, -mv.get(t, (0,))[0]))[:45]
     items = {i["ticker"]: i for i in keep}
     raw = []
     for t in pick:
-        news = [x for x in yahoo_news(t) if x["when"] and x["when"] >= since and not re.search(BAD, x["t"], re.I)]
         en = names_en.get(t, "")
-        news = [x for x in news if relevant(x["t"] + " " + x["sum"][:200], t, en) or t in pr]
-        if not news and t in pr:
-            news = [{**pr[t], "sum": ""}]
+        mover = mv.get(t, (0,))[0] >= 2
+        if mover:
+            news = [x for x in yahoo_news(t) if x["when"] and x["when"] >= since and not re.search(BAD, x["t"], re.I)
+                    and not re.search(JUNK, x["t"], re.I) and relevant(x["t"] + " " + x["sum"][:200], t, en)]
+        else:  # 주가 움직임이 확인되지 않은 종목은 보도자료성 큰 소식만
+            x = pr.get(t)
+            news = [{**x, "sum": ""}] if x and not re.search(BAD + "|" + JUNK, x["t"], re.I) and kind_of(x["t"]) in ("FDA", "MA", "DATA") else []
         if not news:
             continue  # 기사로 확인되지 않은 급등은 넣지 않습니다
         best = sorted(news, key=lambda x: (kind_of(x["t"] + " " + x["sum"]) == "", -(x["when"] or NOW).timestamp()))[0]
-        k = kind_of(best["t"] + " " + best["sum"]) or ("EV" if t in mv else "")
-        if not k:
-            continue
+        k = kind_of(best["t"] + " " + best["sum"]) or "EV"
+        if not en:
+            m = re.search(r"([A-Z][\w.&'-]*(?: [A-Z][\w.&'-]*){0,3}) \((?:NASDAQ|Nasdaq|NYSE)[^)]*" + t + r"\)", best["t"])
+            en = m.group(1) if m else ""
         raw.append((t, en, best, k))
     titles = ko_many([b["t"] for _, _, b, _ in raw])
     sums = ko_many([(b["sum"] or "").split(". ")[0][:220] for _, _, b, _ in raw])
@@ -602,28 +644,27 @@ def run_upcoming(watch):
 
 
 # ---------------------------------------------------------------- 3) 시장 일정
-ECO = [  # (영문에 들어갈 말, 한국어 제목, 설명)
-    ("Nonfarm Payrolls", "고용보고서(비농업 일자리)", "미국 고용 상황을 보여 주는 가장 중요한 지표입니다."),
-    ("Unemployment Rate", "실업률", ""),
-    ("CPI", "소비자물가(CPI)", "물가 흐름을 보여 주며 금리 전망에 큰 영향을 줍니다."),
-    ("Core PCE", "근원 PCE 물가", "연준이 가장 중요하게 보는 물가 지표입니다."),
-    ("PCE Price", "PCE 물가", ""),
-    ("PPI", "생산자물가(PPI)", ""),
-    ("GDP", "국내총생산(GDP)", ""),
-    ("Retail Sales", "소매판매", "소비 흐름을 보여 줍니다."),
-    ("ISM Manufacturing", "ISM 제조업 지수", ""),
-    ("ISM Non-Manufacturing", "ISM 서비스업 지수", ""),
-    ("ISM Services", "ISM 서비스업 지수", ""),
-    ("JOLTs", "구인 건수(JOLTS)", ""),
-    ("Initial Jobless Claims", "신규 실업수당 청구", ""),
-    ("CB Consumer Confidence", "소비자신뢰지수(콘퍼런스보드)", ""),
-    ("Michigan Consumer Sentiment", "미시간대 소비자심리", ""),
-    ("FOMC Meeting Minutes", "FOMC 의사록 공개", ""),
-    ("ADP Nonfarm", "ADP 민간 고용", ""),
-    ("Durable Goods", "내구재 주문", ""),
-    ("Housing Starts", "주택 착공", ""),
-    ("Existing Home Sales", "기존 주택 판매", ""),
-    ("Fed Chair", "연준 의장 발언", ""),
+ECO = [  # (영문 이름 규칙, 한국어 제목, 설명)
+    (r"^Nonfarm Payrolls\b", "고용보고서(비농업 일자리)", "미국 고용 상황을 보여 주는 가장 중요한 지표입니다."),
+    (r"^Unemployment Rate\b", "실업률", ""),
+    (r"^(Core )?CPI\b", "소비자물가(CPI)", "물가 흐름을 보여 주며 금리 전망에 큰 영향을 줍니다."),
+    (r"^Core PCE Price", "근원 PCE 물가", "연준이 가장 중요하게 보는 물가 지표입니다."),
+    (r"^PCE Price", "PCE 물가", ""),
+    (r"^(Core )?PPI\b", "생산자물가(PPI)", ""),
+    (r"^GDP \((QoQ|Annualized)", "국내총생산(GDP)", ""),
+    (r"^(Core )?Retail Sales\b", "소매판매", "소비 흐름을 보여 줍니다."),
+    (r"^ISM Manufacturing PMI", "ISM 제조업 지수", ""),
+    (r"^ISM (Non-Manufacturing|Services) PMI", "ISM 서비스업 지수", ""),
+    (r"^JOLT", "구인 건수(JOLTS)", ""),
+    (r"^Initial Jobless Claims", "신규 실업수당 청구", ""),
+    (r"^CB Consumer Confidence", "소비자신뢰지수(콘퍼런스보드)", ""),
+    (r"^Michigan Consumer Sentiment", "미시간대 소비자심리", ""),
+    (r"^FOMC (Meeting )?Minutes", "FOMC 의사록 공개", ""),
+    (r"^ADP Nonfarm", "ADP 민간 고용", ""),
+    (r"^Durable Goods Orders", "내구재 주문", ""),
+    (r"^Housing Starts\b", "주택 착공", ""),
+    (r"^Existing Home Sales\b", "기존 주택 판매", ""),
+    (r"^Fed Chair .*Speaks", "연준 의장 발언", ""),
 ]
 
 
@@ -642,7 +683,7 @@ def run_macro():
             if "United States" not in (r.get("country") or ""):
                 continue
             nm = r.get("eventName") or ""
-            hit = next((e for e in ECO if e[0].lower() in nm.lower()), None)
+            hit = next((e for e in ECO if re.search(e[0], nm, re.I)), None)
             if not hit or (d, hit[1]) in seen:
                 continue
             seen.add((d, hit[1]))
@@ -651,14 +692,15 @@ def run_macro():
             mm = re.match(r"(\d{1,2}):(\d\d)", tm)
             if mm:
                 k = kst_of_et(d, int(mm.group(1)), int(mm.group(2)))
-                when = f"한국 {k.month}/{k.day} {'밤' if k.hour >= 18 else '새벽' if k.hour < 6 else '오전' if k.hour < 12 else '오후'} {k.hour % 12 or 12}:{k.minute:02d}"
+                when = f"한국 {k.month}/{k.day} {'밤' if k.hour >= 18 else '새벽' if k.hour < 6 else '오전' if k.hour < 12 else '오후'} {k.hour if k.hour <= 12 else k.hour - 12}:{k.minute:02d}"
                 us += f" 오전 {mm.group(1)}:{mm.group(2)}(동부)" if int(mm.group(1)) < 12 else f" {tm}(동부)"
                 kd = k.date()
             else:
                 kd = d
             det = hit[2]
-            if r.get("consensus"):
-                det = (det + " " if det else "") + f"예상치 {r['consensus']}, 이전 {r.get('previous') or '-'}."
+            cl = lambda v: re.sub(r"&\w+;|\s", "", str(v or ""))
+            if cl(r.get("consensus")) or cl(r.get("previous")):
+                det = (det + " " if det else "") + f"예상치 {cl(r.get('consensus')) or '-'}, 이전 {cl(r.get('previous')) or '-'}."
             items.append({"date": kd.isoformat(), "kind": "ECO", "title": hit[1], "time": when, "us": us,
                           "detail": det, "source": "Nasdaq 경제 일정", "url": "https://www.nasdaq.com/market-activity/economic-calendar"})
         time.sleep(0.4)
@@ -702,12 +744,13 @@ def preview_one(t, row):
         tr = y.eps_trend
         if tr is not None and "0q" in tr.index:
             c, a = float(tr.loc["0q", "current"]), float(tr.loc["0q", "90daysAgo"])
-            if a:
+            if a == a and c == c and a:
                 ch = (c / a - 1) * 100
                 sig.append({"category": "애널리스트 전망 변화", "direction": "긍정" if ch > 1 else "부정" if ch < -1 else "중립",
                             "date": "최근 90일", "finding": f"이번 분기 주당순이익(EPS) 예상치가 90일 전 {a:.2f}달러에서 지금 {c:.2f}달러로 {ch:+.1f}% 바뀌었습니다.",
                             "source": "Yahoo Finance 애널리스트 전망", "url": url})
-            est = est or f"{c:.2f}"
+            if c == c:
+                est = est or f"{c:.2f}"
     except Exception:
         pass
     try:
@@ -755,7 +798,14 @@ def preview_one(t, row):
                             "source": "Yahoo Finance 증권사 의견", "url": f"https://finance.yahoo.com/quote/{t}/analysis"})
     except Exception:
         pass
-    news = [x for x in yahoo_news(t) if x["when"] and x["when"] >= NOW - timedelta(days=21)][:3]
+    seen_t = set()
+    news = []
+    for x in yahoo_news(t):
+        if x["when"] and x["when"] >= NOW - timedelta(days=21) and x["t"] not in seen_t and relevant(x["t"], t, row.get("name", "")) \
+                and not re.search(JUNK, x["t"], re.I):
+            seen_t.add(x["t"])
+            news.append(x)
+    news = news[:3]
     for x, tr in zip(news, ko_many([x["t"] for x in news])):
         bad = re.search(BAD, x["t"], re.I)
         good = re.search(r"beat|raise|upgrade|record|strong|surge|growth|jump", x["t"], re.I)
@@ -773,7 +823,7 @@ def preview_one(t, row):
     return {"ticker": t, "name": name_of(t, row.get("name", "")), "updatedAt": iso(),
             "nextEarnings": {"kst": f"{md(kd)} " + ("아침 6시 이후" if post else "밤" if row.get("timeOfTheDay") == "pre-market" else "(시각 미정)"),
                              "us": f"{ud.month}/{ud.day} " + ("장 마감 후" if post else "장 시작 전" if row.get("timeOfTheDay") == "pre-market" else ""),
-                             "estimate": est},
+                             "estimate": "" if est in ("nan", "None") else est},
             "verdict": verdict,
             "summary": f"자동으로 모은 숫자 단서 {len(sig)}개 중 긍정 {p}개, 부정 {n}개입니다. 애널리스트 전망·과거 기록·최근 기사 제목만 본 것이라 매장 방문·카드 결제 같은 현장 자료는 들어 있지 않습니다.",
             "signals": sig,
