@@ -307,7 +307,7 @@ KIND_RULES = [
     ("FDA", r"\bFDA\b|approv(al|es|ed) .*(drug|therapy|treatment)|PDUFA|clearance|510\(k\)|breakthrough therapy"),
     ("DATA", r"topline|phase [123i]|trial (data|results)|met (its )?primary endpoint|clinical data"),
     ("MA", r"acquir|merger|to buy |buyout|takeover|definitive agreement|deal to|go private|tender offer"),
-    ("ER", r"earnings|results|beats|tops estimates|revenue|guidance|outlook|forecast|quarter|profit"),
+    ("ER", r"beats|tops (estimates|expectations)|raises (guidance|outlook|forecast)|lifts (guidance|outlook|forecast)|record (revenue|quarter|sales)|earnings (beat|surge|jump)|strong (results|quarter|earnings)|blowout"),
     ("UP", r"upgrade|price target|raises target|initiat(es|ed) .*(buy|overweight|outperform)|outperform|overweight"),
     ("EV", r"buyback|repurchase|dividend|contract|partnership|collaborat|award|launch|unveil|order|invest|stake|index|S&P 500"),
 ]
@@ -424,7 +424,7 @@ def run_today(watch):
     sd = session_day()
     label = session_label(sd)
     old = load("today.json", {})
-    keep = old.get("items", []) if old.get("session") == label else []
+    keep = [i for i in old.get("items", []) if i.get("v") == 2] if old.get("session") == label else []
     sp = universe()
     names_en = dict(sp)
     names_en.update(screen_gainers())
@@ -451,7 +451,9 @@ def run_today(watch):
         if not news:
             continue  # 기사로 확인되지 않은 급등은 넣지 않습니다
         best = sorted(news, key=lambda x: (kind_of(x["t"] + " " + x["sum"]) == "", -(x["when"] or NOW).timestamp()))[0]
-        k = kind_of(best["t"] + " " + best["sum"]) or "EV"
+        k = kind_of(best["t"] + " " + best["sum"])
+        if not k:
+            continue  # 오른 이유로 보기 어려운 기사
         if not en:
             m = re.search(r"([A-Z][\w.&'-]*(?: [A-Z][\w.&'-]*){0,3}) \((?:NASDAQ|Nasdaq|NYSE)[^)]*" + t + r"\)", best["t"])
             en = m.group(1) if m else ""
@@ -466,7 +468,7 @@ def run_today(watch):
             reason += " " + sk.rstrip(".") + "."
         if when:
             reason += f" (기사 {when.month}/{when.day} {when.hour:02d}:{when.minute:02d} 한국 시각)"
-        items[t] = {"ticker": t, "name": name_of(t, en), "move": (f"{p[0]:+.1f}% ({p[1]})" if p else ""),
+        items[t] = {"v": 2, "ticker": t, "name": name_of(t, en), "move": (f"{p[0]:+.1f}% ({p[1]})" if p else ""),
                     "kind": k, "reason": reason, "source": b["s"] + " · 자동 번역", "url": b["u"]}
     for t, it in items.items():  # 이미 있던 종목은 등락률만 새로
         if t in mv and it.get("move") is not None:
@@ -476,6 +478,14 @@ def run_today(watch):
         m = re.match(r"([+-]?\d+(\.\d+)?)", i.get("move") or "")
         return float(m.group(1)) if m else 0
     final = sorted(items.values(), key=lambda i: (i["ticker"] not in watch, pr_k.get(i["kind"], 9), -mvv(i)))[:20]
+    import yfinance as yf
+    for i in final:
+        if i["name"] in ("", i["ticker"]):
+            try:
+                info = yf.Ticker(i["ticker"]).get_info()
+                i["name"] = short_en(info.get("shortName") or info.get("longName") or "") or i["ticker"]
+            except Exception:
+                pass
     base = "장 시작 전" if n.hour < 9 or (n.hour == 9 and n.minute < 30) or not is_trading(n.date()) else "장중"
     note = (f"{base} 기준 자동 수집 · 등락률 옆 괄호는 장전·장중·시간외 구분 · 기사 제목·요약은 자동 번역이라 어색할 수 있습니다 · "
             "급등했어도 관련 기사가 확인되지 않은 종목은 넣지 않습니다")
@@ -645,27 +655,29 @@ def run_upcoming(watch):
 
 # ---------------------------------------------------------------- 3) 시장 일정
 ECO = [  # (영문 이름 규칙, 한국어 제목, 설명)
-    (r"^Nonfarm Payrolls\b", "고용보고서(비농업 일자리)", "미국 고용 상황을 보여 주는 가장 중요한 지표입니다."),
-    (r"^Unemployment Rate\b", "실업률", ""),
-    (r"^(Core )?CPI\b", "소비자물가(CPI)", "물가 흐름을 보여 주며 금리 전망에 큰 영향을 줍니다."),
-    (r"^Core PCE Price", "근원 PCE 물가", "연준이 가장 중요하게 보는 물가 지표입니다."),
-    (r"^PCE Price", "PCE 물가", ""),
-    (r"^(Core )?PPI\b", "생산자물가(PPI)", ""),
-    (r"^GDP \((QoQ|Annualized)", "국내총생산(GDP)", ""),
-    (r"^(Core )?Retail Sales\b", "소매판매", "소비 흐름을 보여 줍니다."),
-    (r"^ISM Manufacturing PMI", "ISM 제조업 지수", ""),
-    (r"^ISM (Non-Manufacturing|Services) PMI", "ISM 서비스업 지수", ""),
-    (r"^JOLT", "구인 건수(JOLTS)", ""),
-    (r"^Initial Jobless Claims", "신규 실업수당 청구", ""),
-    (r"^CB Consumer Confidence", "소비자신뢰지수(콘퍼런스보드)", ""),
-    (r"^Michigan Consumer Sentiment", "미시간대 소비자심리", ""),
-    (r"^FOMC (Meeting )?Minutes", "FOMC 의사록 공개", ""),
-    (r"^ADP Nonfarm", "ADP 민간 고용", ""),
-    (r"^Durable Goods Orders", "내구재 주문", ""),
-    (r"^Housing Starts\b", "주택 착공", ""),
-    (r"^Existing Home Sales\b", "기존 주택 판매", ""),
-    (r"^Fed Chair .*Speaks", "연준 의장 발언", ""),
+    (r"Nonfarm Payrolls|Non-Farm Payrolls|Nonfarm Employment Change", "고용보고서(비농업 일자리)", "미국 고용 상황을 보여 주는 가장 중요한 지표입니다."),
+    (r"^Unemployment Rate", "실업률", ""),
+    (r"^(Core )?CPI\b|Consumer Price Index", "소비자물가(CPI)", "물가 흐름을 보여 주며 금리 전망에 큰 영향을 줍니다."),
+    (r"Core PCE|Core Personal Consumption", "근원 PCE 물가", "연준이 가장 중요하게 보는 물가 지표입니다."),
+    (r"^(Core )?PPI\b|Producer Price Index", "생산자물가(PPI)", ""),
+    (r"^GDP \((QoQ|Annualized)|^GDP$|Gross Domestic Product", "국내총생산(GDP)", ""),
+    (r"^(Core )?Retail Sales", "소매판매", "소비 흐름을 보여 줍니다."),
+    (r"ISM Manufacturing", "ISM 제조업 지수", ""),
+    (r"ISM Non-Manufacturing|ISM Services", "ISM 서비스업 지수", ""),
+    (r"JOLT", "구인 건수(JOLTS)", ""),
+    (r"Initial Jobless Claims", "신규 실업수당 청구", ""),
+    (r"CB Consumer Confidence|Conference Board Consumer Confidence", "소비자신뢰지수(콘퍼런스보드)", ""),
+    (r"Michigan Consumer Sentiment|Michigan Sentiment", "미시간대 소비자심리", ""),
+    (r"FOMC (Meeting )?Minutes", "FOMC 의사록 공개", ""),
+    (r"ADP (Nonfarm|Employment)", "ADP 민간 고용", ""),
+    (r"Durable Goods Orders", "내구재 주문", ""),
+    (r"Housing Starts", "주택 착공", ""),
+    (r"Existing Home Sales", "기존 주택 판매", ""),
+    (r"Fed Chair .*Speaks|Powell Speaks|Warsh Speaks", "연준 의장 발언", ""),
 ]
+
+
+ALLNAMES = set()
 
 
 def run_macro():
@@ -682,6 +694,7 @@ def run_macro():
         for r in ((j or {}).get("data") or {}).get("rows") or []:
             if "United States" not in (r.get("country") or ""):
                 continue
+            ALLNAMES.add(r.get("eventName") or "")
             nm = r.get("eventName") or ""
             hit = next((e for e in ECO if re.search(e[0], nm, re.I)), None)
             if not hit or (d, hit[1]) in seen:
@@ -730,6 +743,7 @@ def run_macro():
             if i.get("kind") == "ECO" and i.get("date", "") >= d0.isoformat():
                 items.append(i)
     save("macro.json", {"updatedAt": iso(), "items": items})
+    open(os.path.join(ROOT, "tools", "eco_names.txt"), "w").write("\n".join(sorted(ALLNAMES)))
     print("시장 일정", len(items))
 
 
